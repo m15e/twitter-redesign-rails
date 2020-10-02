@@ -110,3 +110,619 @@ Migrating to CreateFollowings (20201002092501)
   [1m[35m (21.2ms)[0m  [1m[35mCOMMIT[0m
   [1m[36mUser Load (25.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1 LIMIT $2[0m  [["follower_id", 1], ["LIMIT", 11]]
   [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."follower_id" WHERE "followings"."followed_id" = $1 LIMIT $2[0m  [["followed_id", 3], ["LIMIT", 11]]
+Started GET "/" for ::1 at 2020-10-02 19:54:44 +0800
+  [1m[35m (16.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (6.0.3.3) lib/active_record/migration.rb:586:in `check_pending!'
+activerecord (6.0.3.3) lib/active_record/migration.rb:564:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.3) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/" for ::1 at 2020-10-02 19:55:21 +0800
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/local/opt/gems/gems/railties-6.0.3.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/local/opt/gems/gems/railties-6.0.3.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 44.7ms | Allocations: 188)
+Completed 200 OK in 215ms (Views: 102.2ms | ActiveRecord: 0.0ms | Allocations: 1550)
+
+
+Started GET "/users/index" for ::1 at 2020-10-02 19:55:28 +0800
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (59.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:3
+  Rendered users/index.html.erb within layouts/application (Duration: 468.6ms | Allocations: 8044)
+Completed 500 Internal Server Error in 538ms (ActiveRecord: 419.4ms | Allocations: 12383)
+
+
+  
+ActionView::Template::Error (undefined method `name' for #<User:0x00007ff0d51eed80>):
+    1: <h2>Users</h2>
+    2: 
+    3: <% @users.each do |u| %>
+    4:   <%= u.name %>
+    5: <% end %>
+  
+app/views/users/index.html.erb:4
+app/views/users/index.html.erb:3
+Started GET "/users/index" for ::1 at 2020-10-02 19:55:44 +0800
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (11.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:3
+  Rendered users/index.html.erb within layouts/application (Duration: 30.0ms | Allocations: 765)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Users/lucid/Desktop/twitter-redesign-rails/public/packs
+[Webpacker] Hash: 15d1bb7b54cf6326b9ba
+Version: webpack 4.44.2
+Time: 5144ms
+Built at: 10/02/2020 7:55:57 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-9afcbb5693aa87623e69.js    124 KiB  application  [emitted] [immutable]  application
+js/application-9afcbb5693aa87623e69.js.map    139 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-9afcbb5693aa87623e69.js js/application-9afcbb5693aa87623e69.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 749 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 3 hidden modules
+
+Completed 200 OK in 13654ms (Views: 13629.9ms | ActiveRecord: 11.8ms | Allocations: 19820)
+
+
+Started GET "/users/index" for ::1 at 2020-10-02 19:56:49 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"index"}
+  [1m[36mUser Load (9.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `show'
+Completed 404 Not Found in 233ms (ActiveRecord: 110.1ms | Allocations: 4602)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=index):
+  
+app/controllers/users_controller.rb:7:in `show'
+Started GET "/" for ::1 at 2020-10-02 19:56:56 +0800
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (93.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:3
+  Rendered users/index.html.erb within layouts/application (Duration: 209.0ms | Allocations: 3926)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 431ms (Views: 320.5ms | ActiveRecord: 93.1ms | Allocations: 8473)
+
+
+Started GET "/" for ::1 at 2020-10-02 20:45:58 +0800
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 53.0ms | Allocations: 1042)
+Completed 500 Internal Server Error in 152ms (ActiveRecord: 0.0ms | Allocations: 2786)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h2>Users</h2>
+
+<%= link_to 'Create New User', new_user_path) %>
+
+<% @users.each do |u| %>
+  <%= u.username %>
+<% end %>
+
+):
+1:    <h2>Users</h2>
+2:    
+3:    <%= link_to 'Create New User', new_user_path) %>
+4:    
+5:    <% @users.each do |u| %>
+6:      <%= u.username %>
+7:    <% end %>
+  
+app/views/users/index.html.erb:3: syntax error, unexpected ')', expecting `end'
+app/views/users/index.html.erb:5: syntax error, unexpected `do' for lambda
+app/views/users/index.html.erb:9: syntax error, unexpected `end', expecting end-of-input
+app/views/users/index.html.erb:3: syntax error, unexpected ')', expecting `end'
+app/views/users/index.html.erb:5: syntax error, unexpected `do' for lambda
+app/views/users/index.html.erb:9: syntax error, unexpected `end', expecting end-of-input
+app/views/users/index.html.erb:3: syntax error, unexpected ')', expecting `end'
+app/views/users/index.html.erb:5: syntax error, unexpected `do' for lambda
+app/views/users/index.html.erb:9: syntax error, unexpected `end', expecting end-of-input
+app/views/users/index.html.erb:3: syntax error, unexpected ')', expecting `end'
+app/views/users/index.html.erb:5: syntax error, unexpected `do' for lambda
+app/views/users/index.html.erb:9: syntax error, unexpected `end', expecting end-of-input
+app/views/users/index.html.erb:3: syntax error, unexpected ')', expecting `end'
+app/views/users/index.html.erb:5: syntax error, unexpected `do' for lambda
+app/views/users/index.html.erb:9: syntax error, unexpected `end', expecting end-of-input
+app/views/users/index.html.erb:3: syntax error, unexpected ')', expecting `end'
+app/views/users/index.html.erb:5: syntax error, unexpected `do' for lambda
+app/views/users/index.html.erb:9: syntax error, unexpected `end', expecting end-of-input
+Started GET "/" for ::1 at 2020-10-02 20:46:27 +0800
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (53.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:5
+  Rendered users/index.html.erb within layouts/application (Duration: 198.3ms | Allocations: 904)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 525ms (Views: 452.0ms | ActiveRecord: 53.7ms | Allocations: 6196)
+
+
+Started GET "/users/new" for ::1 at 2020-10-02 20:46:30 +0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 401.2ms | Allocations: 11238)
+  Rendered users/new.html.erb within layouts/application (Duration: 407.1ms | Allocations: 11521)
+Completed 500 Internal Server Error in 433ms (ActiveRecord: 0.0ms | Allocations: 12669)
+
+
+  
+ActionView::Template::Error (undefined method `fullname' for #<User:0x00007ff0d2da7878>
+Did you mean?  full_name
+               full_name=
+               full_name?):
+    1: <%= form_for(@user) do |f| %>
+    2: 
+    3: <%= f.text_field(:username) %>
+    4: <%= f.text_field(:fullname) %>
+    5: 
+    6: <%= f.submit('Create') %>
+    7: 
+  
+app/views/users/_form.html.erb:4
+app/views/users/_form.html.erb:1
+app/views/users/new.html.erb:3
+Started GET "/users/new" for ::1 at 2020-10-02 20:46:41 +0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 75.8ms | Allocations: 454)
+  Rendered users/new.html.erb within layouts/application (Duration: 82.6ms | Allocations: 732)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 158ms (Views: 152.6ms | ActiveRecord: 0.0ms | Allocations: 6025)
+
+
+Started GET "/users/new" for ::1 at 2020-10-02 20:47:08 +0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 14.7ms | Allocations: 453)
+  Rendered users/new.html.erb within layouts/application (Duration: 22.9ms | Allocations: 731)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 133ms (Views: 130.4ms | ActiveRecord: 0.0ms | Allocations: 6017)
+
+
+Started GET "/users/new" for ::1 at 2020-10-02 20:47:29 +0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 3.3ms | Allocations: 464)
+  Rendered users/new.html.erb within layouts/application (Duration: 8.4ms | Allocations: 741)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 90ms (Views: 85.4ms | ActiveRecord: 0.0ms | Allocations: 6017)
+
+
+Started POST "/users" for ::1 at 2020-10-02 20:49:54 +0800
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"/KHbFUWj2+vq1IK6UNJOdyYKWuyrc0DUBssZip6vVti8cKUkEWQm6+gu+GpmKLPw+7YkpHkVHbvqiXEThFRSnw==", "user"=>{"username"=>"u3", "full_name"=>"user three "}, "commit"=>"Create"}
+Completed 400 Bad Request in 46ms (ActiveRecord: 0.0ms | Allocations: 3258)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: users):
+  
+app/controllers/users_controller.rb:52:in `user_params'
+app/controllers/users_controller.rb:15:in `create'
+Started POST "/users" for ::1 at 2020-10-02 20:50:28 +0800
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"/KHbFUWj2+vq1IK6UNJOdyYKWuyrc0DUBssZip6vVti8cKUkEWQm6+gu+GpmKLPw+7YkpHkVHbvqiXEThFRSnw==", "user"=>{"username"=>"u3", "full_name"=>"user three "}, "commit"=>"Create"}
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:16:in `create'
+  [1m[36mUser Create (85.7ms)[0m  [1m[32mINSERT INTO "users" ("username", "full_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "u3"], ["full_name", "user three "], ["created_at", "2020-10-02 12:50:28.751356"], ["updated_at", "2020-10-02 12:50:28.751356"]]
+  ↳ app/controllers/users_controller.rb:16:in `create'
+  [1m[35m (46.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:16:in `create'
+Redirected to http://localhost:3000/users
+Completed 302 Found in 591ms (ActiveRecord: 303.5ms | Allocations: 9532)
+
+
+Started GET "/users" for ::1 at 2020-10-02 20:50:29 +0800
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:5
+  Rendered users/index.html.erb within layouts/application (Duration: 9.1ms | Allocations: 846)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 59ms (Views: 55.7ms | ActiveRecord: 0.5ms | Allocations: 6158)
+
+
+Started GET "/users" for ::1 at 2020-10-02 21:06:05 +0800
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (7.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:5
+  Rendered users/index.html.erb within layouts/application (Duration: 57.6ms | Allocations: 907)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 222ms (Views: 174.7ms | ActiveRecord: 7.5ms | Allocations: 6208)
+
+
+Started GET "/users" for ::1 at 2020-10-02 21:07:52 +0800
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:5
+  Rendered users/index.html.erb within layouts/application (Duration: 32.4ms | Allocations: 928)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 248ms (Views: 198.3ms | ActiveRecord: 3.3ms | Allocations: 6230)
+
+
+Started GET "/users/1/edit" for ::1 at 2020-10-02 21:07:55 +0800
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (15.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `edit'
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 72.9ms | Allocations: 553)
+  Rendered users/edit.html.erb within layouts/application (Duration: 102.6ms | Allocations: 839)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 263ms (Views: 139.7ms | ActiveRecord: 16.0ms | Allocations: 6060)
+
+
+Started GET "/users/4/edit" for ::1 at 2020-10-02 21:08:19 +0800
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (9.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `edit'
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 17.6ms | Allocations: 350)
+  Rendered users/edit.html.erb within layouts/application (Duration: 18.9ms | Allocations: 410)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1207ms (Views: 1157.7ms | ActiveRecord: 9.6ms | Allocations: 5376)
+
+
+Started GET "/users/4/edit" for ::1 at 2020-10-02 21:10:07 +0800
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `edit'
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 8.3ms | Allocations: 507)
+  Rendered users/edit.html.erb within layouts/application (Duration: 31.9ms | Allocations: 796)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 500 Internal Server Error in 188ms (ActiveRecord: 1.0ms | Allocations: 8004)
+
+
+  
+ActionView::Template::Error (Missing partial users/_nav, application/_nav with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}. Searched in:
+  * "/Users/lucid/Desktop/twitter-redesign-rails/app/views"
+  * "/usr/local/opt/gems/gems/actiontext-6.0.3.3/app/views"
+  * "/usr/local/opt/gems/gems/actionmailbox-6.0.3.3/app/views"
+):
+    10:   </head>
+    11: 
+    12:   <body>
+    13:     <%= render('nav') %>
+    14:     <%= yield %>
+    15:   </body>
+    16: </html>
+  
+app/views/layouts/application.html.erb:13
+Started GET "/users/4/edit" for ::1 at 2020-10-02 21:12:00 +0800
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (33.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `edit'
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 48.0ms | Allocations: 507)
+  Rendered users/edit.html.erb within layouts/application (Duration: 65.5ms | Allocations: 796)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_nav.html.erb (Duration: 25.9ms | Allocations: 966)
+Completed 500 Internal Server Error in 439ms (ActiveRecord: 33.2ms | Allocations: 7818)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <%= link_to, 'users', users_path %>
+):
+1:    <%= link_to, 'users', users_path %>
+  
+app/views/shared/_nav.html.erb:1: syntax error, unexpected ',', expecting '.' or &. or :: or '['
+app/views/shared/_nav.html.erb:1: syntax error, unexpected ',', expecting '.' or &. or :: or '['
+app/views/shared/_nav.html.erb:1: syntax error, unexpected ',', expecting '.' or &. or :: or '['
+app/views/shared/_nav.html.erb:1: syntax error, unexpected ',', expecting '.' or &. or :: or '['
+app/views/shared/_nav.html.erb:1: syntax error, unexpected ',', expecting '.' or &. or :: or '['
+app/views/shared/_nav.html.erb:1: syntax error, unexpected ',', expecting '.' or &. or :: or '['
+app/views/layouts/application.html.erb:13
+Started GET "/users/4/edit" for ::1 at 2020-10-02 21:12:23 +0800
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `edit'
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 11.9ms | Allocations: 507)
+  Rendered users/edit.html.erb within layouts/application (Duration: 24.2ms | Allocations: 791)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_nav.html.erb (Duration: 0.4ms | Allocations: 107)
+Completed 200 OK in 98ms (Views: 86.9ms | ActiveRecord: 1.0ms | Allocations: 6970)
+
+
+Started GET "/users" for ::1 at 2020-10-02 21:12:25 +0800
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (11.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:5
+  Rendered users/index.html.erb within layouts/application (Duration: 37.6ms | Allocations: 926)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_nav.html.erb (Duration: 0.2ms | Allocations: 28)
+Completed 200 OK in 79ms (Views: 58.3ms | ActiveRecord: 11.9ms | Allocations: 5549)
+
+
+Started GET "/users/1/edit" for ::1 at 2020-10-02 21:12:28 +0800
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (25.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `edit'
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 3.3ms | Allocations: 347)
+  Rendered users/edit.html.erb within layouts/application (Duration: 3.7ms | Allocations: 407)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_nav.html.erb (Duration: 0.2ms | Allocations: 26)
+Completed 200 OK in 87ms (Views: 53.2ms | ActiveRecord: 25.5ms | Allocations: 5444)
+
+
+Started GET "/users" for ::1 at 2020-10-02 21:12:30 +0800
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:5
+  Rendered users/index.html.erb within layouts/application (Duration: 4.6ms | Allocations: 767)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_nav.html.erb (Duration: 0.2ms | Allocations: 27)
+Completed 200 OK in 32ms (Views: 28.8ms | ActiveRecord: 1.0ms | Allocations: 5266)
+
+
+Started GET "/users/3/edit" for ::1 at 2020-10-02 21:12:31 +0800
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `edit'
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 1.9ms | Allocations: 344)
+  Rendered users/edit.html.erb within layouts/application (Duration: 2.3ms | Allocations: 404)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_nav.html.erb (Duration: 0.1ms | Allocations: 26)
+Completed 200 OK in 44ms (Views: 35.3ms | ActiveRecord: 1.2ms | Allocations: 5448)
+
+
+Started GET "/users" for ::1 at 2020-10-02 21:12:32 +0800
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (13.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:5
+  Rendered users/index.html.erb within layouts/application (Duration: 18.8ms | Allocations: 768)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_nav.html.erb (Duration: 0.4ms | Allocations: 27)
+Completed 200 OK in 50ms (Views: 35.3ms | ActiveRecord: 13.2ms | Allocations: 5256)
+
+
+Started GET "/users" for ::1 at 2020-10-02 21:16:28 +0800
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:5
+  Rendered users/index.html.erb within layouts/application (Duration: 17.8ms | Allocations: 930)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_nav.html.erb (Duration: 9.4ms | Allocations: 107)
+Completed 200 OK in 149ms (Views: 137.9ms | ActiveRecord: 0.8ms | Allocations: 6565)
+
+
+Started GET "/users/1/edit" for ::1 at 2020-10-02 21:16:30 +0800
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `edit'
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 5.0ms | Allocations: 521)
+  Rendered users/edit.html.erb within layouts/application (Duration: 10.7ms | Allocations: 824)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_nav.html.erb (Duration: 0.6ms | Allocations: 27)
+Completed 200 OK in 67ms (Views: 51.9ms | ActiveRecord: 1.4ms | Allocations: 5996)
+
+
+Started GET "/users/1/edit" for ::1 at 2020-10-02 21:16:41 +0800
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (27.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `edit'
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 28.1ms | Allocations: 520)
+  Rendered users/edit.html.erb within layouts/application (Duration: 47.7ms | Allocations: 819)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_nav.html.erb (Duration: 3.0ms | Allocations: 106)
+Completed 200 OK in 291ms (Views: 195.6ms | ActiveRecord: 27.8ms | Allocations: 6976)
+
+
+Started GET "/users/1/edit" for ::1 at 2020-10-02 21:17:35 +0800
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `edit'
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 29.0ms | Allocations: 545)
+  Rendered users/edit.html.erb within layouts/application (Duration: 40.3ms | Allocations: 844)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_nav.html.erb (Duration: 3.9ms | Allocations: 106)
+Completed 200 OK in 192ms (Views: 153.6ms | ActiveRecord: 2.9ms | Allocations: 6999)
+
+
+Started GET "/users/1/edit" for ::1 at 2020-10-02 21:17:46 +0800
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (10.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `edit'
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 2.6ms | Allocations: 546)
+  Rendered users/edit.html.erb within layouts/application (Duration: 9.6ms | Allocations: 849)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_nav.html.erb (Duration: 3.7ms | Allocations: 106)
+Completed 200 OK in 121ms (Views: 102.3ms | ActiveRecord: 10.3ms | Allocations: 7037)
+
+
+Started GET "/users/1/edit" for ::1 at 2020-10-02 21:18:03 +0800
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (6.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `edit'
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 11.6ms | Allocations: 519)
+  Rendered users/edit.html.erb within layouts/application (Duration: 19.7ms | Allocations: 818)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_nav.html.erb (Duration: 3.1ms | Allocations: 107)
+Completed 200 OK in 146ms (Views: 131.9ms | ActiveRecord: 6.9ms | Allocations: 6968)
+
+
+Started PATCH "/users/1" for ::1 at 2020-10-02 21:18:29 +0800
+Processing by UsersController#update as HTML
+  Parameters: {"authenticity_token"=>"pSC6imCRAVua5X63BajLRk5Fo1gwJP5OkiaYNSUx5jjl8cS7NFb8W5gfBGczUjbBk/ndEOJCoyF+ZPCsP8rifw==", "user"=>{"username"=>"user1", "full_name"=>"another user"}, "commit"=>"Edit User", "id"=>"1"}
+  [1m[36mUser Load (14.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:29:in `update'
+DEPRECATION WARNING: update_attributes is deprecated and will be removed from Rails 6.1 (please, use update instead) (called from update at /Users/lucid/Desktop/twitter-redesign-rails/app/controllers/users_controller.rb:30)
+  [1m[35m (10.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:30:in `update'
+  [1m[36mUser Update (95.5ms)[0m  [1m[33mUPDATE "users" SET "full_name" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["full_name", "another user"], ["updated_at", "2020-10-02 13:18:29.954976"], ["id", 1]]
+  ↳ app/controllers/users_controller.rb:30:in `update'
+  [1m[35m (68.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:30:in `update'
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 298ms (ActiveRecord: 188.9ms | Allocations: 4201)
+
+
+Started GET "/users/1" for ::1 at 2020-10-02 21:18:30 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `show'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 12.6ms | Allocations: 76)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_nav.html.erb (Duration: 3.8ms | Allocations: 116)
+Completed 200 OK in 163ms (Views: 149.2ms | ActiveRecord: 2.3ms | Allocations: 6257)
+
+
+Started GET "/users/1" for ::1 at 2020-10-02 21:20:03 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (7.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `show'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 509.8ms | Allocations: 9874)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_nav.html.erb (Duration: 2.6ms | Allocations: 117)
+Completed 200 OK in 687ms (Views: 620.9ms | ActiveRecord: 7.3ms | Allocations: 15965)
+
+
+Started GET "/users/1" for ::1 at 2020-10-02 21:20:18 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `show'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (16.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."follower_id" WHERE "followings"."followed_id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["followed_id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:6
+  [1m[36mUser Load (5.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["follower_id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:9
+  Rendered users/show.html.erb within layouts/application (Duration: 280.1ms | Allocations: 4091)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_nav.html.erb (Duration: 2.9ms | Allocations: 117)
+Completed 200 OK in 382ms (Views: 194.0ms | ActiveRecord: 179.7ms | Allocations: 10181)
+
+
+Started GET "/users/1" for ::1 at 2020-10-02 21:20:36 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `show'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (6.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."follower_id" WHERE "followings"."followed_id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["followed_id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:6
+  Rendered users/show.html.erb within layouts/application (Duration: 68.8ms | Allocations: 2576)
+Completed 500 Internal Server Error in 91ms (ActiveRecord: 7.4ms | Allocations: 4872)
+
+
+  
+ActionView::Template::Error (undefined method `username' for nil:NilClass):
+    3: <%= @user.username %>
+    4: 
+    5: <p>followers</p>
+    6: <%= @user.followers.first.username %>
+    7: 
+    8: <p>followed</p>
+    9: <%= @user.followeds.first.username %>
+  
+app/views/users/show.html.erb:6
+Started GET "/users/1" for ::1 at 2020-10-02 21:21:13 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `show'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Exists? (6.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."follower_id" WHERE "followings"."followed_id" = $1 LIMIT $2[0m  [["followed_id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:6
+  [1m[36mUser Load (12.8ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["follower_id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:9
+  Rendered users/show.html.erb within layouts/application (Duration: 41.8ms | Allocations: 2279)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_nav.html.erb (Duration: 4.1ms | Allocations: 116)
+Completed 200 OK in 138ms (Views: 109.4ms | ActiveRecord: 20.0ms | Allocations: 8459)
+
+
+Started GET "/users/1" for ::1 at 2020-10-02 21:21:32 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `show'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Exists? (23.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."follower_id" WHERE "followings"."followed_id" = $1 LIMIT $2[0m  [["followed_id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:6
+  [1m[36mUser Load (8.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["follower_id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:9
+  Rendered users/show.html.erb within layouts/application (Duration: 62.1ms | Allocations: 2226)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_nav.html.erb (Duration: 2.9ms | Allocations: 119)
+Completed 200 OK in 171ms (Views: 129.1ms | ActiveRecord: 32.6ms | Allocations: 8412)
+
+
