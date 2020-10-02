@@ -17,7 +17,10 @@
   <p>followed by<p>
   <%= user.followers.any? ? user.followers.all.to_a : 'no followers' %>
   <br>
+  <p>current: <%= current_user.id %></p>
+  <p>usr_id: <%= user.id %></p>
   <br>
+  <%= button_to 'Follow', followings_follow_path(current_user.id, user.id), method: :post %>
   <%= link_to 'Edit', edit_user_path(user) %>
 <% end %>
 
