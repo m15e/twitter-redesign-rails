@@ -726,3 +726,736 @@ Processing by UsersController#show as HTML
 Completed 200 OK in 171ms (Views: 129.1ms | ActiveRecord: 32.6ms | Allocations: 8412)
 
 
+Started GET "/users/1" for ::1 at 2020-10-02 21:27:47 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (4.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `show'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."follower_id" WHERE "followings"."followed_id" = $1 LIMIT $2[0m  [["followed_id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:6
+  [1m[36mUser Exists? (16.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1 LIMIT $2[0m  [["follower_id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:9
+  Rendered users/show.html.erb within layouts/application (Duration: 42.1ms | Allocations: 4348)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_nav.html.erb (Duration: 2.3ms | Allocations: 117)
+Completed 200 OK in 210ms (Views: 110.9ms | ActiveRecord: 23.1ms | Allocations: 16320)
+
+
+Started GET "/users/1" for ::1 at 2020-10-02 21:28:11 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `show'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Exists? (6.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."follower_id" WHERE "followings"."followed_id" = $1 LIMIT $2[0m  [["followed_id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:6
+  [1m[36mUser Exists? (2.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1 LIMIT $2[0m  [["follower_id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:9
+  [1m[36mUser Load (3.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1[0m  [["follower_id", 1]]
+  ↳ app/views/users/show.html.erb:9
+  Rendered users/show.html.erb within layouts/application (Duration: 33.6ms | Allocations: 2987)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_nav.html.erb (Duration: 2.5ms | Allocations: 116)
+Completed 200 OK in 75ms (Views: 51.5ms | ActiveRecord: 14.0ms | Allocations: 9181)
+
+
+Started GET "/users/1" for ::1 at 2020-10-02 21:28:31 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (25.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `show'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."follower_id" WHERE "followings"."followed_id" = $1 LIMIT $2[0m  [["followed_id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:6
+  [1m[36mUser Exists? (24.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1 LIMIT $2[0m  [["follower_id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:9
+  [1m[36mUser Load (6.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1[0m  [["follower_id", 1]]
+  ↳ app/views/users/show.html.erb:9
+  Rendered users/show.html.erb within layouts/application (Duration: 75.8ms | Allocations: 2977)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_nav.html.erb (Duration: 1.8ms | Allocations: 116)
+Completed 200 OK in 237ms (Views: 134.1ms | ActiveRecord: 56.4ms | Allocations: 9148)
+
+
+Started GET "/users/1" for ::1 at 2020-10-02 21:29:17 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (9.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `show'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."follower_id" WHERE "followings"."followed_id" = $1 LIMIT $2[0m  [["followed_id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:6
+  [1m[36mUser Exists? (16.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1 LIMIT $2[0m  [["follower_id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:9
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1[0m  [["follower_id", 1]]
+  ↳ app/views/users/show.html.erb:9
+  Rendered users/show.html.erb within layouts/application (Duration: 66.4ms | Allocations: 2977)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_nav.html.erb (Duration: 3.9ms | Allocations: 116)
+Completed 200 OK in 226ms (Views: 137.7ms | ActiveRecord: 28.1ms | Allocations: 9149)
+
+
+Started GET "/users" for ::1 at 2020-10-02 21:29:25 +0800
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (13.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:5
+  [1m[36mFollowing Load (18.7ms)[0m  [1m[34mSELECT "followings".* FROM "followings"[0m
+  ↳ app/views/users/index.html.erb:7
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1 LIMIT $2[0m  [["follower_id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:9
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."follower_id" WHERE "followings"."followed_id" = $1 LIMIT $2[0m  [["followed_id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:11
+  Rendered users/index.html.erb within layouts/application (Duration: 187.5ms | Allocations: 6490)
+Completed 500 Internal Server Error in 198ms (ActiveRecord: 143.4ms | Allocations: 7644)
+
+
+  
+ActionView::Template::Error (undefined method `followers' for nil:NilClass):
+     8:   <p>following<p>
+     9:   <%= user.followeds.any? ? @user.followeds.all.to_a : 'not following anyboy' %>
+    10:   <p>followed by<p>
+    11:   <%= user.followers.any? ? @user.followers.all.to_a : 'no followers' %>
+    12: 
+    13:   <%= link_to 'Edit', edit_user_path(user) %>
+    14: <% end %>
+  
+app/views/users/index.html.erb:11
+app/views/users/index.html.erb:5
+  [1m[36mUser Load (56.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."follower_id" WHERE "followings"."followed_id" = $1 LIMIT $2[0m  [["followed_id", 1], ["LIMIT", 11]]
+Started GET "/users" for ::1 at 2020-10-02 21:31:09 +0800
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:5
+  [1m[36mFollowing Load (0.4ms)[0m  [1m[34mSELECT "followings".* FROM "followings"[0m
+  ↳ app/views/users/index.html.erb:7
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1 LIMIT $2[0m  [["follower_id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:9
+  [1m[36mUser Exists? (3.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."follower_id" WHERE "followings"."followed_id" = $1 LIMIT $2[0m  [["followed_id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:11
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."follower_id" WHERE "followings"."followed_id" = $1[0m  [["followed_id", 3]]
+  ↳ app/views/users/index.html.erb:11
+  [1m[36mCACHE Following Load (0.0ms)[0m  [1m[34mSELECT "followings".* FROM "followings"[0m
+  ↳ app/views/users/index.html.erb:7
+  [1m[36mUser Exists? (3.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1 LIMIT $2[0m  [["follower_id", 4], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:9
+  [1m[36mUser Exists? (6.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."follower_id" WHERE "followings"."followed_id" = $1 LIMIT $2[0m  [["followed_id", 4], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:11
+  [1m[36mCACHE Following Load (0.0ms)[0m  [1m[34mSELECT "followings".* FROM "followings"[0m
+  ↳ app/views/users/index.html.erb:7
+  [1m[36mUser Exists? (4.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1 LIMIT $2[0m  [["follower_id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:9
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1[0m  [["follower_id", 1]]
+  ↳ app/views/users/index.html.erb:9
+  [1m[36mUser Exists? (4.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."follower_id" WHERE "followings"."followed_id" = $1 LIMIT $2[0m  [["followed_id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:11
+  Rendered users/index.html.erb within layouts/application (Duration: 144.8ms | Allocations: 10568)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_nav.html.erb (Duration: 4.3ms | Allocations: 107)
+Completed 200 OK in 246ms (Views: 195.0ms | ActiveRecord: 28.2ms | Allocations: 16194)
+
+
+Started GET "/users" for ::1 at 2020-10-02 21:31:32 +0800
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mFollowing Load (11.4ms)[0m  [1m[34mSELECT "followings".* FROM "followings"[0m
+  ↳ app/views/users/index.html.erb:3
+  [1m[36mUser Load (7.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:7
+  [1m[36mUser Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1 LIMIT $2[0m  [["follower_id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:10
+  [1m[36mUser Exists? (12.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."follower_id" WHERE "followings"."followed_id" = $1 LIMIT $2[0m  [["followed_id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:12
+  [1m[36mUser Load (30.0ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."follower_id" WHERE "followings"."followed_id" = $1[0m  [["followed_id", 3]]
+  ↳ app/views/users/index.html.erb:12
+  [1m[36mUser Exists? (3.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1 LIMIT $2[0m  [["follower_id", 4], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:10
+  [1m[36mUser Exists? (15.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."follower_id" WHERE "followings"."followed_id" = $1 LIMIT $2[0m  [["followed_id", 4], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:12
+  [1m[36mUser Exists? (3.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1 LIMIT $2[0m  [["follower_id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:10
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1[0m  [["follower_id", 1]]
+  ↳ app/views/users/index.html.erb:10
+  [1m[36mUser Exists? (3.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."follower_id" WHERE "followings"."followed_id" = $1 LIMIT $2[0m  [["followed_id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:12
+  Rendered users/index.html.erb within layouts/application (Duration: 151.8ms | Allocations: 9392)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_nav.html.erb (Duration: 4.2ms | Allocations: 108)
+Completed 200 OK in 214ms (Views: 118.5ms | ActiveRecord: 90.1ms | Allocations: 15004)
+
+
+Started GET "/users" for ::1 at 2020-10-02 21:31:54 +0800
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mFollowing Load (4.3ms)[0m  [1m[34mSELECT "followings".* FROM "followings"[0m
+  ↳ app/views/users/index.html.erb:3
+  [1m[36mUser Load (14.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:7
+  [1m[36mUser Exists? (2.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1 LIMIT $2[0m  [["follower_id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:10
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."follower_id" WHERE "followings"."followed_id" = $1 LIMIT $2[0m  [["followed_id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:12
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."follower_id" WHERE "followings"."followed_id" = $1[0m  [["followed_id", 3]]
+  ↳ app/views/users/index.html.erb:12
+  [1m[36mUser Exists? (2.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1 LIMIT $2[0m  [["follower_id", 4], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:10
+  [1m[36mUser Exists? (3.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."follower_id" WHERE "followings"."followed_id" = $1 LIMIT $2[0m  [["followed_id", 4], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:12
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1 LIMIT $2[0m  [["follower_id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:10
+  [1m[36mUser Load (11.0ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1[0m  [["follower_id", 1]]
+  ↳ app/views/users/index.html.erb:10
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."follower_id" WHERE "followings"."followed_id" = $1 LIMIT $2[0m  [["followed_id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:12
+  Rendered users/index.html.erb within layouts/application (Duration: 148.3ms | Allocations: 9395)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_nav.html.erb (Duration: 7.0ms | Allocations: 107)
+Completed 200 OK in 288ms (Views: 226.2ms | ActiveRecord: 40.6ms | Allocations: 15000)
+
+
+Started GET "/users" for ::1 at 2020-10-02 21:32:14 +0800
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mFollowing Load (2.9ms)[0m  [1m[34mSELECT "followings".* FROM "followings"[0m
+  ↳ app/views/users/index.html.erb:3
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:10
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1 LIMIT $2[0m  [["follower_id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:13
+  [1m[36mUser Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."follower_id" WHERE "followings"."followed_id" = $1 LIMIT $2[0m  [["followed_id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:15
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."follower_id" WHERE "followings"."followed_id" = $1[0m  [["followed_id", 3]]
+  ↳ app/views/users/index.html.erb:15
+  [1m[36mUser Exists? (8.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1 LIMIT $2[0m  [["follower_id", 4], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:13
+  [1m[36mUser Exists? (27.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."follower_id" WHERE "followings"."followed_id" = $1 LIMIT $2[0m  [["followed_id", 4], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:15
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1 LIMIT $2[0m  [["follower_id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:13
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1[0m  [["follower_id", 1]]
+  ↳ app/views/users/index.html.erb:13
+  [1m[36mUser Exists? (5.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."follower_id" WHERE "followings"."followed_id" = $1 LIMIT $2[0m  [["followed_id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:15
+  Rendered users/index.html.erb within layouts/application (Duration: 94.4ms | Allocations: 9404)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_nav.html.erb (Duration: 3.6ms | Allocations: 107)
+Completed 200 OK in 211ms (Views: 150.5ms | ActiveRecord: 52.3ms | Allocations: 15020)
+
+
+Started GET "/users" for ::1 at 2020-10-02 21:32:35 +0800
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mFollowing Load (0.6ms)[0m  [1m[34mSELECT "followings".* FROM "followings"[0m
+  ↳ app/views/users/index.html.erb:3
+  [1m[36mUser Load (10.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:10
+  [1m[36mUser Exists? (9.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1 LIMIT $2[0m  [["follower_id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:16
+  [1m[36mUser Exists? (11.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."follower_id" WHERE "followings"."followed_id" = $1 LIMIT $2[0m  [["followed_id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:18
+  [1m[36mUser Load (10.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."follower_id" WHERE "followings"."followed_id" = $1[0m  [["followed_id", 3]]
+  ↳ app/views/users/index.html.erb:18
+  [1m[36mUser Exists? (11.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1 LIMIT $2[0m  [["follower_id", 4], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:16
+  [1m[36mUser Exists? (17.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."follower_id" WHERE "followings"."followed_id" = $1 LIMIT $2[0m  [["followed_id", 4], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:18
+  [1m[36mUser Exists? (2.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1 LIMIT $2[0m  [["follower_id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:16
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1[0m  [["follower_id", 1]]
+  ↳ app/views/users/index.html.erb:16
+  [1m[36mUser Exists? (5.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."follower_id" WHERE "followings"."followed_id" = $1 LIMIT $2[0m  [["followed_id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:18
+  Rendered users/index.html.erb within layouts/application (Duration: 134.0ms | Allocations: 9407)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_nav.html.erb (Duration: 3.8ms | Allocations: 107)
+Completed 200 OK in 196ms (Views: 112.5ms | ActiveRecord: 79.8ms | Allocations: 15014)
+
+
+Started GET "/users" for ::1 at 2020-10-02 21:32:52 +0800
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mFollowing Load (0.8ms)[0m  [1m[34mSELECT "followings".* FROM "followings"[0m
+  ↳ app/views/users/index.html.erb:3
+  [1m[36mUser Load (25.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:10
+  [1m[36mUser Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1 LIMIT $2[0m  [["follower_id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:16
+  [1m[36mUser Exists? (23.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."follower_id" WHERE "followings"."followed_id" = $1 LIMIT $2[0m  [["followed_id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:18
+  [1m[36mUser Load (26.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."follower_id" WHERE "followings"."followed_id" = $1[0m  [["followed_id", 3]]
+  ↳ app/views/users/index.html.erb:18
+  [1m[36mUser Exists? (13.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1 LIMIT $2[0m  [["follower_id", 4], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:16
+  [1m[36mUser Exists? (2.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."follower_id" WHERE "followings"."followed_id" = $1 LIMIT $2[0m  [["followed_id", 4], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:18
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1 LIMIT $2[0m  [["follower_id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:16
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1[0m  [["follower_id", 1]]
+  ↳ app/views/users/index.html.erb:16
+  [1m[36mUser Exists? (2.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."follower_id" WHERE "followings"."followed_id" = $1 LIMIT $2[0m  [["followed_id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:18
+  Rendered users/index.html.erb within layouts/application (Duration: 165.4ms | Allocations: 9410)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_nav.html.erb (Duration: 1.5ms | Allocations: 107)
+Completed 200 OK in 266ms (Views: 162.5ms | ActiveRecord: 98.9ms | Allocations: 15010)
+
+
+Started GET "/users" for ::1 at 2020-10-02 21:50:46 +0800
+Started GET "/users" for ::1 at 2020-10-02 21:50:47 +0800
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mFollowing Load (0.9ms)[0m  [1m[34mSELECT "followings".* FROM "followings"[0m
+  ↳ app/views/users/index.html.erb:3
+  [1m[36mUser Load (9.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:10
+  [1m[36mUser Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1 LIMIT $2[0m  [["follower_id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:16
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."follower_id" WHERE "followings"."followed_id" = $1 LIMIT $2[0m  [["followed_id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:18
+  [1m[36mUser Load (14.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."follower_id" WHERE "followings"."followed_id" = $1[0m  [["followed_id", 3]]
+  ↳ app/views/users/index.html.erb:18
+  [1m[36mUser Exists? (5.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1 LIMIT $2[0m  [["follower_id", 4], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:16
+  [1m[36mUser Exists? (11.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."follower_id" WHERE "followings"."followed_id" = $1 LIMIT $2[0m  [["followed_id", 4], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:18
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1 LIMIT $2[0m  [["follower_id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:16
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1[0m  [["follower_id", 1]]
+  ↳ app/views/users/index.html.erb:16
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."follower_id" WHERE "followings"."followed_id" = $1 LIMIT $2[0m  [["followed_id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:18
+  Rendered users/index.html.erb within layouts/application (Duration: 307.2ms | Allocations: 16549)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_nav.html.erb (Duration: 12.1ms | Allocations: 107)
+Completed 200 OK in 490ms (Views: 403.4ms | ActiveRecord: 48.4ms | Allocations: 24191)
+
+
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mFollowing Load (0.4ms)[0m  [1m[34mSELECT "followings".* FROM "followings"[0m
+  ↳ app/views/users/index.html.erb:3
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:10
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1 LIMIT $2[0m  [["follower_id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:16
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."follower_id" WHERE "followings"."followed_id" = $1 LIMIT $2[0m  [["followed_id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:18
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."follower_id" WHERE "followings"."followed_id" = $1[0m  [["followed_id", 3]]
+  ↳ app/views/users/index.html.erb:18
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1 LIMIT $2[0m  [["follower_id", 4], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:16
+  [1m[36mUser Exists? (3.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."follower_id" WHERE "followings"."followed_id" = $1 LIMIT $2[0m  [["followed_id", 4], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:18
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1 LIMIT $2[0m  [["follower_id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:16
+  [1m[36mUser Load (4.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1[0m  [["follower_id", 1]]
+  ↳ app/views/users/index.html.erb:16
+  [1m[36mUser Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."follower_id" WHERE "followings"."followed_id" = $1 LIMIT $2[0m  [["followed_id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:18
+  Rendered users/index.html.erb within layouts/application (Duration: 127.4ms | Allocations: 16521)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_nav.html.erb (Duration: 0.2ms | Allocations: 28)
+Completed 200 OK in 234ms (Views: 95.0ms | ActiveRecord: 60.7ms | Allocations: 23181)
+
+
+Started GET "/users" for ::1 at 2020-10-02 21:52:25 +0800
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mFollowing Load (0.9ms)[0m  [1m[34mSELECT "followings".* FROM "followings"[0m
+  ↳ app/views/users/index.html.erb:3
+  [1m[36mUser Load (5.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:10
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1 LIMIT $2[0m  [["follower_id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:16
+  [1m[36mUser Exists? (4.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."follower_id" WHERE "followings"."followed_id" = $1 LIMIT $2[0m  [["followed_id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:18
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."follower_id" WHERE "followings"."followed_id" = $1[0m  [["followed_id", 3]]
+  ↳ app/views/users/index.html.erb:18
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1 LIMIT $2[0m  [["follower_id", 4], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:16
+  [1m[36mUser Exists? (4.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."follower_id" WHERE "followings"."followed_id" = $1 LIMIT $2[0m  [["followed_id", 4], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:18
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1 LIMIT $2[0m  [["follower_id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:16
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1[0m  [["follower_id", 1]]
+  ↳ app/views/users/index.html.erb:16
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."follower_id" WHERE "followings"."followed_id" = $1 LIMIT $2[0m  [["followed_id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:18
+  Rendered users/index.html.erb within layouts/application (Duration: 268.9ms | Allocations: 16445)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_nav.html.erb (Duration: 0.2ms | Allocations: 28)
+Completed 200 OK in 406ms (Views: 279.5ms | ActiveRecord: 59.0ms | Allocations: 23118)
+
+
+Started GET "/users" for ::1 at 2020-10-02 21:54:21 +0800
+  
+ArgumentError (Missing :controller key on routes definition, please check your routes.):
+  
+config/routes.rb:4:in `block in <main>'
+config/routes.rb:1:in `<main>'
+Started GET "/users" for ::1 at 2020-10-02 21:54:47 +0800
+  
+ArgumentError (Missing :controller key on routes definition, please check your routes.):
+  
+config/routes.rb:4:in `block in <main>'
+config/routes.rb:1:in `<main>'
+Started GET "/users" for ::1 at 2020-10-02 21:55:05 +0800
+  
+ArgumentError (Missing :controller key on routes definition, please check your routes.):
+  
+config/routes.rb:4:in `block in <main>'
+config/routes.rb:1:in `<main>'
+Started GET "/users" for ::1 at 2020-10-02 21:55:12 +0800
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mFollowing Load (403.4ms)[0m  [1m[34mSELECT "followings".* FROM "followings"[0m
+  ↳ app/views/users/index.html.erb:3
+  [1m[36mUser Load (19.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:10
+  [1m[36mUser Exists? (4.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1 LIMIT $2[0m  [["follower_id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:16
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."follower_id" WHERE "followings"."followed_id" = $1 LIMIT $2[0m  [["followed_id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:18
+  [1m[36mUser Load (40.9ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."follower_id" WHERE "followings"."followed_id" = $1[0m  [["followed_id", 3]]
+  ↳ app/views/users/index.html.erb:18
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1 LIMIT $2[0m  [["follower_id", 4], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:16
+  [1m[36mUser Exists? (10.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."follower_id" WHERE "followings"."followed_id" = $1 LIMIT $2[0m  [["followed_id", 4], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:18
+  [1m[36mUser Exists? (12.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1 LIMIT $2[0m  [["follower_id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:16
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1[0m  [["follower_id", 1]]
+  ↳ app/views/users/index.html.erb:16
+  [1m[36mUser Exists? (15.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."follower_id" WHERE "followings"."followed_id" = $1 LIMIT $2[0m  [["followed_id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:18
+  Rendered users/index.html.erb within layouts/application (Duration: 1618.7ms | Allocations: 16552)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_nav.html.erb (Duration: 0.1ms | Allocations: 28)
+Completed 200 OK in 1784ms (Views: 233.8ms | ActiveRecord: 1459.6ms | Allocations: 23227)
+
+
+Started GET "/users" for ::1 at 2020-10-02 21:55:30 +0800
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mFollowing Load (1.2ms)[0m  [1m[34mSELECT "followings".* FROM "followings"[0m
+  ↳ app/views/users/index.html.erb:3
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:10
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1 LIMIT $2[0m  [["follower_id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:16
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."follower_id" WHERE "followings"."followed_id" = $1 LIMIT $2[0m  [["followed_id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:18
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."follower_id" WHERE "followings"."followed_id" = $1[0m  [["followed_id", 3]]
+  ↳ app/views/users/index.html.erb:18
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1 LIMIT $2[0m  [["follower_id", 4], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:16
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."follower_id" WHERE "followings"."followed_id" = $1 LIMIT $2[0m  [["followed_id", 4], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:18
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1 LIMIT $2[0m  [["follower_id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:16
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1[0m  [["follower_id", 1]]
+  ↳ app/views/users/index.html.erb:16
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."follower_id" WHERE "followings"."followed_id" = $1 LIMIT $2[0m  [["followed_id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:18
+  Rendered users/index.html.erb within layouts/application (Duration: 112.1ms | Allocations: 16505)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_nav.html.erb (Duration: 0.3ms | Allocations: 28)
+Completed 200 OK in 167ms (Views: 115.8ms | ActiveRecord: 30.1ms | Allocations: 23158)
+
+
+Started GET "/login" for ::1 at 2020-10-02 21:55:35 +0800
+  
+SyntaxError (/Users/lucid/Desktop/twitter-redesign-rails/app/controllers/sessions_controller.rb:4: syntax error, unexpected '='
+      user? = User.where(:username => para...
+            ^
+):
+  
+app/controllers/sessions_controller.rb:4: syntax error, unexpected '='
+app/controllers/sessions_controller.rb:4: syntax error, unexpected '='
+app/controllers/sessions_controller.rb:4: syntax error, unexpected '='
+Started GET "/login" for ::1 at 2020-10-02 21:56:27 +0800
+Processing by SessionsController#login as HTML
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 14.9ms | Allocations: 392)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_nav.html.erb (Duration: 0.2ms | Allocations: 28)
+Completed 200 OK in 89ms (Views: 65.8ms | ActiveRecord: 0.0ms | Allocations: 5394)
+
+
+Started GET "/login" for ::1 at 2020-10-02 21:57:26 +0800
+Processing by SessionsController#login as HTML
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 11.3ms | Allocations: 221)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_nav.html.erb (Duration: 0.3ms | Allocations: 28)
+Completed 200 OK in 89ms (Views: 82.9ms | ActiveRecord: 0.0ms | Allocations: 4807)
+
+
+Started GET "/login" for ::1 at 2020-10-02 21:57:43 +0800
+Processing by SessionsController#login as HTML
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 0.5ms | Allocations: 221)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_nav.html.erb (Duration: 0.1ms | Allocations: 28)
+Completed 200 OK in 23ms (Views: 21.9ms | ActiveRecord: 0.0ms | Allocations: 4805)
+
+
+Started GET "/login" for ::1 at 2020-10-02 22:01:22 +0800
+Processing by SessionsController#login as HTML
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 20.3ms | Allocations: 387)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_nav.html.erb (Duration: 5.9ms | Allocations: 132)
+Completed 200 OK in 99ms (Views: 88.5ms | ActiveRecord: 0.0ms | Allocations: 5988)
+
+
+Started GET "/users" for ::1 at 2020-10-02 22:01:28 +0800
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mFollowing Load (1.1ms)[0m  [1m[34mSELECT "followings".* FROM "followings"[0m
+  ↳ app/views/users/index.html.erb:3
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:10
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1 LIMIT $2[0m  [["follower_id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:16
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."follower_id" WHERE "followings"."followed_id" = $1 LIMIT $2[0m  [["followed_id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:18
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."follower_id" WHERE "followings"."followed_id" = $1[0m  [["followed_id", 3]]
+  ↳ app/views/users/index.html.erb:18
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1 LIMIT $2[0m  [["follower_id", 4], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:16
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."follower_id" WHERE "followings"."followed_id" = $1 LIMIT $2[0m  [["followed_id", 4], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:18
+  [1m[36mUser Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1 LIMIT $2[0m  [["follower_id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:16
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1[0m  [["follower_id", 1]]
+  ↳ app/views/users/index.html.erb:16
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."follower_id" WHERE "followings"."followed_id" = $1 LIMIT $2[0m  [["followed_id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:18
+  Rendered users/index.html.erb within layouts/application (Duration: 185.1ms | Allocations: 16755)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_nav.html.erb (Duration: 0.4ms | Allocations: 32)
+Completed 200 OK in 248ms (Views: 150.5ms | ActiveRecord: 63.2ms | Allocations: 23836)
+
+
+Started GET "/login" for ::1 at 2020-10-02 22:02:00 +0800
+Processing by SessionsController#login as HTML
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 12.4ms | Allocations: 381)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_nav.html.erb (Duration: 7.3ms | Allocations: 985)
+Completed 500 Internal Server Error in 129ms (ActiveRecord: 0.0ms | Allocations: 6841)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <strong>@<%= if current_user ? current_user : 'no user' %></strong>
+<%= link_to 'users', users_path %>
+):
+1:    <strong>@<%= if current_user ? current_user : 'no user' %></strong>
+2:    <%= link_to 'users', users_path %>
+  
+app/views/shared/_nav.html.erb:1: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/shared/_nav.html.erb:4: syntax error, unexpected `end', expecting ')'
+app/views/shared/_nav.html.erb:1: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/shared/_nav.html.erb:4: syntax error, unexpected `end', expecting ')'
+app/views/shared/_nav.html.erb:1: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/shared/_nav.html.erb:4: syntax error, unexpected `end', expecting ')'
+app/views/shared/_nav.html.erb:1: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/shared/_nav.html.erb:4: syntax error, unexpected `end', expecting ')'
+app/views/shared/_nav.html.erb:1: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/shared/_nav.html.erb:4: syntax error, unexpected `end', expecting ')'
+app/views/shared/_nav.html.erb:1: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/shared/_nav.html.erb:4: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:13
+Started GET "/login" for ::1 at 2020-10-02 22:03:16 +0800
+Processing by SessionsController#login as HTML
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 10.8ms | Allocations: 381)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_nav.html.erb (Duration: 3.0ms | Allocations: 985)
+Completed 500 Internal Server Error in 131ms (ActiveRecord: 0.0ms | Allocations: 6854)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <strong>@<%= if current_user.any? ? current_user : 'no user' %></strong>
+<%= link_to 'users', users_path %>
+):
+1:    <strong>@<%= if current_user.any? ? current_user : 'no user' %></strong>
+2:    <%= link_to 'users', users_path %>
+  
+app/views/shared/_nav.html.erb:1: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/shared/_nav.html.erb:4: syntax error, unexpected `end', expecting ')'
+app/views/shared/_nav.html.erb:1: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/shared/_nav.html.erb:4: syntax error, unexpected `end', expecting ')'
+app/views/shared/_nav.html.erb:1: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/shared/_nav.html.erb:4: syntax error, unexpected `end', expecting ')'
+app/views/shared/_nav.html.erb:1: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/shared/_nav.html.erb:4: syntax error, unexpected `end', expecting ')'
+app/views/shared/_nav.html.erb:1: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/shared/_nav.html.erb:4: syntax error, unexpected `end', expecting ')'
+app/views/shared/_nav.html.erb:1: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/shared/_nav.html.erb:4: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:13
+Started GET "/login" for ::1 at 2020-10-02 22:03:31 +0800
+Processing by SessionsController#login as HTML
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 8.9ms | Allocations: 381)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_nav.html.erb (Duration: 1.0ms | Allocations: 130)
+Completed 200 OK in 69ms (Views: 64.7ms | ActiveRecord: 0.0ms | Allocations: 6024)
+
+
+Started POST "/login" for ::1 at 2020-10-02 22:03:59 +0800
+  
+ActionController::RoutingError (No route matches [POST] "/login"):
+  
+actionpack (6.0.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started POST "/login" for ::1 at 2020-10-02 22:07:27 +0800
+  
+ActionController::RoutingError (No route matches [POST] "/login"):
+  
+actionpack (6.0.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/login" for ::1 at 2020-10-02 22:09:32 +0800
+  [1m[35m (9.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#login as HTML
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 359.4ms | Allocations: 123597)
+Completed 500 Internal Server Error in 411ms (ActiveRecord: 0.0ms | Allocations: 126062)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `try_login_path' for #<#<Class:0x00007fa758df5140>:0x00007fa758b9f030>):
+    1: <div class="login">
+    2:   <%= form_tag(try_login_path, :method => :post) do %>
+    3:     <%= label_tag(:username) %>
+    4:     <%= text_field_tag(:username, params[:username]) %>
+    5: 
+  
+app/views/sessions/login.html.erb:2
+Started GET "/login" for ::1 at 2020-10-02 22:11:31 +0800
+Processing by SessionsController#login as HTML
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 555.3ms | Allocations: 123043)
+Completed 500 Internal Server Error in 579ms (ActiveRecord: 0.0ms | Allocations: 124201)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `try_login_path' for #<#<Class:0x00007fa758fbaea8>:0x00007fa758fb95d0>):
+    1: <div class="login">
+    2:   <%= form_tag(try_login_path, :method => :post) do %>
+    3:     <%= label_tag(:username) %>
+    4:     <%= text_field_tag(:username, params[:username]) %>
+    5: 
+  
+app/views/sessions/login.html.erb:2
+Started GET "/login" for ::1 at 2020-10-02 22:12:11 +0800
+  [1m[35m (3.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#login as HTML
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 366.8ms | Allocations: 123607)
+Completed 500 Internal Server Error in 412ms (ActiveRecord: 0.0ms | Allocations: 126071)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `try_login_path' for #<#<Class:0x00007fa586e5bb30>:0x00007fa586e581b0>):
+    1: <div class="login">
+    2:   <%= form_tag(try_login_path, :method => :post) do %>
+    3:     <%= label_tag(:username) %>
+    4:     <%= text_field_tag(:username, params[:username]) %>
+    5: 
+  
+app/views/sessions/login.html.erb:2
+Started GET "/sessions/login" for ::1 at 2020-10-02 22:13:58 +0800
+Processing by SessionsController#login as HTML
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 454.4ms | Allocations: 123241)
+Completed 500 Internal Server Error in 521ms (ActiveRecord: 0.0ms | Allocations: 124980)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `try_login_path' for #<#<Class:0x00007fa58810eea8>:0x00007fa586f13a00>):
+    1: <div class="login">
+    2:   <%= form_tag(try_login_path, :method => :post) do %>
+    3:     <%= label_tag(:username) %>
+    4:     <%= text_field_tag(:username, params[:username]) %>
+    5: 
+  
+app/views/sessions/login.html.erb:2
+Started GET "/sessions/login" for ::1 at 2020-10-02 22:15:30 +0800
+Processing by SessionsController#login as HTML
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 17.2ms | Allocations: 441)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_nav.html.erb (Duration: 3.5ms | Allocations: 136)
+Completed 200 OK in 431ms (Views: 319.6ms | ActiveRecord: 0.0ms | Allocations: 7946)
+
+
+Started GET "/login" for ::1 at 2020-10-02 22:15:39 +0800
+Processing by SessionsController#login as HTML
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 0.6ms | Allocations: 225)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_nav.html.erb (Duration: 0.1ms | Allocations: 30)
+Completed 200 OK in 55ms (Views: 51.0ms | ActiveRecord: 0.0ms | Allocations: 4695)
+
+

@@ -1,8 +1,24 @@
 <h2>Users</h2>
 
+<p><%= Following.all.to_a %></p>
+
 <%= link_to 'Create New User', new_user_path %>
 
+<br>
+<br>
+
 <% @users.each do |user| %>
-  <%= user.username %>
+  <br>
+  <br>
+
+  <%= user.username %>  
+  <p>following<p>
+  <%= user.followeds.any? ? user.followeds.all.to_a : 'not following anyboy' %>
+  <p>followed by<p>
+  <%= user.followers.any? ? user.followers.all.to_a : 'no followers' %>
+  <br>
+  <br>
   <%= link_to 'Edit', edit_user_path(user) %>
 <% end %>
+
+

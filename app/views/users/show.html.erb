@@ -3,7 +3,7 @@
 <%= @user.username %>
 
 <p>followers</p>
-<strong><%= @user.followers.any? ? @user.followers.first.username : 'no followers' %></strong>
+<strong><%= @user.followers.any? ? @user.followers.all : 'no followers' %></strong>
 
-<p>followed</p>
-<%= @user.followeds.first.username %>
+<p>following</p>
+<%= @user.followeds.any? ? @user.followeds.all.to_a : 'no followeds' %>
