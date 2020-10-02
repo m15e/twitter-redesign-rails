@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
 
   def login
-    
+
   end
 
   def try_login
@@ -22,5 +22,6 @@ class SessionsController < ApplicationController
   def logout
     session[:user_id] = nil
     flash[:notice] = 'Logged out'
+    redirect_to(sessions_login_path)
   end
 end
