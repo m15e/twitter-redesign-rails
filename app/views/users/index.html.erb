@@ -21,6 +21,7 @@
   <p>usr_id: <%= user.id %></p>
   <br>
   <%= link_to 'Follow', followings_follow_path(follower_id: current_user.id, followed_id: user.id), method: :post %>
+  <%= link_to 'Unfollow', followings_unfollow_path(follower_id: current_user.id, followed_id: user.id), method: :delete %>
   <%= link_to 'Edit', edit_user_path(user) %>
 <% end %>
 

@@ -1,14 +1,16 @@
 class FollowingsController < ApplicationController
 
   def follow
-    flash.now[:notice] = 'You now follow'
-    p following_params
+    flash.now[:notice] = 'You now follow'    
     @follow = Following.create(following_params)
     redirect_to request.referrer
   end
 
   def unfollow
-
+    @following = Following.where(following_params).first
+    @following.destroy
+    flash[:notice] = 'unfollowed'
+    redirect_to request.referrer
   end
 
   private
