@@ -20,7 +20,7 @@
   <p>current: <%= current_user.id %></p>
   <p>usr_id: <%= user.id %></p>
   <br>
-  <%= button_to 'Follow', followings_follow_path(current_user.id, user.id), method: :post %>
+  <%= link_to 'Follow', followings_follow_path(follower_id: current_user.id, followed_id: user.id), method: :post %>
   <%= link_to 'Edit', edit_user_path(user) %>
 <% end %>
 

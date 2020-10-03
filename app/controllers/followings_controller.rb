@@ -1,16 +1,20 @@
 class FollowingsController < ApplicationController
 
-  def follow(follower, followed)
+  def follow
     flash.now[:notice] = 'You now follow'
-    @follow = Following.create(follower_id: follower, followed_id: followed)
-    if @follow.save!
-      flash[:notice] = 'You now follow'
-      redirect_to request.refferer
-    end
+    p following_params
+    @follow = Following.create(following_params)
+    redirect_to request.referrer
   end
 
   def unfollow
 
+  end
+
+  private
+
+  def following_params
+    params.permit(:follower_id, :followed_id)
   end
 
 end
