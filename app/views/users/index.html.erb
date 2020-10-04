@@ -17,12 +17,16 @@
   <p>followed by<p>
   <%= user.followers.any? ? user.followers.all.to_a : 'no followers' %>
   <br>
-  <p>current: <%= current_user.id %></p>
-  <p>usr_id: <%= user.id %></p>
   <br>
-  <%= link_to 'Follow', followings_follow_path(follower_id: current_user.id, followed_id: user.id), method: :post %>
-  <%= link_to 'Unfollow', followings_unfollow_path(follower_id: current_user.id, followed_id: user.id), method: :delete %>
-  <%= link_to 'Edit', edit_user_path(user) %>
+  <% if current_user %>
+    <%= link_to 'Follow', followings_follow_path(follower_id: current_user.id, followed_id: user.id), method: :post %>
+    <%= link_to 'Unfollow', followings_unfollow_path(follower_id: current_user.id, followed_id: user.id), method: :delete %>
+  
+    <% if user.id == current_user.id %>
+      <%= link_to 'Edit', edit_user_path(user) %>
+    <% end %>
+  <% end  %>
+  
 <% end %>
 
 

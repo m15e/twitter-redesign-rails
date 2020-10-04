@@ -1,4 +1,6 @@
 class SourcesController < ApplicationController
+  include ApplicationHelper
+
   before_action :set_source, only: [:show, :edit, :update, :destroy]
 
   # GET /sources
@@ -24,7 +26,12 @@ class SourcesController < ApplicationController
   # POST /sources
   # POST /sources.json
   def create
-    @source = current_user.sources.new(source_params)
+    if current_user
+      @source = current_user.sources.new(source_params)
+    else 
+      flash[:notice] = 'you need to be logged in to create posts!'
+      redirect_to sources_path
+    end
 
     respond_to do |format|
       if @source.save
