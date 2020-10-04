@@ -6,4 +6,6 @@ class User < ApplicationRecord
   has_many :following_users, foreign_key: :followed_id, class_name: 'Following'
   # followers are users following a user
   has_many :followers, through: :following_users
+
+  has_many :sources, foreign_key: :author_id
 end
