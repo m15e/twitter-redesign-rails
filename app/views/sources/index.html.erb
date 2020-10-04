@@ -10,11 +10,13 @@
       <th colspan="3"></th>
     </tr>
   </thead>
+  
+  <%= render('form') %>
 
   <tbody>
     <% @sources.each do |source| %>
       <tr>
-        <td><%= source.author_id %></td>
+        <td><%= source.author.username %></td>
         <td><%= source.text %></td>
         <td><%= link_to 'Show', source %></td>
         <td><%= link_to 'Edit', edit_source_path(source) %></td>
