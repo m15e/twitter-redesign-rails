@@ -1,0 +1,10 @@
+<%= current_user ? '@' + current_user.username : ': )' %>
+
+<% if current_user %>
+  
+  <p>Following</p>
+  <%= current_user.followeds.count %>
+  <p>Followers</p>
+  <%= current_user.followers.count %>
+
+<% end %>

@@ -14,7 +14,30 @@
  *= require_self
  */
 
- .is-15-percent {
+$light-blue: #1DA1F2;
+$dark-blue: #213246;
+
+$primary-light-bg: $light-blue;
+$primary-dark-bg: $dark-blue;
+
+html, body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  height: 100%;
+}
+
+.main-cols {
+  margin-top: 0;
+  height: 100%;
+}
+
+.is-15-percent {
   flex: none;
+  background-color: $primary-dark-bg;
   width: 15%;
- }
+  color: #fff;
+  padding-top: 25px;
+  padding-left: 30px;
+  height: 100%;
+}
