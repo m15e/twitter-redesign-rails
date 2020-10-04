@@ -4,13 +4,20 @@
     <title>TwitterRedesignRails</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= render('shared/nav') %>    
-    <%= yield %>
+  <div class="columns">
+    <div class="column is-15-percent">
+      <%= render('shared/nav') %>      
+    </div>
+    <div class="column">
+      <%= yield %>
+    </div>
+  </div>
+    
   </body>
 </html>

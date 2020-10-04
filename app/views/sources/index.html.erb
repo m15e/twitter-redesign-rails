@@ -16,7 +16,7 @@
   <tbody>
     <% @sources.each do |source| %>
       <tr>
-        <td><%= source.author.username %></td>
+        <td><%= link_to 'author', user_path(source.author) %></td>
         <td><%= source.text %></td>
         <td><%= link_to 'Show', source %></td>
         <td><%= link_to 'Edit', edit_source_path(source) %></td>
@@ -28,4 +28,3 @@
 
 <br>
 
-<%= link_to 'New Source', new_source_path %>

@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       if user_found
         session[:user_id] = user_found.id
         flash[:notice] = 'Logged in'
-        redirect_to(users_path)
+        redirect_to(sources_path)
       else 
         flash.now[:notice] = 'user does not exist'
         render('login')

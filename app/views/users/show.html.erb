@@ -7,3 +7,10 @@
 
 <p>following</p>
 <%= @user.followeds.any? ? @user.followeds.all.to_a : 'no followeds' %>
+
+<p>Posts</p>
+<ul>
+<% @user.sources.each do |s| %>
+  <li><%= s.text %></li>
+<% end %>
+</ul>

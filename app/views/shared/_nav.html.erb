@@ -4,6 +4,10 @@
 
 <% if current_user  %>
   <%= link_to 'logout', sessions_logout_path %>
+  <p>Following</p>
+  <%= current_user.followeds.count %>
+  <p>Followers</p>
+  <%= current_user.followers.count %>
 <% else %>
  <%= link_to 'login', login_path %>
 <% end %>
