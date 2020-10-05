@@ -1,16 +1,64 @@
-<h1>Users#show</h1>
+<% @current_page = 'Tweet at' %>
 
-<%= @user.username %>
+<div class='user-show-content'>
+    <div class="columns">
+      <div class="column is-9">
+        <div class="cover-photo" style="background-image: url(<%= asset_path 'cover.jpg' %>)">
 
-<p>followers</p>
-<strong><%= @user.followers.any? ? @user.followers.all.to_a : 'no followers' %></strong>
+        </div>
+        <div class="card">
+          <%= render('sources/form') %>
+        </div>
+        <div class="card">
+          <div class="source-list">          
 
-<p>following</p>
-<%= @user.followeds.any? ? @user.followeds.all.to_a : 'no followeds' %>
+        <!-- debug code
+          <p>followers</p>
+          <strong><%= @user.followers.any? ? @user.followers.all.to_a : 'no followers' %></strong>
 
-<p>Posts</p>
-<ul>
-<% @user.sources.each do |s| %>
-  <li><%= s.text %></li>
-<% end %>
-</ul>
+          <p>following</p>
+          <%= @user.followeds.any? ? @user.followeds.all.to_a : 'no followeds' %>
+          -->
+
+          <p>Sources by @<%= @user.username %></p>
+          <ul>
+          <% @user.sources.each do |s| %>
+            <li><%= s.text %></li>
+          <% end %>
+          </ul>
+          </div><!-- source-list-end -->
+        </div>
+      </div>
+      <div class="column user-col">
+        <div class="user-detail">
+          <% if current_user %>
+            <% if current_user.id != @user.id %>
+                <%= link_to 'Follow', followings_follow_path(follower_id: current_user.id, followed_id: @user.id), method: :post %>
+            <% end %>
+          <% end %>
+          <figure class='image is-96x96'>
+            <%= image_tag 'profile.png', class: 'is-rounded' %>
+          </figure>
+          <h4><%= @user.full_name %></h4>
+          <span>@<%= @user.username %></span>
+        </div>
+        <div class="user-stats">
+          <div class="columns">
+            <div class="column is-one-third">
+              <%= @user.sources.count %>
+              <span>sources published</span>
+            </div>
+            <div class="column is-one-third">
+              <%= @user.followeds.count %>
+              <span>following</span>
+            </div>
+            <div class="column is-one-third">              
+              <%= @user.followers.count %>
+              <span>followers</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>   
+</div>
+

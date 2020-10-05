@@ -8,6 +8,7 @@ class SourcesController < ApplicationController
   def index    
     @source = Source.new
     @sources = Source.all
+    @users = User.limit(3)
   end
 
   # GET /sources/1

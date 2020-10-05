@@ -1,45 +1,58 @@
 <p id="notice"><%= notice %></p>
-
-<div class="columns source-index-cols">
-  <div class="column is-four-fifths">
-    <div class="card">
-        <p>Share Source</p>
-        <%= render('form') %>        
-    </div>
-    <div class="card">      
-      <% @sources.each do |source| %>            
-        <div class='source-item'>
-          <div class="columns">
-            <div class="column is-2">
-              <%= image_tag 'profile.png' %>
-            </div>
-            <div class="column">
-              <h4>
-               <%= link_to 'author', user_path(source.author) %>
-              </h4>
-              <div>              
-               <%= source.text %>
+<div class="source-index-content">
+  <div class="columns source-index-cols">
+    <div class="column is-four-fifths">
+      <div class="card">
+          <p>Share Source</p>
+          <%= render('form') %>        
+      </div>
+      <div class="card">      
+        <% @sources.each do |source| %>            
+          <div class='source-item'>
+            <div class="columns">
+              <div class="column is-2">
+                <%= image_tag 'profile.png' %>
               </div>
-              <div>
-              <% if current_user and source.author.id == current_user.id %>
-               <%= link_to 'Show', source %>
-               <%= link_to 'Edit', edit_source_path(source) %>
-               <%= link_to 'Destroy', source, method: :delete, data: { confirm: 'Are you sure?' } %>      
-              <% end %>
+              <div class="column">
+                <h4>
+                <%= link_to source.author.username, user_path(source.author) %>
+                </h4>
+                <div>              
+                <%= source.text %>
+                </div>
+                <div>
+                <% if current_user and source.author.id == current_user.id %>
+                <%= link_to 'Show', source %>
+                <%= link_to 'Edit', edit_source_path(source) %>
+                <%= link_to 'Destroy', source, method: :delete, data: { confirm: 'Are you sure?' } %>      
+                <% end %>
+                </div>
+              </div>
+            </div>
+          </div>         
+        <% end %>      
+      </div>
+    </div>
+    <div class="column">
+      <div class="who-to-follow"> 
+        <h3>Who to follow</h3>
+        <% @users.each do |user| %>
+          <div class='follow-item'>
+            <div class="columns">
+              <div class="column is-4">
+                <%= image_tag 'profile.png', class: 'image is16x16' %>
+              </div>
+              <div class="column">
+                <h4><%= link_to user.username, user_path(user) %></h4>
+                <%= link_to 'Follow', followings_follow_path(follower_id: current_user.id, followed_id: user.id), method: :post, class: 'follow-link' %>
               </div>
             </div>
           </div>
-        </div>         
-      <% end %>      
+        <% end %>
+      </div>
     </div>
-  </div>
-  <div class="column">
   </div>
 </div>
 
-  
-
-
-    
 
 
