@@ -7,8 +7,8 @@ class SourcesController < ApplicationController
   # GET /sources.json
   def index    
     @source = Source.new
-    @sources = Source.all
-    @users = User.limit(3)
+    @sources = Source.order('created_at DESC')
+    @users = User.limit(3).where.not(id: current_user.id)
   end
 
   # GET /sources/1

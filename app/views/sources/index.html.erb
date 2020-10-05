@@ -21,10 +21,11 @@
                 <%= source.text %>
                 </div>
                 <div>
+                <!-- TO-HELPER -->
                 <% if current_user and source.author.id == current_user.id %>
-                <%= link_to 'Show', source %>
-                <%= link_to 'Edit', edit_source_path(source) %>
-                <%= link_to 'Destroy', source, method: :delete, data: { confirm: 'Are you sure?' } %>      
+                  <%= link_to 'Show', source %>
+                  <%= link_to 'Edit', edit_source_path(source) %>
+                  <%= link_to 'Destroy', source, method: :delete, data: { confirm: 'Are you sure?' } %>      
                 <% end %>
                 </div>
               </div>
@@ -43,8 +44,13 @@
                 <%= image_tag 'profile.png', class: 'image is16x16' %>
               </div>
               <div class="column">
-                <h4><%= link_to user.username, user_path(user) %></h4>
-                <%= link_to 'Follow', followings_follow_path(follower_id: current_user.id, followed_id: user.id), method: :post, class: 'follow-link' %>
+                <h4><%= link_to user.username, user_path(user) %></h4>                                
+                
+
+
+                <% unless user.followers.include?(current_user) %>
+                  <%= link_to 'Follow', followings_follow_path(follower_id: current_user.id, followed_id: user.id), method: :post, class: 'follow-link' %>                
+                <% end %>
               </div>
             </div>
           </div>

@@ -27,7 +27,7 @@
           <% if current_user %>
             <%= link_to 'logout', sessions_logout_path, class: 'button is-primary' %>
           <% else %>
-            <%= link_to 'login', login_path, class: 'button' %>
+            <%= link_to 'login', login_path, class: 'button is-primary' %>
           <% end %>
         </div>
       </div>

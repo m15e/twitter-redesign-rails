@@ -11,7 +11,7 @@
   <br>
   <br>
 
-  <%= user.username %>  
+  <%= link_to user.username, user_path(user) %>  
   <p>following<p>
   <%= user.followeds.any? ? user.followeds.all.to_a : 'not following anyboy' %>
   <p>followed by<p>
