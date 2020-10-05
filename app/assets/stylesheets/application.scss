@@ -37,7 +37,33 @@ html, body {
   background-color: $primary-dark-bg;
   width: 15%;
   color: #fff;
-  padding-top: 25px;
-  padding-left: 30px;
+  padding-top: 10px;
+  padding-left: 25px;
   height: 100%;
+}
+
+.user-profile {
+  .is-three-quarters {
+    text-align: center;
+    padding-top: 27px;
+  }
+}
+
+.user-follow-stats {
+  p {
+    text-align: center;
+  }
+}
+
+.side-nav-links {
+  list-style-type: none;
+  
+  li {
+    
+  }
+
+  a {
+    color: #fff;
+    text-transform: uppercase;    
+  }
 }

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :sources
-  root 'users#index'
+  root 'sources#index'
 
   get 'login', :to => 'sessions#login'
   post 'sessions/try_login'  
