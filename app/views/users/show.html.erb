@@ -58,6 +58,25 @@
             </div>
           </div>
         </div>
+        <div class="user-followers">
+          <h5>followed by</h5>
+          <% @user.followers.each do |follow| %>
+            <div class="follower-item">
+              <div class="columns">
+                <div class="column is-3">
+                  <figure class='image is-32x32'>
+                    <%= image_tag 'profile.png', class: 'is-rounded' %>
+                  </figure>
+                </div>
+                <div class="column">
+                  <%= link_to follow.full_name, user_path(follow) %>
+                  <span>@<%= follow.username %></span>
+                  <%= link_to 'Follow', followings_follow_path(follower_id: current_user.id, followed_id: follow.id), method: :post, class: 'follow-link' %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>   
 </div>
