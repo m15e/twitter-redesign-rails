@@ -38,22 +38,19 @@
       <div class="who-to-follow"> 
         <h3>Who to follow</h3>
         <% @users.each do |user| %>
-          <div class='follow-item'>
-            <div class="columns">
-              <div class="column is-4">
-                <%= image_tag 'profile.png', class: 'image is16x16' %>
-              </div>
-              <div class="column">
-                <h4><%= link_to user.username, user_path(user) %></h4>                                
-                
-
-
-                <% unless user.followers.include?(current_user) %>
-                  <%= link_to 'Follow', followings_follow_path(follower_id: current_user.id, followed_id: user.id), method: :post, class: 'follow-link' %>                
-                <% end %>
+          <% unless user.followers.include?(current_user) %>
+            <div class='follow-item'>
+              <div class="columns">
+                <div class="column is-4">
+                  <%= image_tag 'profile.png', class: 'image is16x16' %>
+                </div>
+                <div class="column">
+                  <h4><%= link_to user.username, user_path(user) %></h4>                                
+                    <%= link_to 'Follow', followings_follow_path(follower_id: current_user.id, followed_id: user.id), method: :post, class: 'follow-link' %>                
+                </div>
               </div>
             </div>
-          </div>
+          <% end %>
         <% end %>
       </div>
     </div>
