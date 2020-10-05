@@ -1,30 +1,45 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Sources</h1>
+<div class="columns source-index-cols">
+  <div class="column is-four-fifths">
+    <div class="card">
+        <p>Share Source</p>
+        <%= render('form') %>        
+    </div>
+    <div class="card">      
+      <% @sources.each do |source| %>            
+        <div class='source-item'>
+          <div class="columns">
+            <div class="column is-2">
+              <%= image_tag 'profile.png' %>
+            </div>
+            <div class="column">
+              <h4>
+               <%= link_to 'author', user_path(source.author) %>
+              </h4>
+              <div>              
+               <%= source.text %>
+              </div>
+              <div>
+              <% if current_user and source.author.id == current_user.id %>
+               <%= link_to 'Show', source %>
+               <%= link_to 'Edit', edit_source_path(source) %>
+               <%= link_to 'Destroy', source, method: :delete, data: { confirm: 'Are you sure?' } %>      
+              <% end %>
+              </div>
+            </div>
+          </div>
+        </div>         
+      <% end %>      
+    </div>
+  </div>
+  <div class="column">
+  </div>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Author</th>
-      <th>Text</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
   
-  <%= render('form') %>
 
-  <tbody>
-    <% @sources.each do |source| %>
-      <tr>
-        <td><%= link_to 'author', user_path(source.author) %></td>
-        <td><%= source.text %></td>
-        <td><%= link_to 'Show', source %></td>
-        <td><%= link_to 'Edit', edit_source_path(source) %></td>
-        <td><%= link_to 'Destroy', source, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<br>
+    
+
 

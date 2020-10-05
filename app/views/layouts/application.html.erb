@@ -11,15 +11,18 @@
   </head>
 
   <body>
-  <div class="columns main-cols">
-    <div class="column is-15-percent">
-      <%= render('shared/side_nav') %>      
+    <div class="container is-fullhd">
+      <div class="columns main-cols">
+        <div class="column is-15-percent">
+          <%= render('shared/side_nav') %>      
+        </div>
+        <div class="column yield-cols">
+          <%= render('shared/top_nav') %>
+          <%= yield %>
+        </div>
+      </div>
     </div>
-    <div class="column">
-      <%= render('shared/top_nav') %>
-      <%= yield %>
-    </div>
-  </div>
+  
     
   </body>
 </html>

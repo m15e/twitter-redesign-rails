@@ -13,13 +13,10 @@
 <% if current_user %>
 <div class="columns user-follow-stats">
   <div class="column is-half">
-    
-    <p><%= current_user.followeds.count %></p>
-    <p>Following</p>
+    <a href="#"><%= current_user.followeds.count %><br><span>Following</span></a>
   </div>
   <div class="column is-half">
-    <p><%= current_user.followers.count %></p>
-    <p>Followers</p>
+    <a href="#"><%= current_user.followers.count %><br><span>Followers</span></a>
   </div>
 </div>   
 
