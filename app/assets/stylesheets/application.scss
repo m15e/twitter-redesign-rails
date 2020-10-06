@@ -14,22 +14,35 @@
  *= require_self
  */
 
-$light-blue: #1DA1F2;
+$light-blue: #45aaf2;
 $dark-blue: #213246;
 $dark-grey: #718093;
+$light-grey: rgba(0,0,0,0.1);
 
 $primary-light-bg: $light-blue;
 $primary-dark-bg: $dark-blue;
+
+body, p, ol, ul, td {
+  font-family: 'Roboto', sans-serif;
+}
 
 html, body {
   margin: 0;
   padding: 0;
   border: 0;
-  height: 100%;
+  height: 100%;  
 }
 
 #app-container {
   max-width: 100%;
+}
+
+.navbar {
+  height: 10vh;
+}
+
+.button.is-primary {
+  background-color: $light-blue;
 }
 
 .main-cols {
@@ -50,10 +63,22 @@ html, body {
   .card {
     margin: 30px 30px 0;
     padding: 15px 15px 15px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  input[type='text'] {
+    width: 100%;
+    padding: 15px;
+    border: 0.5px solid $light-grey;
+    border-radius: 4px;
+    margin-top: 10px;
+    font-weight: 500;
   }
 }
 
 .user-show-content {
+  .is-9 {
+    padding-right: 0;
+  }
   .cover-photo {
     height: 30vh;
     background-position: center 17%;
@@ -63,7 +88,29 @@ html, body {
   .user-col {
     padding-left: 0;
   }
+  .user-detail {
+    text-align: center;
+    h4 {
+      text-transform: uppercase;
+      color: $dark-blue;
+      font-weight: 500;
+    }
+    span {
+      color: $dark-grey;
+    }
+    figure {
+      margin: 25px auto;      
+    }
+  }
   .user-stats {
+    padding: 0.75rem;
+    text-align: center;
+    span {
+      text-transform: capitalize;
+      color: $dark-grey;
+      display: block;
+      font-size: 11px;
+    }
     .columns {
       margin: 0;
       .column {
@@ -71,21 +118,104 @@ html, body {
       }
     }
   }
+  .user-followers {
+    padding: 0.75rem;
+    strong a {
+      text-transform: uppercase;
+      color: $dark-blue;
+      display: block;
+    }
+    h5 {
+      text-transform: uppercase;
+      color: $dark-grey;
+      font-size: 12px;
+      font-weight: 500;
+      margin-left: 15px;
+    }
+    .follower-item {
+      margin: 15px;
+      .is-2 {
+        margin-right: 5px;
+      }
+      .follow-link {
+        color: $light-blue;
+      }
+    }
+  }
 }
 
 .source-index-content {
+  .link-panel {
+    margin-top: 20px;
+    a.active {
+        border-bottom: 2px solid $light-blue;
+        color: $dark-blue;           
+    }
+    a {            
+      padding: 30px 30px 20px;
+      text-transform: uppercase;
+      color: $dark-grey;
+      justify-content: center;
+      font-weight: 500;
+    }
+  }
+  .source-index-new {
+    margin-top: 4em;
+    padding: 15px 20px;
+    p {
+      font-weight: 500;
+      text-transform: uppercase;
+    }        
+  }
+  .source-index-list {
+    h5 {
+      padding: 15px 0;
+      margin: 0 0 20px;
+      color: $light-blue;
+      font-weight: 500;
+      text-transform: uppercase;
+      border-bottom: 1px solid $light-grey;
+    }
+  }
   .source-item {
     margin-bottom: 5px;
+    a {
+      color: $light-blue;
+    }
+    .source-author a {
+      color: $dark-blue;
+      font-weight: 500;
+      text-transform: capitalize;
+    }
+    p {
+      color: $dark-grey;
+    }
   }
   .who-to-follow {
-    margin-top: 3em;
+    margin-top: 2em;
+    h3 {
+      text-transform: uppercase;
+      color: $dark-grey;
+      margin-bottom: 3.5em;
+    }
+    .follow-item {
+      margin-bottom: 10px;
+      h4 a {
+        color: $dark-blue;
+        text-transform: capitalize;
+        font-weight: 500;
+      }
+      a {
+        color: $light-blue;
+      }
+    }
   }
 }
 
 .is-15-percent {
   flex: none;
   background-color: $primary-dark-bg;
-  width: 15%;
+  width: 16.6%;
   color: #fff;
   padding-top: 10px;
   padding-left: 25px;  
@@ -107,7 +237,9 @@ html, body {
     padding-top: 27px;
   }
   span {
-    color: $dark-grey;
+    color: $dark-grey;  
+    font-weight: 500;
+    text-transform: uppercase;
   }
 }
 
@@ -116,9 +248,12 @@ html, body {
     text-align: center;
     display: block;
     color: #fff;
+    font-weight: 500;
+    font-size: 15px;
     
     span {
       color: $dark-grey;
+      font-size: 12px;      
     }
   }
 }
@@ -131,8 +266,16 @@ html, body {
   }
 
   a {
+    img {
+      margin-right: 7px;
+    }
+
     color: $dark-grey;
-    text-transform: uppercase;        
+    text-transform: uppercase; 
+    display: flex;       
   }
 }
 
+.is-roundish {
+  border-radius: 3px;
+}

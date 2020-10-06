@@ -1,24 +1,32 @@
 <p id="notice"><%= notice %></p>
 <div class="source-index-content">
   <div class="columns source-index-cols">
-    <div class="column is-four-fifths">
-      <div class="card">
+    <div class="column is-9">
+      <div class="link-panel">
+        <a href="#" class='active'>Sources</a>
+        <a href="#">Most Recent</a>
+        <a href="#">Most Upvotes</a>        
+      </div>
+      <div class="card source-index-new">
           <p>Share Source</p>
           <%= render('form') %>        
       </div>
-      <div class="card">      
+      <div class="card source-index-list">
+        <h5 class='new-source-count'>6 New Sources</h5>      
         <% @sources.each do |source| %>            
           <div class='source-item'>
             <div class="columns">
-              <div class="column is-2">
-                <%= image_tag 'profile.png' %>
+              <div class="column is-1">
+              <figure class='image is-48x48'>
+                <%= image_tag 'profile.png', class: 'is-roundish' %>
+              </figure>
               </div>
               <div class="column">
-                <h4>
-                <%= link_to source.author.username, user_path(source.author) %>
+                <h4 class='source-author'>
+                  <%= link_to source.author.full_name.capitalize, user_path(source.author) %>
                 </h4>
                 <div>              
-                <%= source.text %>
+                  <p><%= source.text %></p>
                 </div>
                 <div>
                 <!-- TO-HELPER -->
@@ -41,11 +49,13 @@
           <% unless user.followers.include?(current_user) %>
             <div class='follow-item'>
               <div class="columns">
-                <div class="column is-4">
-                  <%= image_tag 'profile.png', class: 'image is16x16' %>
+                <div class="column is-3">
+                  <figure class='image is-48x48'>
+                    <%= image_tag 'profile.png', class: 'is-rounded' %>
+                  </figure>                  
                 </div>
                 <div class="column">
-                  <h4><%= link_to user.username, user_path(user) %></h4>                                
+                  <h4><%= link_to user.full_name, user_path(user) %></h4>                                
                     <%= link_to 'Follow', followings_follow_path(follower_id: current_user.id, followed_id: user.id), method: :post, class: 'follow-link' %>                
                 </div>
               </div>

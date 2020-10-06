@@ -1,11 +1,11 @@
 <div class="columns user-profile">
   <div class="column is-one-quarter">
     <figure class='image is-48x48'>
-      <%= image_tag 'profile.png', class: 'is-rounded' %>
+      <%= image_tag 'profile.png', class: 'is-roundish' %>
     </figure>
   </div>
   <div class="column is-three-quarters">
-    <span><%= current_user ? '@' + current_user.username : ': )' %></span>
+    <span><%= current_user ? + current_user.full_name : ': )' %></span>
   </div>
 </div>
 
@@ -21,10 +21,34 @@
 </div>   
 
 <ul class='side-nav-links'>
-  <li><%= link_to '🏠 home', '#' %></li>
+  <li>
+    <%= link_to '#' do  %>
+      <%= image_tag 'home.svg', class: 'image is-16x16' %>
+      <span>Home</span>
+    <% end %>  
+  </li>
+  <li> 
+    <%= link_to '#' do  %>
+      <%= image_tag 'at.svg', class: 'image is-16x16' %>
+      <span>Connect</span>
+    <% end %>
+  </li>
+  <li> 
+    <%= link_to '#' do  %>
+      <%= image_tag 'explore.svg', class: 'image is-16x16' %>
+      <span>Discover</span>
+    <% end %>
+  </li>
+  <li> 
+    <%= link_to '#' do  %>
+      <%= image_tag 'user.svg', class: 'image is-16x16' %>
+      <span>Profile</span>
+    <% end %>
+  </li>
+  <!-- 
   <li><%= link_to '🖇️ connect', '#' %></li>
   <li><%= link_to '🧭 explore', '#' %></li>
-  <li><%= link_to '👩‍🚀 profile', '#' %></li>  
+  <li><%= link_to '👩‍🚀 profile', '#' %></li>  -->
 </ul>
     
  

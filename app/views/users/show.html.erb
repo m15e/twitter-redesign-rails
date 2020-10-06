@@ -45,15 +45,15 @@
         <div class="user-stats">
           <div class="columns">
             <div class="column is-one-third">
-              <%= @user.sources.count %>
-              <span>sources published</span>
+              <strong><%= @user.sources.count %></strong>
+              <span>sources</span>
             </div>
             <div class="column is-one-third">
-              <%= @user.followeds.count %>
+              <strong><%= @user.followeds.count %></strong>
               <span>following</span>
             </div>
             <div class="column is-one-third">              
-              <%= @user.followers.count %>
+              <strong><%= @user.followers.count %></strong>
               <span>followers</span>
             </div>
           </div>
@@ -63,13 +63,13 @@
           <% @user.followers.each do |follow| %>
             <div class="follower-item">
               <div class="columns">
-                <div class="column is-3">
+                <div class="column is-2">
                   <figure class='image is-32x32'>
                     <%= image_tag 'profile.png', class: 'is-rounded' %>
                   </figure>
                 </div>
                 <div class="column">
-                  <%= link_to follow.full_name, user_path(follow) %>
+                  <strong><%= link_to follow.full_name, user_path(follow) %></strong>
                   <span>@<%= follow.username %></span>
                   <%= link_to 'Follow', followings_follow_path(follower_id: current_user.id, followed_id: follow.id), method: :post, class: 'follow-link' %>
                 </div>
