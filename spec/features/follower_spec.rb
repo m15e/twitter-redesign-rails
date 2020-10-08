@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature 'Friendships', type: :feature do
+RSpec.feature 'Followings', type: :feature do
   before(:each) do
     User.create(username: 'user1', full_name: 'user one')
     User.create(username: 'user2', full_name: 'user two')        
