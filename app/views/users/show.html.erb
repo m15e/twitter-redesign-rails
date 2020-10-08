@@ -10,7 +10,8 @@
           <%= render('sources/form') %>
         </div>
         <div class="card">
-          <div class="source-list">          
+          <div class="source-list">     
+            <h5>All Sources by @<%= @user.username %></h5>     
 
         <!-- debug code
           <p>followers</p>
@@ -19,13 +20,21 @@
           <p>following</p>
           <%= @user.followeds.any? ? @user.followeds.all.to_a : 'no followeds' %>
           -->
-
-          <p>Sources by @<%= @user.username %></p>
-          <ul>
           <% @user.sources.each do |s| %>
-            <li><%= s.text %></li>
+          <div class="user-source-item">
+            <div class="columns">
+              <div class="column is-1">
+                <figure class='image is-48x48'>
+                  <%= image_tag 'profile.png', class:'is-roundish' %>
+                </figure>
+              </div>
+              <div class="column">
+                  <h4><%= @user.full_name %></h4>
+                  <p><%= s.text %></p>
+              </div>
+            </div>
+          </div>
           <% end %>
-          </ul>
           </div><!-- source-list-end -->
         </div>
       </div>

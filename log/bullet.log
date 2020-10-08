@@ -1,20 +1,288 @@
-2020-10-07 20:33:24[WARN] user: lucid
-GET /users
-USE eager loading detected
-  User => [:followeds]
-  Add to your query: .includes([:followeds])
-Call stack
-  /Users/lucid/Desktop/twitter-redesign-rails/app/views/users/index.html.erb:16:in `block in _app_views_users_index_html_erb___4284824327641338279_23880'
-  /Users/lucid/Desktop/twitter-redesign-rails/app/views/users/index.html.erb:10:in `_app_views_users_index_html_erb___4284824327641338279_23880'
-  /Users/lucid/Desktop/twitter-redesign-rails/spec/features/follower_spec.rb:14:in `block (2 levels) in <top (required)>'
-
-2020-10-07 20:33:24[WARN] user: lucid
-GET /users
+2020-10-08 17:26:38[WARN] user: lucid
+GET /sources
 USE eager loading detected
   User => [:followers]
   Add to your query: .includes([:followers])
 Call stack
-  /Users/lucid/Desktop/twitter-redesign-rails/app/views/users/index.html.erb:18:in `block in _app_views_users_index_html_erb___4284824327641338279_23880'
-  /Users/lucid/Desktop/twitter-redesign-rails/app/views/users/index.html.erb:10:in `_app_views_users_index_html_erb___4284824327641338279_23880'
+  /Users/lucid/Desktop/twitter-redesign-rails/app/views/sources/index.html.erb:48:in `block in _app_views_sources_index_html_erb__2996133831611549714_23700'
+  /Users/lucid/Desktop/twitter-redesign-rails/app/views/sources/index.html.erb:47:in `_app_views_sources_index_html_erb__2996133831611549714_23700'
   /Users/lucid/Desktop/twitter-redesign-rails/spec/features/follower_spec.rb:14:in `block (2 levels) in <top (required)>'
+
+2020-10-08 17:26:38[WARN] user: lucid
+GET /sources
+USE eager loading detected
+  User => [:followers]
+  Add to your query: .includes([:followers])
+Call stack
+  /Users/lucid/Desktop/twitter-redesign-rails/app/views/sources/index.html.erb:48:in `block in _app_views_sources_index_html_erb__2996133831611549714_23700'
+  /Users/lucid/Desktop/twitter-redesign-rails/app/views/sources/index.html.erb:47:in `_app_views_sources_index_html_erb__2996133831611549714_23700'
+  /Users/lucid/Desktop/twitter-redesign-rails/spec/features/follower_spec.rb:18:in `block (2 levels) in <top (required)>'
+
+2020-10-08 17:30:21[WARN] user: lucid
+GET /sources
+USE eager loading detected
+  User => [:followers]
+  Add to your query: .includes([:followers])
+Call stack
+  /Users/lucid/Desktop/twitter-redesign-rails/app/views/sources/index.html.erb:48:in `block in _app_views_sources_index_html_erb__3925548463755332401_23700'
+  /Users/lucid/Desktop/twitter-redesign-rails/app/views/sources/index.html.erb:47:in `_app_views_sources_index_html_erb__3925548463755332401_23700'
+  /Users/lucid/Desktop/twitter-redesign-rails/spec/features/follower_spec.rb:14:in `block (2 levels) in <top (required)>'
+
+2020-10-08 17:30:21[WARN] user: lucid
+GET /sources
+USE eager loading detected
+  User => [:followers]
+  Add to your query: .includes([:followers])
+Call stack
+  /Users/lucid/Desktop/twitter-redesign-rails/app/views/sources/index.html.erb:48:in `block in _app_views_sources_index_html_erb__3925548463755332401_23700'
+  /Users/lucid/Desktop/twitter-redesign-rails/app/views/sources/index.html.erb:47:in `_app_views_sources_index_html_erb__3925548463755332401_23700'
+  /Users/lucid/Desktop/twitter-redesign-rails/spec/features/follower_spec.rb:18:in `block (2 levels) in <top (required)>'
+
+2020-10-08 17:31:08[WARN] user: lucid
+GET /sources
+USE eager loading detected
+  User => [:followers]
+  Add to your query: .includes([:followers])
+Call stack
+  /Users/lucid/Desktop/twitter-redesign-rails/app/views/sources/index.html.erb:48:in `block in _app_views_sources_index_html_erb__966872327819738219_23700'
+  /Users/lucid/Desktop/twitter-redesign-rails/app/views/sources/index.html.erb:47:in `_app_views_sources_index_html_erb__966872327819738219_23700'
+  /Users/lucid/Desktop/twitter-redesign-rails/spec/features/follower_spec.rb:14:in `block (2 levels) in <top (required)>'
+
+2020-10-08 17:31:08[WARN] user: lucid
+GET /sources
+USE eager loading detected
+  User => [:followers]
+  Add to your query: .includes([:followers])
+Call stack
+  /Users/lucid/Desktop/twitter-redesign-rails/app/views/sources/index.html.erb:48:in `block in _app_views_sources_index_html_erb__966872327819738219_23700'
+  /Users/lucid/Desktop/twitter-redesign-rails/app/views/sources/index.html.erb:47:in `_app_views_sources_index_html_erb__966872327819738219_23700'
+  /Users/lucid/Desktop/twitter-redesign-rails/spec/features/follower_spec.rb:18:in `block (2 levels) in <top (required)>'
+
+2020-10-08 17:32:54[WARN] user: lucid
+GET /sources
+USE eager loading detected
+  User => [:followers]
+  Add to your query: .includes([:followers])
+Call stack
+  /Users/lucid/Desktop/twitter-redesign-rails/app/views/sources/index.html.erb:48:in `block in _app_views_sources_index_html_erb___2252923917047750950_23700'
+  /Users/lucid/Desktop/twitter-redesign-rails/app/views/sources/index.html.erb:47:in `_app_views_sources_index_html_erb___2252923917047750950_23700'
+  /Users/lucid/Desktop/twitter-redesign-rails/spec/features/follower_spec.rb:14:in `block (2 levels) in <top (required)>'
+
+2020-10-08 17:32:54[WARN] user: lucid
+GET /users
+AVOID eager loading detected
+  User => [:followeds, :followed_users, :following_users]
+  Remove from your query: .includes([:followeds, :followed_users, :following_users])
+Call stack
+  /Users/lucid/Desktop/twitter-redesign-rails/spec/features/follower_spec.rb:18:in `block (2 levels) in <top (required)>'
+
+2020-10-08 17:32:54[WARN] user: lucid
+GET /users
+AVOID eager loading detected
+  Following => [:followed, :follower]
+  Remove from your query: .includes([:followed, :follower])
+Call stack
+  /Users/lucid/Desktop/twitter-redesign-rails/spec/features/follower_spec.rb:18:in `block (2 levels) in <top (required)>'
+
+2020-10-08 17:34:32[WARN] user: lucid
+GET /sources
+USE eager loading detected
+  User => [:followers]
+  Add to your query: .includes([:followers])
+Call stack
+  /Users/lucid/Desktop/twitter-redesign-rails/app/views/sources/index.html.erb:48:in `block in _app_views_sources_index_html_erb__972349390298660402_23700'
+  /Users/lucid/Desktop/twitter-redesign-rails/app/views/sources/index.html.erb:47:in `_app_views_sources_index_html_erb__972349390298660402_23700'
+  /Users/lucid/Desktop/twitter-redesign-rails/spec/features/follower_spec.rb:14:in `block (2 levels) in <top (required)>'
+
+2020-10-08 17:34:32[WARN] user: lucid
+GET /users
+AVOID eager loading detected
+  User => [:followeds, :followed_users, :following_users]
+  Remove from your query: .includes([:followeds, :followed_users, :following_users])
+Call stack
+  /Users/lucid/Desktop/twitter-redesign-rails/spec/features/follower_spec.rb:18:in `block (2 levels) in <top (required)>'
+
+2020-10-08 17:34:32[WARN] user: lucid
+GET /users
+AVOID eager loading detected
+  Following => [:followed, :follower]
+  Remove from your query: .includes([:followed, :follower])
+Call stack
+  /Users/lucid/Desktop/twitter-redesign-rails/spec/features/follower_spec.rb:18:in `block (2 levels) in <top (required)>'
+
+2020-10-08 17:34:32[WARN] user: lucid
+GET /users
+AVOID eager loading detected
+  User => [:followeds, :followed_users, :following_users]
+  Remove from your query: .includes([:followeds, :followed_users, :following_users])
+Call stack
+  /Users/lucid/Desktop/twitter-redesign-rails/spec/features/follower_spec.rb:19:in `block (3 levels) in <top (required)>'
+  /Users/lucid/Desktop/twitter-redesign-rails/spec/features/follower_spec.rb:19:in `block (2 levels) in <top (required)>'
+
+2020-10-08 17:34:32[WARN] user: lucid
+GET /users
+AVOID eager loading detected
+  Following => [:followed, :follower]
+  Remove from your query: .includes([:followed, :follower])
+Call stack
+  /Users/lucid/Desktop/twitter-redesign-rails/spec/features/follower_spec.rb:19:in `block (3 levels) in <top (required)>'
+  /Users/lucid/Desktop/twitter-redesign-rails/spec/features/follower_spec.rb:19:in `block (2 levels) in <top (required)>'
+
+2020-10-08 17:48:45[WARN] user: lucid
+GET /sources
+USE eager loading detected
+  User => [:followers]
+  Add to your query: .includes([:followers])
+Call stack
+  /Users/lucid/Desktop/twitter-redesign-rails/app/views/sources/index.html.erb:48:in `block in _app_views_sources_index_html_erb___3648486503396651355_23680'
+  /Users/lucid/Desktop/twitter-redesign-rails/app/views/sources/index.html.erb:47:in `_app_views_sources_index_html_erb___3648486503396651355_23680'
+  /Users/lucid/Desktop/twitter-redesign-rails/spec/features/follower_spec.rb:12:in `block (2 levels) in <top (required)>'
+
+2020-10-08 17:48:45[WARN] user: lucid
+GET /users
+AVOID eager loading detected
+  User => [:followeds, :followed_users, :following_users]
+  Remove from your query: .includes([:followeds, :followed_users, :following_users])
+Call stack
+  /Users/lucid/Desktop/twitter-redesign-rails/spec/features/follower_spec.rb:16:in `block (2 levels) in <top (required)>'
+
+2020-10-08 17:48:45[WARN] user: lucid
+GET /users
+AVOID eager loading detected
+  User => [:followeds, :followed_users, :following_users]
+  Remove from your query: .includes([:followeds, :followed_users, :following_users])
+Call stack
+  /Users/lucid/Desktop/twitter-redesign-rails/spec/features/follower_spec.rb:17:in `block (3 levels) in <top (required)>'
+  /Users/lucid/Desktop/twitter-redesign-rails/spec/features/follower_spec.rb:17:in `block (2 levels) in <top (required)>'
+
+2020-10-08 17:48:45[WARN] user: lucid
+GET /users
+AVOID eager loading detected
+  Following => [:followed, :follower]
+  Remove from your query: .includes([:followed, :follower])
+Call stack
+  /Users/lucid/Desktop/twitter-redesign-rails/spec/features/follower_spec.rb:17:in `block (3 levels) in <top (required)>'
+  /Users/lucid/Desktop/twitter-redesign-rails/spec/features/follower_spec.rb:17:in `block (2 levels) in <top (required)>'
+
+2020-10-08 17:48:45[WARN] user: lucid
+GET /sources
+USE eager loading detected
+  User => [:followers]
+  Add to your query: .includes([:followers])
+Call stack
+  /Users/lucid/Desktop/twitter-redesign-rails/app/views/sources/index.html.erb:48:in `block in _app_views_sources_index_html_erb___3648486503396651355_23680'
+  /Users/lucid/Desktop/twitter-redesign-rails/app/views/sources/index.html.erb:47:in `_app_views_sources_index_html_erb___3648486503396651355_23680'
+  /Users/lucid/Desktop/twitter-redesign-rails/spec/features/follower_spec.rb:12:in `block (2 levels) in <top (required)>'
+
+2020-10-08 17:48:45[WARN] user: lucid
+GET /users
+AVOID eager loading detected
+  User => [:followeds, :followed_users, :following_users]
+  Remove from your query: .includes([:followeds, :followed_users, :following_users])
+Call stack
+  /Users/lucid/Desktop/twitter-redesign-rails/spec/features/follower_spec.rb:21:in `block (2 levels) in <top (required)>'
+
+2020-10-08 17:48:45[WARN] user: lucid
+GET /users
+AVOID eager loading detected
+  User => [:followeds, :followed_users, :following_users]
+  Remove from your query: .includes([:followeds, :followed_users, :following_users])
+Call stack
+  /Users/lucid/Desktop/twitter-redesign-rails/spec/features/follower_spec.rb:22:in `block (2 levels) in <top (required)>'
+
+2020-10-08 17:48:45[WARN] user: lucid
+GET /users
+AVOID eager loading detected
+  Following => [:followed, :follower]
+  Remove from your query: .includes([:followed, :follower])
+Call stack
+  /Users/lucid/Desktop/twitter-redesign-rails/spec/features/follower_spec.rb:22:in `block (2 levels) in <top (required)>'
+
+2020-10-08 17:48:45[WARN] user: lucid
+GET /users
+AVOID eager loading detected
+  User => [:followeds, :followed_users, :following_users]
+  Remove from your query: .includes([:followeds, :followed_users, :following_users])
+Call stack
+  /Users/lucid/Desktop/twitter-redesign-rails/spec/features/follower_spec.rb:23:in `block (3 levels) in <top (required)>'
+  /Users/lucid/Desktop/twitter-redesign-rails/spec/features/follower_spec.rb:23:in `block (2 levels) in <top (required)>'
+
+2020-10-08 17:49:12[WARN] user: lucid
+GET /sources
+USE eager loading detected
+  User => [:followers]
+  Add to your query: .includes([:followers])
+Call stack
+  /Users/lucid/Desktop/twitter-redesign-rails/app/views/sources/index.html.erb:48:in `block in _app_views_sources_index_html_erb___1193472723239094022_23680'
+  /Users/lucid/Desktop/twitter-redesign-rails/app/views/sources/index.html.erb:47:in `_app_views_sources_index_html_erb___1193472723239094022_23680'
+  /Users/lucid/Desktop/twitter-redesign-rails/spec/features/follower_spec.rb:12:in `block (2 levels) in <top (required)>'
+
+2020-10-08 17:49:12[WARN] user: lucid
+GET /users
+AVOID eager loading detected
+  User => [:followeds, :followed_users, :following_users]
+  Remove from your query: .includes([:followeds, :followed_users, :following_users])
+Call stack
+  /Users/lucid/Desktop/twitter-redesign-rails/spec/features/follower_spec.rb:16:in `block (2 levels) in <top (required)>'
+
+2020-10-08 17:49:12[WARN] user: lucid
+GET /users
+AVOID eager loading detected
+  User => [:followeds, :followed_users, :following_users]
+  Remove from your query: .includes([:followeds, :followed_users, :following_users])
+Call stack
+  /Users/lucid/Desktop/twitter-redesign-rails/spec/features/follower_spec.rb:17:in `block (3 levels) in <top (required)>'
+  /Users/lucid/Desktop/twitter-redesign-rails/spec/features/follower_spec.rb:17:in `block (2 levels) in <top (required)>'
+
+2020-10-08 17:49:12[WARN] user: lucid
+GET /users
+AVOID eager loading detected
+  Following => [:followed, :follower]
+  Remove from your query: .includes([:followed, :follower])
+Call stack
+  /Users/lucid/Desktop/twitter-redesign-rails/spec/features/follower_spec.rb:17:in `block (3 levels) in <top (required)>'
+  /Users/lucid/Desktop/twitter-redesign-rails/spec/features/follower_spec.rb:17:in `block (2 levels) in <top (required)>'
+
+2020-10-08 17:49:12[WARN] user: lucid
+GET /sources
+USE eager loading detected
+  User => [:followers]
+  Add to your query: .includes([:followers])
+Call stack
+  /Users/lucid/Desktop/twitter-redesign-rails/app/views/sources/index.html.erb:48:in `block in _app_views_sources_index_html_erb___1193472723239094022_23680'
+  /Users/lucid/Desktop/twitter-redesign-rails/app/views/sources/index.html.erb:47:in `_app_views_sources_index_html_erb___1193472723239094022_23680'
+  /Users/lucid/Desktop/twitter-redesign-rails/spec/features/follower_spec.rb:12:in `block (2 levels) in <top (required)>'
+
+2020-10-08 17:49:12[WARN] user: lucid
+GET /users
+AVOID eager loading detected
+  User => [:followeds, :followed_users, :following_users]
+  Remove from your query: .includes([:followeds, :followed_users, :following_users])
+Call stack
+  /Users/lucid/Desktop/twitter-redesign-rails/spec/features/follower_spec.rb:21:in `block (2 levels) in <top (required)>'
+
+2020-10-08 17:49:12[WARN] user: lucid
+GET /users
+AVOID eager loading detected
+  User => [:followeds, :followed_users, :following_users]
+  Remove from your query: .includes([:followeds, :followed_users, :following_users])
+Call stack
+  /Users/lucid/Desktop/twitter-redesign-rails/spec/features/follower_spec.rb:22:in `block (2 levels) in <top (required)>'
+
+2020-10-08 17:49:12[WARN] user: lucid
+GET /users
+AVOID eager loading detected
+  Following => [:followed, :follower]
+  Remove from your query: .includes([:followed, :follower])
+Call stack
+  /Users/lucid/Desktop/twitter-redesign-rails/spec/features/follower_spec.rb:22:in `block (2 levels) in <top (required)>'
+
+2020-10-08 17:49:12[WARN] user: lucid
+GET /users
+AVOID eager loading detected
+  User => [:followeds, :followed_users, :following_users]
+  Remove from your query: .includes([:followeds, :followed_users, :following_users])
+Call stack
+  /Users/lucid/Desktop/twitter-redesign-rails/spec/features/follower_spec.rb:23:in `block (3 levels) in <top (required)>'
+  /Users/lucid/Desktop/twitter-redesign-rails/spec/features/follower_spec.rb:23:in `block (2 levels) in <top (required)>'
 

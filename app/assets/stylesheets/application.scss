@@ -118,6 +118,24 @@ html, body {
       }
     }
   }
+  .source-list {
+    h5 { 
+      text-transform: uppercase;
+      padding-bottom: 10px;
+      border-bottom: 1px solid $light-grey;
+      margin-bottom: 20px;
+      font-weight: 500;
+      color: $light-blue;
+    }    
+    .user-source-item {
+      margin-bottom: 5px;
+      h4 {
+        color: $dark-blue;
+        text-transform: capitalize;
+        font-weight: 500;
+      }
+    }
+  }
   .user-followers {
     padding: 0.75rem;
     strong a {
@@ -172,7 +190,7 @@ html, body {
   }
   .source-index-list {
     h5 {
-      padding: 15px 0;
+      padding: 0 0 10px;
       margin: 0 0 20px;
       color: $light-blue;
       font-weight: 500;

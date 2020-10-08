@@ -1,33 +1,63 @@
-<h2>Users</h2>
-
-<p><%= Following.all.to_a %></p>
-
-<%= link_to 'Create New User', new_user_path %>
-
-<br>
-<br>
-
-<% @users.each do |user| %>
-  <br>
-  <br>
-
-  <%= link_to user.username, user_path(user) %>  
-  <p>following<p>
-  <%= user.followeds.any? ? user.followeds.all.to_a : 'not following anyboy' %>
-  <p>followed by<p>
-  <%= user.followers.any? ? user.followers.all.to_a : 'no followers' %>
-  <br>
-  <br>
-  <% if current_user %>
-    <% if current_user.id != user.id %>
-      <%= link_to 'Follow', followings_follow_path(follower_id: current_user.id, followed_id: user.id), method: :post %>
-      <%= link_to 'Unfollow', followings_unfollow_path(follower_id: current_user.id, followed_id: user.id), method: :delete %>
-    <% end %>
-    <% if user.id == current_user.id %>
-      <%= link_to 'Edit', edit_user_path(user) %>
-    <% end %>
-  <% end  %>
+<div class="source-index-content">
+  <div class="columns source-index-cols">
+    <div class="column is-9">
+      <div class="link-panel">
+        <a href="#" class='active'>Users</a>     
+      </div>
+      
+      <div class="card source-index-list user-index">
+        <h5 class='new-source-count'>Explore Users</h5>   
+          <% @users.each do |user| %>
+            <div class='source-item'>
+              <div class="columns">
+                <div class="column is-1">
+                  <figure class='image is-48x48'>
+                    <%= image_tag 'profile.png', class: 'is-roundish' %>
+                  </figure>
+                </div>
+                <div class="column"> 
+                  <div class="source-author">
+                    <%= link_to user.username, user_path(user) %>  
+                    <% if current_user %>
+                      <% if current_user.id != user.id %>
+                        <%= link_to 'Follow', followings_follow_path(follower_id: current_user.id, followed_id: user.id), method: :post, class: 'follow-link' %>                        
+                        <%= link_to 'Unfollow', followings_unfollow_path(follower_id: current_user.id, followed_id: user.id), method: :delete, class: 'unfollow-link' %>
+                      <% end %>
+                      <% if user.id == current_user.id %>
+                        <%= link_to 'Edit', edit_user_path(user) %>
+                      <% end %>
+                    <% end  %>
+                  </div>
+                </div>
+              </div>
+            </div>                
+          <% end %>
+      </div>
+    </div>
+    <div class="column">
+      <div class="who-to-follow"> 
+        <h3>Who to follow</h3>
+        <% @users.each do |user| %>
+          <% unless user.followers.include?(current_user) %>
+            <div class='follow-item'>
+              <div class="columns">
+                <div class="column is-3">
+                  <figure class='image is-48x48'>
+                    <%= image_tag 'profile.png', class: 'is-rounded' %>
+                  </figure>                  
+                </div>
+                <div class="column">
+                  <h4><%= link_to user.full_name, user_path(user) %></h4>                                
+                    <%= link_to 'Follow', followings_follow_path(follower_id: current_user.id, followed_id: user.id), method: :post, class: 'follow-link' %>                
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
   
-<% end %>
 
 

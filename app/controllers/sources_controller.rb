@@ -1,6 +1,7 @@
 class SourcesController < ApplicationController
   include ApplicationHelper
 
+  before_action :check_login
   before_action :set_source, only: [:show, :edit, :update, :destroy]
 
   # GET /sources
@@ -8,7 +9,7 @@ class SourcesController < ApplicationController
   def index    
     @source = Source.new
     @sources = Source.order('created_at DESC')
-    @users = User.limit(3).where.not(id: current_user.id)
+    @users = User.limit(3)
   end
 
   # GET /sources/1

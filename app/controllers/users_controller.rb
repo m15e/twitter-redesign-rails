@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
+  before_action :check_login, except: %i[new]
 
   def index 
-    @users = User.all
+    @users = User.all.includes(:followeds, :followers)
   end
   
   def show
