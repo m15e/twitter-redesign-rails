@@ -8,8 +8,8 @@ class SourcesController < ApplicationController
   # GET /sources.json
   def index    
     @source = Source.new
-    @sources = Source.order('created_at DESC')
-    @users = User.limit(3).includes([:followers, :following_users])
+    @sources = Source.order('created_at DESC').includes([:author])
+    @users = User.limit(3)
   end
 
   # GET /sources/1

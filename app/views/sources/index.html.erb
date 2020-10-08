@@ -29,7 +29,7 @@
                 </div>
                 <div>
                 <!-- TO-HELPER -->
-                <% if current_user and source.author.id == current_user.id %>
+                <% if source.author.id == current_user.id %>
                   <%= link_to 'Show', source %>
                   <%= link_to 'Edit', edit_source_path(source) %>
                   <%= link_to 'Destroy', source, method: :delete, data: { confirm: 'Are you sure?' } %>      

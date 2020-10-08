@@ -1,0 +1,339 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+body, p, ol, ul, td {
+  font-family: 'Roboto', sans-serif;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  height: 100%;
+}
+
+#app-container {
+  max-width: 100%;
+}
+
+.navbar {
+  height: 10vh;
+}
+
+.button.is-primary {
+  background-color: #45aaf2;
+}
+
+.main-cols {
+  margin-top: 0;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+}
+
+.main-cols .columns:last-child {
+  margin-bottom: 0;
+}
+
+.yield-cols {
+  padding: 0;
+  min-height: 100vh;
+}
+
+.yield-cols .card {
+  margin: 30px 30px 0;
+  padding: 15px 15px 15px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.yield-cols input[type='text'] {
+  width: 100%;
+  padding: 15px;
+  border: 0.5px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+.login .columns {
+  margin: 0;
+}
+
+.login .column {
+  margin: 2em auto;
+}
+
+.user-show-content .is-9 {
+  padding-right: 0;
+}
+
+.user-show-content .cover-photo {
+  height: 30vh;
+  background-position: center 17%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.user-show-content .user-col {
+  padding-left: 0;
+}
+
+.user-show-content .user-detail {
+  text-align: center;
+}
+
+.user-show-content .user-detail h4 {
+  text-transform: uppercase;
+  color: #213246;
+  font-weight: 500;
+}
+
+.user-show-content .user-detail span {
+  color: #718093;
+}
+
+.user-show-content .user-detail figure {
+  margin: 25px auto;
+}
+
+.user-show-content .user-stats {
+  padding: 0.75rem;
+  text-align: center;
+}
+
+.user-show-content .user-stats span {
+  text-transform: capitalize;
+  color: #718093;
+  display: block;
+  font-size: 11px;
+}
+
+.user-show-content .user-stats .columns {
+  margin: 0;
+}
+
+.user-show-content .user-stats .columns .column {
+  padding: 0;
+}
+
+.user-show-content .source-list h5 {
+  text-transform: uppercase;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  font-weight: 500;
+  color: #45aaf2;
+}
+
+.user-show-content .source-list .user-source-item {
+  margin-bottom: 5px;
+}
+
+.user-show-content .source-list .user-source-item h4 {
+  color: #213246;
+  text-transform: capitalize;
+  font-weight: 500;
+}
+
+.user-show-content .user-followers {
+  padding: 0.75rem;
+}
+
+.user-show-content .user-followers strong a {
+  text-transform: uppercase;
+  color: #213246;
+  display: block;
+}
+
+.user-show-content .user-followers h5 {
+  text-transform: uppercase;
+  color: #718093;
+  font-size: 12px;
+  font-weight: 500;
+  margin-left: 15px;
+}
+
+.user-show-content .user-followers .follower-item {
+  margin: 15px;
+}
+
+.user-show-content .user-followers .follower-item .is-2 {
+  margin-right: 5px;
+}
+
+.user-show-content .user-followers .follower-item span {
+  color: #718093;
+}
+
+.user-show-content .user-followers .follower-item .follow-link {
+  color: #45aaf2;
+}
+
+.source-index-content .link-panel {
+  margin-top: 20px;
+}
+
+.source-index-content .link-panel a.active {
+  border-bottom: 2px solid #45aaf2;
+  color: #213246;
+}
+
+.source-index-content .link-panel a {
+  padding: 30px 30px 20px;
+  text-transform: uppercase;
+  color: #718093;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-weight: 500;
+}
+
+.source-index-content .source-index-new {
+  margin-top: 4em;
+  padding: 15px 20px;
+}
+
+.source-index-content .source-index-new p {
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.source-index-content .source-index-list h5 {
+  padding: 0 0 10px;
+  margin: 0 0 20px;
+  color: #45aaf2;
+  font-weight: 500;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.source-index-content .source-item {
+  margin-bottom: 5px;
+}
+
+.source-index-content .source-item a {
+  color: #45aaf2;
+}
+
+.source-index-content .source-item .source-author a {
+  color: #213246;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.source-index-content .source-item p {
+  color: #718093;
+}
+
+.source-index-content .who-to-follow {
+  margin-top: 2em;
+}
+
+.source-index-content .who-to-follow h3 {
+  text-transform: uppercase;
+  color: #718093;
+  margin-bottom: 3.5em;
+}
+
+.source-index-content .who-to-follow .follow-item {
+  margin-bottom: 10px;
+}
+
+.source-index-content .who-to-follow .follow-item h4 a {
+  color: #213246;
+  text-transform: capitalize;
+  font-weight: 500;
+}
+
+.source-index-content .who-to-follow .follow-item a {
+  color: #45aaf2;
+}
+
+.is-15-percent {
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
+  background-color: #213246;
+  width: 16.6%;
+  color: #fff;
+  padding-top: 10px;
+  padding-left: 25px;
+  padding-bottom: 0;
+}
+
+.navbar {
+  background-color: #45aaf2;
+  padding-right: 0.75rem;
+}
+
+.navbar a {
+  color: #fff;
+}
+
+.user-profile .is-three-quarters {
+  text-align: center;
+  padding-top: 27px;
+}
+
+.user-profile span {
+  color: #718093;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.user-follow-stats a {
+  text-align: center;
+  display: block;
+  color: #fff;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.user-follow-stats a span {
+  color: #718093;
+  font-size: 12px;
+}
+
+.side-nav-links {
+  list-style-type: none;
+}
+
+.side-nav-links li {
+  margin-bottom: 25px;
+}
+
+.side-nav-links a {
+  color: #718093;
+  text-transform: uppercase;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.side-nav-links a img {
+  margin-right: 7px;
+}
+
+.is-roundish {
+  border-radius: 3px;
+}

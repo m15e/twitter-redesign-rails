@@ -19,7 +19,10 @@
         </div>
         <div class="column yield-cols">
           <p id="notice"><%= notice %></p>
-          <%= render('shared/top_nav') %>
+          <p id="alert"><%= alert %></p>
+          <% if current_user %>
+            <%= render('shared/top_nav') %>
+          <% end %>            
           <%= yield %>
         </div>
       </div>
