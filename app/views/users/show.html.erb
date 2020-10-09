@@ -13,13 +13,6 @@
           <div class="source-list">     
             <h5>All Sources by @<%= @user.username %></h5>     
 
-        <!-- debug code
-          <p>followers</p>
-          <strong><%= @user.followers.any? ? @user.followers.all.to_a : 'no followers' %></strong>
-
-          <p>following</p>
-          <%= @user.followeds.any? ? @user.followeds.all.to_a : 'no followeds' %>
-          -->
           <% @user.sources.each do |s| %>
           <div class="user-source-item">
             <div class="columns">
@@ -41,8 +34,8 @@
       <div class="column user-col">
         <div class="user-detail">
           <% if current_user %>
-            <% if current_user.id != @user.id %>
-                <%= link_to 'Follow', followings_follow_path(follower_id: current_user.id, followed_id: @user.id), method: :post %>
+            <% if current_user != @user.id %>
+                <%= link_to 'Follow', followings_follow_path(follower_id: current_user, followed_id: @user.id), method: :post %>
             <% end %>
           <% end %>
           <figure class='image is-96x96'>
@@ -80,7 +73,7 @@
                 <div class="column">
                   <strong><%= link_to follow.full_name, user_path(follow) %></strong>
                   <span>@<%= follow.username %></span>
-                  <%= link_to 'Follow', followings_follow_path(follower_id: current_user.id, followed_id: follow.id), method: :post, class: 'follow-link' %>
+                  <%= link_to 'Follow', followings_follow_path(follower_id: current_user, followed_id: follow.id), method: :post, class: 'follow-link' %>
                 </div>
               </div>
             </div>

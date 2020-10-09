@@ -5,7 +5,7 @@
     </figure>
   </div>
   <div class="column is-three-quarters">
-    <span><%= current_user ? + current_user.full_name : ': )' %></span>
+    <span><%= !session[:user_id].nil? ? session[:name] : ': )' %></span>
   </div>
 </div>
 
@@ -13,10 +13,10 @@
 <% if current_user %>
 <div class="columns user-follow-stats">
   <div class="column is-half">
-    <a href="#"><%= current_user.followeds.count %><br><span>Following</span></a>
+    <a href="#"><%= session[:followeds] %><br><span>Following</span></a>
   </div>
   <div class="column is-half">
-    <a href="#"><%= current_user.followers.count %><br><span>Followers</span></a>
+    <a href="#"><%= session[:followers] %><br><span>Followers</span></a>
   </div>
 </div>   
 

@@ -66,5 +66,5 @@ Rails.application.configure do
     Bullet.enable = true    
   end
   #Bullet.alert = true
-  #Bullet.console = true
+  Bullet.console = true
 end

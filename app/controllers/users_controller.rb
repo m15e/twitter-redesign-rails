@@ -2,7 +2,8 @@ class UsersController < ApplicationController
   before_action :check_login, except: %i[new]
 
   def index 
-    @users = User.all.includes(:followeds, :followers)
+    @users = User.all.limit(10)
+    @current_user = User.find(current_user)
   end
   
   def show

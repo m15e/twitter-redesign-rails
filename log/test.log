@@ -10872,3 +10872,141 @@ Processing by SourcesController#show as HTML
   Rendered shared/_top_nav.html.erb (Duration: 2.0ms | Allocations: 883)
 Completed 200 OK in 23ms (Views: 19.2ms | ActiveRecord: 1.6ms | Allocations: 8914)
   [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (20.1ms)[0m  [1m[32mINSERT INTO "users" ("username", "full_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "user1"], ["full_name", "user one"], ["created_at", "2020-10-08 15:53:27.938792"], ["updated_at", "2020-10-08 15:53:27.938792"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "full_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "user2"], ["full_name", "user two"], ["created_at", "2020-10-08 15:53:27.969017"], ["updated_at", "2020-10-08 15:53:27.969017"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/login" for 127.0.0.1 at 2020-10-08 23:53:28 +0800
+Processing by SessionsController#login as HTML
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 7.6ms | Allocations: 549)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_side_nav.html.erb (Duration: 5.9ms | Allocations: 1007)
+Completed 200 OK in 552ms (Views: 527.1ms | ActiveRecord: 0.0ms | Allocations: 40598)
+Started POST "/sessions/try_login" for 127.0.0.1 at 2020-10-08 23:53:28 +0800
+Processing by SessionsController#try_login as HTML
+  Parameters: {"username"=>"user1", "commit"=>"Log In"}
+  [1m[36mUser Load (23.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["username", "user1"], ["LIMIT", 1]]
+Redirected to http://www.example.com/sources
+Completed 302 Found in 31ms (ActiveRecord: 26.0ms | Allocations: 702)
+Started GET "/sources" for 127.0.0.1 at 2020-10-08 23:53:28 +0800
+Processing by SourcesController#index as HTML
+  Rendering sources/index.html.erb within layouts/application
+  Rendered sources/_form.html.erb (Duration: 7.2ms | Allocations: 543)
+  [1m[36mSource Load (1.7ms)[0m  [1m[34mSELECT "sources".* FROM "sources" ORDER BY created_at DESC[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 3]]
+  Rendered sources/index.html.erb within layouts/application (Duration: 40.3ms | Allocations: 5983)
+Completed 500 Internal Server Error in 77ms (ActiveRecord: 7.3ms | Allocations: 10447)
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "full_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "user1"], ["full_name", "user one"], ["created_at", "2020-10-08 15:53:28.868585"], ["updated_at", "2020-10-08 15:53:28.868585"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "full_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "user2"], ["full_name", "user two"], ["created_at", "2020-10-08 15:53:28.871232"], ["updated_at", "2020-10-08 15:53:28.871232"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/login" for 127.0.0.1 at 2020-10-08 23:53:28 +0800
+Processing by SessionsController#login as HTML
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 0.4ms | Allocations: 198)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_side_nav.html.erb (Duration: 0.9ms | Allocations: 478)
+Completed 200 OK in 8ms (Views: 7.1ms | ActiveRecord: 0.0ms | Allocations: 2971)
+Started POST "/sessions/try_login" for 127.0.0.1 at 2020-10-08 23:53:28 +0800
+Processing by SessionsController#try_login as HTML
+  Parameters: {"username"=>"user1", "commit"=>"Log In"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["username", "user1"], ["LIMIT", 1]]
+Redirected to http://www.example.com/sources
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms | Allocations: 517)
+Started GET "/sources" for 127.0.0.1 at 2020-10-08 23:53:28 +0800
+Processing by SourcesController#index as HTML
+  Rendering sources/index.html.erb within layouts/application
+  Rendered sources/_form.html.erb (Duration: 0.5ms | Allocations: 202)
+  [1m[36mSource Load (0.3ms)[0m  [1m[34mSELECT "sources".* FROM "sources" ORDER BY created_at DESC[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 3]]
+  Rendered sources/index.html.erb within layouts/application (Duration: 5.9ms | Allocations: 3197)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.6ms | Allocations: 3682)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "full_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "user1"], ["full_name", "user one"], ["created_at", "2020-10-08 15:53:28.943730"], ["updated_at", "2020-10-08 15:53:28.943730"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/login" for 127.0.0.1 at 2020-10-08 23:53:28 +0800
+Processing by SessionsController#login as HTML
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 1.4ms | Allocations: 191)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_side_nav.html.erb (Duration: 1.6ms | Allocations: 478)
+Completed 200 OK in 10ms (Views: 9.5ms | ActiveRecord: 0.0ms | Allocations: 2959)
+Started POST "/sessions/try_login" for 127.0.0.1 at 2020-10-08 23:53:28 +0800
+Processing by SessionsController#try_login as HTML
+  Parameters: {"username"=>"user1", "commit"=>"Log In"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["username", "user1"], ["LIMIT", 1]]
+Redirected to http://www.example.com/sources
+Completed 302 Found in 6ms (ActiveRecord: 0.4ms | Allocations: 517)
+Started GET "/sources" for 127.0.0.1 at 2020-10-08 23:53:28 +0800
+Processing by SourcesController#index as HTML
+  Rendering sources/index.html.erb within layouts/application
+  Rendered sources/_form.html.erb (Duration: 0.5ms | Allocations: 202)
+  [1m[36mSource Load (0.3ms)[0m  [1m[34mSELECT "sources".* FROM "sources" ORDER BY created_at DESC[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 3]]
+  Rendered sources/index.html.erb within layouts/application (Duration: 5.0ms | Allocations: 2507)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.6ms | Allocations: 2999)
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "full_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "user1"], ["full_name", "user one"], ["created_at", "2020-10-08 15:53:29.016616"], ["updated_at", "2020-10-08 15:53:29.016616"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/login" for 127.0.0.1 at 2020-10-08 23:53:29 +0800
+Processing by SessionsController#login as HTML
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 0.4ms | Allocations: 191)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_side_nav.html.erb (Duration: 0.8ms | Allocations: 478)
+Completed 200 OK in 8ms (Views: 7.6ms | ActiveRecord: 0.0ms | Allocations: 2959)
+Started POST "/sessions/try_login" for 127.0.0.1 at 2020-10-08 23:53:29 +0800
+Processing by SessionsController#try_login as HTML
+  Parameters: {"username"=>"user1", "commit"=>"Log In"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["username", "user1"], ["LIMIT", 1]]
+Redirected to http://www.example.com/sources
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms | Allocations: 517)
+Started GET "/sources" for 127.0.0.1 at 2020-10-08 23:53:29 +0800
+Processing by SourcesController#index as HTML
+  Rendering sources/index.html.erb within layouts/application
+  Rendered sources/_form.html.erb (Duration: 0.6ms | Allocations: 202)
+  [1m[36mSource Load (0.5ms)[0m  [1m[34mSELECT "sources".* FROM "sources" ORDER BY created_at DESC[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 3]]
+  Rendered sources/index.html.erb within layouts/application (Duration: 5.9ms | Allocations: 2507)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.7ms | Allocations: 2983)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "full_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "user1"], ["full_name", "user one"], ["created_at", "2020-10-08 15:53:29.084436"], ["updated_at", "2020-10-08 15:53:29.084436"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/login" for 127.0.0.1 at 2020-10-08 23:53:29 +0800
+Processing by SessionsController#login as HTML
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 0.6ms | Allocations: 191)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_side_nav.html.erb (Duration: 0.8ms | Allocations: 478)
+Completed 200 OK in 8ms (Views: 6.7ms | ActiveRecord: 0.0ms | Allocations: 2959)
+Started POST "/sessions/try_login" for 127.0.0.1 at 2020-10-08 23:53:29 +0800
+Processing by SessionsController#try_login as HTML
+  Parameters: {"username"=>"user1", "commit"=>"Log In"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["username", "user1"], ["LIMIT", 1]]
+Redirected to http://www.example.com/sources
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms | Allocations: 517)
+Started GET "/sources" for 127.0.0.1 at 2020-10-08 23:53:29 +0800
+Processing by SourcesController#index as HTML
+  Rendering sources/index.html.erb within layouts/application
+  Rendered sources/_form.html.erb (Duration: 0.4ms | Allocations: 202)
+  [1m[36mSource Load (0.4ms)[0m  [1m[34mSELECT "sources".* FROM "sources" ORDER BY created_at DESC[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 3]]
+  Rendered sources/index.html.erb within layouts/application (Duration: 6.9ms | Allocations: 2507)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.6ms | Allocations: 2995)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m

@@ -9,6 +9,10 @@ class SessionsController < ApplicationController
 
       if user_found
         session[:user_id] = user_found.id
+        session[:username] = user_found.username
+        session[:name] = user_found.full_name 
+        session[:followeds] = user_found.followeds.count
+        session[:followers] = user_found.followers.count
         flash[:notice] = 'Logged in'
         redirect_to(sources_path)
       else 

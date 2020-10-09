@@ -29,7 +29,7 @@
                 </div>
                 <div>
                 <!-- TO-HELPER -->
-                <% if source.author.id == current_user.id %>
+                <% if source.author.id == current_user %>
                   <%= link_to 'Show', source %>
                   <%= link_to 'Edit', edit_source_path(source) %>
                   <%= link_to 'Destroy', source, method: :delete, data: { confirm: 'Are you sure?' } %>      
@@ -45,7 +45,7 @@
       <div class="who-to-follow"> 
         <h3>Who to follow</h3>
         <% @users.each do |user| %>
-          <% unless user.followers.include?(current_user) %>
+          <% unless @following.include?(user) %>
             <div class='follow-item'>
               <div class="columns">
                 <div class="column is-3">
@@ -53,12 +53,10 @@
                     <%= image_tag 'profile.png', class: 'is-rounded' %>
                   </figure>                  
                 </div>
-                <% if current_user %>
                 <div class="column">
                   <h4><%= link_to user.full_name, user_path(user) %></h4>                                
-                    <%= link_to 'Follow', followings_follow_path(follower_id: current_user.id, followed_id: user.id), method: :post, class: 'follow-link' %>                
+                    <%= link_to 'Follow', followings_follow_path(follower_id: current_user, followed_id: user.id), method: :post, class: 'follow-link' %>                
                 </div>
-                <% end %>
               </div>
             </div>
           <% end %>
