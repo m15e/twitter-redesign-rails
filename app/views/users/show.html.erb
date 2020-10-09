@@ -69,7 +69,7 @@
                 <div class="column">
                   <strong><%= link_to follow.full_name, user_path(follow) %></strong>
                   <span>@<%= follow.username %></span>
-                  <%= link_to 'Follow', followings_follow_path(follower_id: current_user, followed_id: follow.id), method: :post, class: 'follow-link' %>
+                  <%= follow?(@following, follow) %>
                 </div>
               </div>
             </div>
