@@ -16,4 +16,17 @@ module UsersHelper
     end
     content
   end
+
+  def follow?(following, user)
+    content = tag(:span, class: 'follow-links')
+    if current_user != user.id 
+      unless following.include?(user)
+        content << link_to('Follow', followings_follow_path(follower_id: current_user, followed_id: user.id), method: :post)
+      end
+      if @following.include?(user)
+        content << link_to('Unfollow', followings_unfollow_path(follower_id: current_user, followed_id: user.id), method: :delete, class: 'unfollow-link')
+      end
+    end 
+    content
+  end
 end

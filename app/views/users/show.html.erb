@@ -32,12 +32,8 @@
         </div>
       </div>
       <div class="column user-col">
-        <div class="user-detail">
-          <% if current_user %>
-            <% if current_user != @user.id %>
-                <%= link_to 'Follow', followings_follow_path(follower_id: current_user, followed_id: @user.id), method: :post %>
-            <% end %>
-          <% end %>
+        <div class="user-detail">  
+          <%= follow?(@following, @user) %>         
           <figure class='image is-96x96'>
             <%= image_tag 'profile.png', class: 'is-rounded' %>
           </figure>
