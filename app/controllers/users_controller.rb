@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :check_login, except: %i[new]
 
   def index 
-    @users = User.all.limit(10)    
+    @users = User.all.limit(10)
     @following = User.find(current_user).followeds    
   end
   
