@@ -112,7 +112,7 @@ html, body {
     }
   }
   .user-stats {
-    padding: 0.75rem;
+    padding: 0;
     text-align: center;
     span {
       text-transform: capitalize;
@@ -122,6 +122,8 @@ html, body {
     }
     .columns {
       margin: 0;
+      border-top: 1px solid $light-grey;
+      border-bottom: 1px solid $light-grey; 
       .column {
         padding: 0;
       }
