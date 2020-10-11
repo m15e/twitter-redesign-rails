@@ -31,9 +31,9 @@
           </div><!-- source-list-end -->
         </div>
       </div>
-      <div class="column user-col">
-        <div class="user-detail">  
-          <%= follow_img?(@following, @user) %>         
+      
+        <%= follow_img(@following, @user) %> 
+        <div class="user-detail">              
           <figure class='image is-96x96'>
             <%= image_tag 'profile.png', class: 'is-rounded' %>
           </figure>
@@ -75,7 +75,7 @@
             </div>
           <% end %>
         </div>
-      </div>
+      
     </div>   
 </div>
 

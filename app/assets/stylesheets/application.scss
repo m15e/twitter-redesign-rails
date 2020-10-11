@@ -37,8 +37,17 @@ html, body {
   max-width: 100%;
 }
 
+a:hover {
+  background-color: transparent;
+  opacity: 0.7;
+}
+
 .navbar {
   height: 10vh;
+  .nav-top-icon {
+    width: 20px;
+    height: 20px;    
+  }
 }
 
 .button.is-primary {
@@ -58,6 +67,7 @@ html, body {
 }
 
 .yield-cols {
+  background-color: rgba(0, 0, 0, 0.04);
   padding: 0;
   min-height: 100vh;
   .card {
@@ -85,8 +95,13 @@ html, body {
 }
 
 .user-show-content {
+  .columns {
+    margin-right: 0;
+  }
   .is-9 {
     padding-right: 0;
+    min-height: 100vh;
+    border-right: 1px solid $light-grey;
   }
   .cover-photo {
     height: 30vh;
@@ -97,7 +112,24 @@ html, body {
   .user-col {
     padding-left: 0;
   }
+  .follow-link_ {
+    color: $light-blue;
+    position: relative;
+    top: -2.3em;
+    left: 60px;
+  }
+
+  .follow-link {
+    position: absolute;
+    top: 15vh;
+    padding: 1vh 2.5vw;
+    img {
+      width: 40px;
+      height: 40px;
+    }
+  }   
   .user-detail {
+    height: 22.2vh;
     text-align: center;
     h4 {
       text-transform: uppercase;
@@ -109,7 +141,7 @@ html, body {
     }
     figure {
       margin: 25px auto;      
-    }
+    }     
   }
   .user-stats {
     padding: 0;
@@ -125,7 +157,11 @@ html, body {
       border-top: 1px solid $light-grey;
       border-bottom: 1px solid $light-grey; 
       .column {
-        padding: 0;
+        padding: 2px 0 0;
+      }
+      .column:nth-of-type(2) {
+        border-left: 1px solid $light-grey;
+        border-right: 1px solid $light-grey;
       }
     }
   }
@@ -250,7 +286,7 @@ html, body {
   width: 16.6%;
   color: #fff;
   padding-top: 10px;
-  padding-left: 25px;  
+  padding-left: 35px;  
   padding-bottom: 0;
 }
 
@@ -276,6 +312,11 @@ html, body {
 }
 
 .user-follow-stats {
+  border-top: 1px solid rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);  
+  .is-half:first-of-type {
+    border-right: 1px solid rgba(0, 0, 0, 0.3);
+  }
   a {
     text-align: center;
     display: block;

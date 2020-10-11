@@ -19,9 +19,9 @@
     </div>
 
     <div class="navbar-end">
-      <%= link_to '⚗️', '#', class: 'navbar-item'%>
-      <%= link_to '✉️', '#', class: 'navbar-item'%>
-      <%= link_to '🔎', '#', class: 'navbar-item'%>
+      <%= link_to image_tag('create.svg', class: 'nav-top-icon'), '#', class: 'navbar-item'%>
+      <%= link_to image_tag('message.svg', class: 'nav-top-icon'), '#', class: 'navbar-item'%>
+      <%= link_to image_tag('search.svg', class: 'nav-top-icon'), '#', class: 'navbar-item'%>
       <div class="navbar-item">      
         <div class="buttons">          
           <% if current_user %>

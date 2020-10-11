@@ -28,8 +28,18 @@ html, body {
   max-width: 100%;
 }
 
+a:hover {
+  background-color: transparent;
+  opacity: 0.7;
+}
+
 .navbar {
   height: 10vh;
+}
+
+.navbar .nav-top-icon {
+  width: 20px;
+  height: 20px;
 }
 
 .button.is-primary {
@@ -56,6 +66,7 @@ html, body {
 }
 
 .yield-cols {
+  background-color: rgba(0, 0, 0, 0.04);
   padding: 0;
   min-height: 100vh;
 }
@@ -83,8 +94,14 @@ html, body {
   margin: 2em auto;
 }
 
+.user-show-content .columns {
+  margin-right: 0;
+}
+
 .user-show-content .is-9 {
   padding-right: 0;
+  min-height: 100vh;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .user-show-content .cover-photo {
@@ -98,7 +115,26 @@ html, body {
   padding-left: 0;
 }
 
+.user-show-content .follow-link_ {
+  color: #45aaf2;
+  position: relative;
+  top: -2.3em;
+  left: 60px;
+}
+
+.user-show-content .follow-link {
+  position: absolute;
+  top: 15vh;
+  padding: 1vh 2.5vw;
+}
+
+.user-show-content .follow-link img {
+  width: 40px;
+  height: 40px;
+}
+
 .user-show-content .user-detail {
+  height: 22.2vh;
   text-align: center;
 }
 
@@ -135,7 +171,12 @@ html, body {
 }
 
 .user-show-content .user-stats .columns .column {
-  padding: 0;
+  padding: 2px 0 0;
+}
+
+.user-show-content .user-stats .columns .column:nth-of-type(2) {
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .user-show-content .source-list h5 {
@@ -279,7 +320,7 @@ html, body {
   width: 16.6%;
   color: #fff;
   padding-top: 10px;
-  padding-left: 25px;
+  padding-left: 35px;
   padding-bottom: 0;
 }
 
@@ -301,6 +342,15 @@ html, body {
   color: #718093;
   font-weight: 500;
   text-transform: uppercase;
+}
+
+.user-follow-stats {
+  border-top: 1px solid rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.user-follow-stats .is-half:first-of-type {
+  border-right: 1px solid rgba(0, 0, 0, 0.3);
 }
 
 .user-follow-stats a {
