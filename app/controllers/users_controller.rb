@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :check_login, except: %i[new]
+  #before_action :check_login, except: %i[new]
 
   def index 
     @users = User.all.limit(10)
@@ -19,8 +19,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save!
-      flash[:notice] = 'Account Creation Successfull'
-      redirect_to(users_path)
+      flash[:notice] = 'Account Creation Successfull. Please login to your new account.'      
+      redirect_to(login_path)
     else
       render('new')
     end
@@ -54,6 +54,6 @@ class UsersController < ApplicationController
   private 
 
   def user_params
-    params.require(:user).permit(:username, :full_name) # TODO: might require edit for photo/cover_img
+    params.require(:user).permit(:username, :full_name, :photo) # TODO: might require edit for photo/cover_img
   end
 end

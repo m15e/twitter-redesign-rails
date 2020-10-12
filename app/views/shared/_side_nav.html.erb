@@ -1,7 +1,8 @@
 <div class="columns user-profile">
   <div class="column is-one-quarter">
     <figure class='image is-48x48'>
-      <%= image_tag 'profile.png', class: 'is-roundish' %>
+      <% img_url = !session[:photo].nil? ? session[:photo] : 'profile.png' %>
+      <%= image_tag img_url, class: 'is-roundish' %>
     </figure>
   </div>
   <div class="column is-three-quarters">
@@ -45,10 +46,6 @@
       <span>Profile</span>
     <% end %>
   </li>
-  <!-- 
-  <li><%= link_to '🖇️ connect', '#' %></li>
-  <li><%= link_to '🧭 explore', '#' %></li>
-  <li><%= link_to '👩‍🚀 profile', '#' %></li>  -->
 </ul>
     
  

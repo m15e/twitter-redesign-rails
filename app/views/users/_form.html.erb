@@ -3,6 +3,8 @@
 <%= f.text_field(:username, placeholder: 'Username') %>
 
 <%= f.text_field(:full_name, placeholder: 'Full Name') %>
+<%= f.label 'Profile Picture' %>
+<%= f.file_field(:photo) %>
 
 <% button_name = @current_page.capitalize + ' User'%>
 <br>
