@@ -27,6 +27,13 @@
                     <p><%= s.text %></p>
                   </div>
                   <div class="comments">
+                    <% s.comments.each do |comment| %>
+                      <div class="comment">
+                        <h4><%= comment.user.full_name %></h4>
+                        <p><%= comment.text %></p>
+                      </div>
+                    <% end %>
+
                     <%= form_for(s.comments.new, url: source_comments_path(s)) do |f| %>
                       <%= f.text_field :text, placeholder: 'New Comment' %>
                       <%= f.submit 'Comment', class: 'button is-primary' %>

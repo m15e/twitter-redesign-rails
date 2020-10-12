@@ -13,11 +13,16 @@
  *= require_tree .
  *= require_self
  */
-body, p, ol, ul, td {
+body,
+p,
+ol,
+ul,
+td {
   font-family: 'Roboto', sans-serif;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   border: 0;
@@ -46,23 +51,12 @@ a:hover {
   background-color: #45aaf2;
 }
 
-.main-cols {
-  margin-top: 0;
-  height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-align: stretch;
-      -ms-flex-align: stretch;
-          align-items: stretch;
+.login .columns {
+  margin: 0;
 }
 
-.main-cols .columns:last-child {
-  margin-bottom: 0;
+.login .column {
+  margin: 2em auto;
 }
 
 .yield-cols {
@@ -86,12 +80,84 @@ a:hover {
   font-weight: 500;
 }
 
-.login .columns {
-  margin: 0;
+.source-index-content .link-panel {
+  margin-top: 20px;
 }
 
-.login .column {
-  margin: 2em auto;
+.source-index-content .link-panel a.active {
+  border-bottom: 2px solid #45aaf2;
+  color: #213246;
+}
+
+.source-index-content .link-panel a {
+  padding: 30px 30px 20px;
+  text-transform: uppercase;
+  color: #718093;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-weight: 500;
+}
+
+.source-index-content .source-index-new {
+  margin-top: 4em;
+  padding: 15px 20px;
+}
+
+.source-index-content .source-index-new p {
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.source-index-content .source-index-list h5 {
+  padding: 0 0 10px;
+  margin: 0 0 20px;
+  color: #45aaf2;
+  font-weight: 500;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.source-index-content .source-item {
+  margin-bottom: 5px;
+}
+
+.source-index-content .source-item a {
+  color: #45aaf2;
+}
+
+.source-index-content .source-item .source-author a {
+  color: #213246;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.source-index-content .source-item p {
+  color: #718093;
+}
+
+.source-index-content .who-to-follow {
+  margin-top: 2em;
+}
+
+.source-index-content .who-to-follow h3 {
+  text-transform: uppercase;
+  color: #718093;
+  margin-bottom: 3.5em;
+}
+
+.source-index-content .who-to-follow .follow-item {
+  margin-bottom: 10px;
+}
+
+.source-index-content .who-to-follow .follow-item a {
+  color: #45aaf2;
+}
+
+.source-index-content .who-to-follow .follow-item h4 a {
+  color: #213246;
+  text-transform: capitalize;
+  font-weight: 500;
 }
 
 .user-show-content .columns {
@@ -248,84 +314,23 @@ a:hover {
   margin-top: 10px;
 }
 
-.source-index-content .link-panel {
-  margin-top: 20px;
+.main-cols {
+  margin-top: 0;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
 }
 
-.source-index-content .link-panel a.active {
-  border-bottom: 2px solid #45aaf2;
-  color: #213246;
-}
-
-.source-index-content .link-panel a {
-  padding: 30px 30px 20px;
-  text-transform: uppercase;
-  color: #718093;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  font-weight: 500;
-}
-
-.source-index-content .source-index-new {
-  margin-top: 4em;
-  padding: 15px 20px;
-}
-
-.source-index-content .source-index-new p {
-  font-weight: 500;
-  text-transform: uppercase;
-}
-
-.source-index-content .source-index-list h5 {
-  padding: 0 0 10px;
-  margin: 0 0 20px;
-  color: #45aaf2;
-  font-weight: 500;
-  text-transform: uppercase;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.source-index-content .source-item {
-  margin-bottom: 5px;
-}
-
-.source-index-content .source-item a {
-  color: #45aaf2;
-}
-
-.source-index-content .source-item .source-author a {
-  color: #213246;
-  font-weight: 500;
-  text-transform: capitalize;
-}
-
-.source-index-content .source-item p {
-  color: #718093;
-}
-
-.source-index-content .who-to-follow {
-  margin-top: 2em;
-}
-
-.source-index-content .who-to-follow h3 {
-  text-transform: uppercase;
-  color: #718093;
-  margin-bottom: 3.5em;
-}
-
-.source-index-content .who-to-follow .follow-item {
-  margin-bottom: 10px;
-}
-
-.source-index-content .who-to-follow .follow-item h4 a {
-  color: #213246;
-  text-transform: capitalize;
-  font-weight: 500;
-}
-
-.source-index-content .who-to-follow .follow-item a {
-  color: #45aaf2;
+.main-cols .columns:last-child {
+  margin-bottom: 0;
 }
 
 .is-15-percent {
