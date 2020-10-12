@@ -8,10 +8,12 @@ class SessionsController < ApplicationController
       user_found = User.where(:username => params[:username]).first
 
       if user_found
+        photo = user_found.photo.attached? ? url_for(user_found.photo) : 'profile.png'        
+
         session[:user_id] = user_found.id
         session[:username] = user_found.username
         session[:name] = user_found.full_name 
-        session[:photo] = url_for(user_found.photo)
+        session[:photo] = photo
         session[:followeds] = user_found.followeds.count
         session[:followers] = user_found.followers.count
         flash[:notice] = 'Logged in'

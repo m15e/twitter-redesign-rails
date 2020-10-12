@@ -54,6 +54,6 @@ class UsersController < ApplicationController
   private 
 
   def user_params
-    params.require(:user).permit(:username, :full_name, :photo) # TODO: might require edit for photo/cover_img
+    params.require(:user).permit(:username, :full_name, :photo, :cover_image)
   end
 end

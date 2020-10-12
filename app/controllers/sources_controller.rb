@@ -31,7 +31,7 @@ class SourcesController < ApplicationController
   # POST /sources.json
   def create
     if current_user
-      @source = current_user.sources.new(source_params)
+      @source = User.find(current_user).sources.new(source_params)
     else 
       flash[:notice] = 'you need to be logged in to create posts!'
       redirect_to sources_path

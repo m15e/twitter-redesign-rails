@@ -10,6 +10,10 @@ module UsersHelper
     content    
   end
 
+  def cover_image(user)
+    user.cover_image.attached? ? url_for(user.cover_image) : 'cover.jpg'
+  end
+
   def follow?(following, user)
     content = tag(:div, class: 'column user-col')
     follow_link(following, user, content, false)

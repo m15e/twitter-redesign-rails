@@ -10,5 +10,5 @@ class User < ApplicationRecord
   has_many :sources, foreign_key: :author_id
 
   has_one_attached :photo
-  # has_one_attached :cover_image
+  has_one_attached :cover_image
 end
