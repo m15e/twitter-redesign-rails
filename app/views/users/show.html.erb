@@ -22,8 +22,16 @@
                 </figure>
               </div>
               <div class="column">
-                  <h4><%= @user.full_name %></h4>
-                  <p><%= s.text %></p>
+                  <div class="content">
+                    <h4><%= @user.full_name %></h4>
+                    <p><%= s.text %></p>
+                  </div>
+                  <div class="comments">
+                    <%= form_for(s.comments.new, url: source_comments_path(s)) do |f| %>
+                      <%= f.text_field :text, placeholder: 'New Comment' %>
+                      <%= f.submit 'Comment', class: 'button is-primary' %>
+                    <% end %>
+                  </div>
               </div>
             </div>
           </div>

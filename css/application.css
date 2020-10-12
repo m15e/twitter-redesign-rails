@@ -232,6 +232,22 @@ a:hover {
   color: #45aaf2;
 }
 
+.user-show-content .comments form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.user-show-content .comments form input[type='text'] {
+  width: 80%;
+  padding: 5px 12px;
+  margin-right: 10px;
+}
+
+.user-show-content .comments form input[type='submit'] {
+  margin-top: 10px;
+}
+
 .source-index-content .link-panel {
   margin-top: 20px;
 }

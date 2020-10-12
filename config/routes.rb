@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :sources
+  resources :sources do
+    resources :comments, only: [:create]
+  end
   root 'sources#index'
 
   get 'login', :to => 'sessions#login'

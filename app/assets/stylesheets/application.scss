@@ -210,6 +210,19 @@ a:hover {
       }
     }
   }
+  .comments {
+    form { 
+      display: flex; 
+      input[type='text'] {
+        width: 80%;
+        padding: 5px 12px;
+        margin-right: 10px;
+      }
+      input[type='submit'] {
+        margin-top: 10px;
+      }
+    }
+  }
 }
 
 .source-index-content {
