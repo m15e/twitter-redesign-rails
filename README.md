@@ -6,7 +6,7 @@
 
 ## Live Link
 
-To visit the live version of the application visit [this link](https://github.com/m15e) 
+To visit the live version of the application visit [this link](https://warm-shelf-14278.herokuapp.com/) 
 
 ## Video Link
 
