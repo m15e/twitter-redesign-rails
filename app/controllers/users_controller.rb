@@ -1,11 +1,11 @@
 class UsersController < ApplicationController
-  #before_action :check_login, except: %i[new]
+  # before_action :check_login, except: %i[new]
 
-  def index 
+  def index
     @users = User.all.limit(10)
-    @following = User.find(current_user).followeds    
+    @following = User.find(current_user).followeds
   end
-  
+
   def show
     @source = Source.new
     @user = User.find(params[:id])
@@ -13,13 +13,13 @@ class UsersController < ApplicationController
   end
 
   def new
-    @user = User.new()
+    @user = User.new
   end
 
   def create
     @user = User.new(user_params)
     if @user.save!
-      flash[:notice] = 'Account Creation Successfull. Please login to your new account.'      
+      flash[:notice] = 'Account Creation Successfull. Please login to your new account.'
       redirect_to(login_path)
     else
       render('new')
@@ -35,7 +35,7 @@ class UsersController < ApplicationController
     if @user.update_attributes(user_params)
       flash[:notice] = 'Update Complete!'
       redirect_to(user_path(@user))
-    else 
+    else
       render('edit')
     end
   end
@@ -51,7 +51,7 @@ class UsersController < ApplicationController
     redirect_to(root_path)
   end
 
-  private 
+  private
 
   def user_params
     params.require(:user).permit(:username, :full_name, :photo, :cover_image)

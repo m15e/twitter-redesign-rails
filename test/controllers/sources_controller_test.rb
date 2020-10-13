@@ -5,17 +5,17 @@ class SourcesControllerTest < ActionDispatch::IntegrationTest
     @source = sources(:one)
   end
 
-  test "should get index" do
+  test 'should get index' do
     get sources_url
     assert_response :success
   end
 
-  test "should get new" do
+  test 'should get new' do
     get new_source_url
     assert_response :success
   end
 
-  test "should create source" do
+  test 'should create source' do
     assert_difference('Source.count') do
       post sources_url, params: { source: { author_id: @source.author_id, text: @source.text } }
     end
@@ -23,22 +23,22 @@ class SourcesControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to source_url(Source.last)
   end
 
-  test "should show source" do
+  test 'should show source' do
     get source_url(@source)
     assert_response :success
   end
 
-  test "should get edit" do
+  test 'should get edit' do
     get edit_source_url(@source)
     assert_response :success
   end
 
-  test "should update source" do
+  test 'should update source' do
     patch source_url(@source), params: { source: { author_id: @source.author_id, text: @source.text } }
     assert_redirected_to source_url(@source)
   end
 
-  test "should destroy source" do
+  test 'should destroy source' do
     assert_difference('Source.count', -1) do
       delete source_url(@source)
     end

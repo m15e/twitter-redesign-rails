@@ -1,1 +1,1 @@
-json.partial! "sources/source", source: @source
+json.partial! 'sources/source', source: @source

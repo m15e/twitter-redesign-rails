@@ -1,6 +1,6 @@
 module SourcesHelper
   def source_links(source)
-    content = content_tag(:div) 
+    content = content_tag(:div)
     if source.author.id == current_user
       content << link_to('Show', source)
       content << link_to('Edit', edit_source_path(source))

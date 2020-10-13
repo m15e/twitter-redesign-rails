@@ -9,5 +9,4 @@ class ApplicationController < ActionController::Base
       flash[:notice] = 'Please login to continue'
     end
   end
-
 end

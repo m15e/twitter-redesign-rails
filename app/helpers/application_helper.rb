@@ -1,6 +1,6 @@
 module ApplicationHelper
   def current_user
-    session[:user_id]          
+    session[:user_id]
   end
 
   def profile_img(user)

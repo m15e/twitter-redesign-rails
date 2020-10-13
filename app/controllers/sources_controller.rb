@@ -2,11 +2,11 @@ class SourcesController < ApplicationController
   include ApplicationHelper
 
   before_action :check_login
-  before_action :set_source, only: [:show, :edit, :update, :destroy]
+  before_action :set_source, only: %i[show edit update destroy]
 
   # GET /sources
   # GET /sources.json
-  def index    
+  def index
     @source = Source.new
     @sources = Source.order('created_at DESC').includes(:author)
     @users = User.where.not(id: current_user).limit(15)
@@ -15,8 +15,7 @@ class SourcesController < ApplicationController
 
   # GET /sources/1
   # GET /sources/1.json
-  def show  
-  end
+  def show; end
 
   # GET /sources/new
   def new
@@ -24,15 +23,14 @@ class SourcesController < ApplicationController
   end
 
   # GET /sources/1/edit
-  def edit    
-  end
+  def edit; end
 
   # POST /sources
   # POST /sources.json
   def create
     if current_user
       @source = User.find(current_user).sources.new(source_params)
-    else 
+    else
       flash[:notice] = 'you need to be logged in to create posts!'
       redirect_to sources_path
     end
@@ -73,13 +71,14 @@ class SourcesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_source
-      @source = Source.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def source_params
-      params.require(:source).permit(:text)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_source
+    @source = Source.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def source_params
+    params.require(:source).permit(:text)
+  end
 end
