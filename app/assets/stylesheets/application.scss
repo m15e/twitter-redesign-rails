@@ -49,6 +49,12 @@ a:hover {
 
 .navbar {
   height: 10vh;
+  background-color: $light-blue;
+  padding-right: 0.75rem;
+
+  a {
+    color: #fff;
+  }
 
   .nav-top-icon {
     width: 20px;
@@ -89,6 +95,65 @@ a:hover {
     margin-top: 10px;
     font-weight: 500;
   }
+}
+
+.user-profile {
+  .is-three-quarters {
+    text-align: center;
+    padding-top: 27px;
+  }
+
+  span {
+    color: $dark-grey;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+}
+
+.user-follow-stats {
+  border-top: 1px solid rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+
+  .is-half:first-of-type {
+    border-right: 1px solid rgba(0, 0, 0, 0.3);
+  }
+
+  a {
+    text-align: center;
+    display: block;
+    color: #fff;
+    font-weight: 500;
+    font-size: 15px;
+
+    span {
+      color: $dark-grey;
+      font-size: 12px;
+    }
+  }
+}
+
+.side-nav-links {
+  list-style-type: none;
+
+  li {
+    margin-bottom: 25px;
+  }
+
+  a {
+    color: $dark-grey;
+    text-transform: uppercase;
+    display: flex;
+
+    img {
+      margin-right: 7px;
+    }
+  }
+}
+
+.user-followers strong a {
+  text-transform: uppercase;
+  color: $dark-blue;
+  display: block;
 }
 
 .source-index-content {
@@ -283,12 +348,6 @@ a:hover {
   .user-followers {
     padding: 0.75rem;
 
-    strong a {
-      text-transform: uppercase;
-      color: $dark-blue;
-      display: block;
-    }
-
     h5 {
       text-transform: uppercase;
       color: $dark-grey;
@@ -349,72 +408,8 @@ a:hover {
   width: 16.6%;
   color: #fff;
   padding-top: 10px;
-  padding-left: 25px;  
+  padding-left: 25px;
   padding-bottom: 0;
-}
-
-.navbar {
-  background-color: $light-blue;
-  padding-right: 0.75rem;
-
-  a {
-    color: #fff;
-  }
-}
-
-.user-profile {
-  .is-three-quarters {
-    text-align: center;
-    padding-top: 27px;
-  }
-
-  span {
-    color: $dark-grey;  
-    font-weight: 500;
-    text-transform: uppercase;
-  }
-
-}
-
-.user-follow-stats {
-  border-top: 1px solid rgba(0, 0, 0, 0.3);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
-
-  .is-half:first-of-type {
-    border-right: 1px solid rgba(0, 0, 0, 0.3);
-  }
-
-  a {
-    text-align: center;
-    display: block;
-    color: #fff;
-    font-weight: 500;
-    font-size: 15px;
-    
-    span {
-      color: $dark-grey;
-      font-size: 12px;      
-    }
-  }
-}
-
-.side-nav-links {
-  list-style-type: none;
-  
-  li {
-    margin-bottom: 25px;
-  }
-
-  a {    
-    color: $dark-grey;
-    text-transform: uppercase; 
-    display: flex;
-
-    img {
-      margin-right: 7px;
-    }
-  }
-
 }
 
 .is-roundish {

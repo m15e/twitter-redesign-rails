@@ -40,6 +40,12 @@ a:hover {
 
 .navbar {
   height: 10vh;
+  background-color: #45aaf2;
+  padding-right: 0.75rem;
+}
+
+.navbar a {
+  color: #fff;
 }
 
 .navbar .nav-top-icon {
@@ -78,6 +84,65 @@ a:hover {
   border-radius: 4px;
   margin-top: 10px;
   font-weight: 500;
+}
+
+.user-profile .is-three-quarters {
+  text-align: center;
+  padding-top: 27px;
+}
+
+.user-profile span {
+  color: #718093;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.user-follow-stats {
+  border-top: 1px solid rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.user-follow-stats .is-half:first-of-type {
+  border-right: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.user-follow-stats a {
+  text-align: center;
+  display: block;
+  color: #fff;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.user-follow-stats a span {
+  color: #718093;
+  font-size: 12px;
+}
+
+.side-nav-links {
+  list-style-type: none;
+}
+
+.side-nav-links li {
+  margin-bottom: 25px;
+}
+
+.side-nav-links a {
+  color: #718093;
+  text-transform: uppercase;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.side-nav-links a img {
+  margin-right: 7px;
+}
+
+.user-followers strong a {
+  text-transform: uppercase;
+  color: #213246;
+  display: block;
 }
 
 .source-index-content .link-panel {
@@ -268,12 +333,6 @@ a:hover {
   padding: 0.75rem;
 }
 
-.user-show-content .user-followers strong a {
-  text-transform: uppercase;
-  color: #213246;
-  display: block;
-}
-
 .user-show-content .user-followers h5 {
   text-transform: uppercase;
   color: #718093;
@@ -343,68 +402,6 @@ a:hover {
   padding-top: 10px;
   padding-left: 25px;
   padding-bottom: 0;
-}
-
-.navbar {
-  background-color: #45aaf2;
-  padding-right: 0.75rem;
-}
-
-.navbar a {
-  color: #fff;
-}
-
-.user-profile .is-three-quarters {
-  text-align: center;
-  padding-top: 27px;
-}
-
-.user-profile span {
-  color: #718093;
-  font-weight: 500;
-  text-transform: uppercase;
-}
-
-.user-follow-stats {
-  border-top: 1px solid rgba(0, 0, 0, 0.3);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
-}
-
-.user-follow-stats .is-half:first-of-type {
-  border-right: 1px solid rgba(0, 0, 0, 0.3);
-}
-
-.user-follow-stats a {
-  text-align: center;
-  display: block;
-  color: #fff;
-  font-weight: 500;
-  font-size: 15px;
-}
-
-.user-follow-stats a span {
-  color: #718093;
-  font-size: 12px;
-}
-
-.side-nav-links {
-  list-style-type: none;
-}
-
-.side-nav-links li {
-  margin-bottom: 25px;
-}
-
-.side-nav-links a {
-  color: #718093;
-  text-transform: uppercase;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.side-nav-links a img {
-  margin-right: 7px;
 }
 
 .is-roundish {
