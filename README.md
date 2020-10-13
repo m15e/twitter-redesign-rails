@@ -2,12 +2,16 @@
 
 > A Twitter Clone built with Ruby on Rails.
 
-## FIX ME
 ![screenshot](public/screenshot.png) 
 
-## Live Link FIX ME
+## Live Link
 
 To visit the live version of the application visit [this link](https://github.com/m15e) 
+
+## Video Link
+
+To watch a brief video overview of the application 
+[click here](https://youtu.be/dEJ0hiJlIDs) 
 
 ## Application Features
 
