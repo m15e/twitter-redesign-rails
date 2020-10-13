@@ -5,5 +5,5 @@ module ApplicationHelper
 
   def profile_img(user)
     user.photo.attached? ? url_for(user.photo) : 'profile.png'
-  end  
+  end
 end

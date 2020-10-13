@@ -21260,3 +21260,832 @@ Processing by SessionsController#try_login as HTML
   Rendered shared/_side_nav.html.erb (Duration: 0.9ms | Allocations: 495)
 Completed 200 OK in 8ms (Views: 6.8ms | ActiveRecord: 0.3ms | Allocations: 3338)
   [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (11.7ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "user1"], ["LIMIT", 1]]
+  [1m[36mUser Create (27.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "full_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "user1"], ["full_name", "user one"], ["created_at", "2020-10-13 16:14:26.868822"], ["updated_at", "2020-10-13 16:14:26.868822"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "user2"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "full_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "user2"], ["full_name", "user two"], ["created_at", "2020-10-13 16:14:26.902729"], ["updated_at", "2020-10-13 16:14:26.902729"]]
+  [1m[35m (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/login" for 127.0.0.1 at 2020-10-14 00:14:26 +0800
+Processing by SessionsController#login as HTML
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 7.3ms | Allocations: 549)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_side_nav.html.erb (Duration: 5.0ms | Allocations: 892)
+Completed 200 OK in 1464ms (Views: 1444.9ms | ActiveRecord: 0.0ms | Allocations: 54210)
+Started POST "/sessions/try_login" for 127.0.0.1 at 2020-10-14 00:14:28 +0800
+Processing by SessionsController#try_login as HTML
+  Parameters: {"username"=>"user1", "commit"=>"Log In"}
+  [1m[36mUser Load (3.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["username", "user1"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Load (6.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 173], ["record_type", "User"], ["name", "photo"], ["LIMIT", 1]]
+  [1m[35m (4.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1[0m  [["follower_id", 173]]
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."follower_id" WHERE "followings"."followed_id" = $1[0m  [["followed_id", 173]]
+Redirected to http://www.example.com/sources
+Completed 302 Found in 133ms (ActiveRecord: 40.9ms | Allocations: 5574)
+Started GET "/sources" for 127.0.0.1 at 2020-10-14 00:14:28 +0800
+Processing by SourcesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 173], ["LIMIT", 1]]
+  Rendering sources/index.html.erb within layouts/application
+  Rendered sources/_form.html.erb (Duration: 13.8ms | Allocations: 543)
+  [1m[36mSource Load (1.5ms)[0m  [1m[34mSELECT "sources".* FROM "sources" ORDER BY created_at DESC[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != $1 LIMIT $2[0m  [["id", 173], ["LIMIT", 15]]
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1 AND "users"."id" = $2 LIMIT $3[0m  [["follower_id", 173], ["id", 174], ["LIMIT", 1]]
+  Rendered sources/index.html.erb within layouts/application (Duration: 33.8ms | Allocations: 2873)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_side_nav.html.erb (Duration: 3.2ms | Allocations: 1777)
+  Rendered shared/_top_nav.html.erb (Duration: 4.5ms | Allocations: 731)
+Completed 200 OK in 103ms (Views: 50.0ms | ActiveRecord: 28.2ms | Allocations: 12628)
+Started GET "/sources" for 127.0.0.1 at 2020-10-14 00:14:28 +0800
+Processing by SourcesController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 173], ["LIMIT", 1]]
+  Rendering sources/index.html.erb within layouts/application
+  Rendered sources/_form.html.erb (Duration: 0.6ms | Allocations: 206)
+  [1m[36mSource Load (0.4ms)[0m  [1m[34mSELECT "sources".* FROM "sources" ORDER BY created_at DESC[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != $1 LIMIT $2[0m  [["id", 173], ["LIMIT", 15]]
+  [1m[36mUser Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1 AND "users"."id" = $2 LIMIT $3[0m  [["follower_id", 173], ["id", 174], ["LIMIT", 1]]
+  Rendered sources/index.html.erb within layouts/application (Duration: 11.4ms | Allocations: 1784)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_side_nav.html.erb (Duration: 2.7ms | Allocations: 1771)
+  Rendered shared/_top_nav.html.erb (Duration: 2.0ms | Allocations: 499)
+Completed 200 OK in 25ms (Views: 19.7ms | ActiveRecord: 3.0ms | Allocations: 6812)
+Started POST "/sources" for 127.0.0.1 at 2020-10-14 00:14:28 +0800
+Processing by SourcesController#create as HTML
+  Parameters: {"source"=>{"text"=>"source or sauce?"}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 173], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 173], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSource Create (8.6ms)[0m  [1m[32mINSERT INTO "sources" ("author_id", "text", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["author_id", 173], ["text", "source or sauce?"], ["created_at", "2020-10-13 16:14:28.950140"], ["updated_at", "2020-10-13 16:14:28.950140"]]
+  [1m[35m (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/sources
+Completed 302 Found in 29ms (ActiveRecord: 9.9ms | Allocations: 2145)
+Started GET "/sources" for 127.0.0.1 at 2020-10-14 00:14:28 +0800
+Processing by SourcesController#index as HTML
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 173], ["LIMIT", 1]]
+  Rendering sources/index.html.erb within layouts/application
+  Rendered sources/_form.html.erb (Duration: 0.4ms | Allocations: 202)
+  [1m[36mSource Load (0.4ms)[0m  [1m[34mSELECT "sources".* FROM "sources" ORDER BY created_at DESC[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 173]]
+  [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."source_id" = $1[0m  [["source_id", 70]]
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 173], ["record_type", "User"], ["name", "photo"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != $1 LIMIT $2[0m  [["id", 173], ["LIMIT", 15]]
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1 AND "users"."id" = $2 LIMIT $3[0m  [["follower_id", 173], ["id", 174], ["LIMIT", 1]]
+  Rendered sources/index.html.erb within layouts/application (Duration: 54.1ms | Allocations: 8219)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_side_nav.html.erb (Duration: 6.6ms | Allocations: 1770)
+  Rendered shared/_top_nav.html.erb (Duration: 2.0ms | Allocations: 499)
+Completed 200 OK in 101ms (Views: 82.0ms | ActiveRecord: 13.6ms | Allocations: 13267)
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments"[0m
+Started POST "/sources/70/comments" for 127.0.0.1 at 2020-10-14 00:14:29 +0800
+Processing by CommentsController#create as HTML
+  Parameters: {"comment"=>{"text"=>"this is a comment"}, "commit"=>"Comment", "source_id"=>"70"}
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 173], ["LIMIT", 1]]
+  [1m[36mSource Load (0.5ms)[0m  [1m[34mSELECT "sources".* FROM "sources" WHERE "sources"."id" = $1 LIMIT $2[0m  [["id", 70], ["LIMIT", 1]]
+  [1m[36mComment Create (6.7ms)[0m  [1m[32mINSERT INTO "comments" ("user_id", "source_id", "text", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 173], ["source_id", 70], ["text", "this is a comment"], ["created_at", "2020-10-13 16:14:29.199515"], ["updated_at", "2020-10-13 16:14:29.199515"]]
+  [1m[35m (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/sources
+Completed 302 Found in 31ms (ActiveRecord: 9.3ms | Allocations: 2102)
+Started GET "/sources" for 127.0.0.1 at 2020-10-14 00:14:29 +0800
+Processing by SourcesController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 173], ["LIMIT", 1]]
+  Rendering sources/index.html.erb within layouts/application
+  Rendered sources/_form.html.erb (Duration: 1.0ms | Allocations: 202)
+  [1m[36mSource Load (14.4ms)[0m  [1m[34mSELECT "sources".* FROM "sources" ORDER BY created_at DESC[0m
+  [1m[36mUser Load (11.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 173]]
+  [1m[36mComment Load (2.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."source_id" = $1[0m  [["source_id", 70]]
+  [1m[36mActiveStorage::Attachment Load (0.9ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 173], ["record_type", "User"], ["name", "photo"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 173], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != $1 LIMIT $2[0m  [["id", 173], ["LIMIT", 15]]
+  [1m[36mUser Exists? (1.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1 AND "users"."id" = $2 LIMIT $3[0m  [["follower_id", 173], ["id", 174], ["LIMIT", 1]]
+  Rendered sources/index.html.erb within layouts/application (Duration: 60.2ms | Allocations: 4800)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_side_nav.html.erb (Duration: 13.6ms | Allocations: 1770)
+  Rendered shared/_top_nav.html.erb (Duration: 2.1ms | Allocations: 499)
+Completed 200 OK in 114ms (Views: 68.2ms | ActiveRecord: 31.9ms | Allocations: 9842)
+  [1m[35m (6.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments"[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (6.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "user1"], ["LIMIT", 1]]
+  [1m[36mUser Create (5.1ms)[0m  [1m[32mINSERT INTO "users" ("username", "full_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "user1"], ["full_name", "user one"], ["created_at", "2020-10-13 16:14:29.540952"], ["updated_at", "2020-10-13 16:14:29.540952"]]
+  [1m[35m (23.6ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "user2"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("username", "full_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "user2"], ["full_name", "user two"], ["created_at", "2020-10-13 16:14:29.593437"], ["updated_at", "2020-10-13 16:14:29.593437"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/login" for 127.0.0.1 at 2020-10-14 00:14:29 +0800
+Processing by SessionsController#login as HTML
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 0.9ms | Allocations: 198)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_side_nav.html.erb (Duration: 3.1ms | Allocations: 496)
+Completed 200 OK in 32ms (Views: 30.3ms | ActiveRecord: 0.0ms | Allocations: 3067)
+Started POST "/sessions/try_login" for 127.0.0.1 at 2020-10-14 00:14:29 +0800
+Processing by SessionsController#try_login as HTML
+  Parameters: {"username"=>"user1", "commit"=>"Log In"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["username", "user1"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 175], ["record_type", "User"], ["name", "photo"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1[0m  [["follower_id", 175]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."follower_id" WHERE "followings"."followed_id" = $1[0m  [["followed_id", 175]]
+Redirected to http://www.example.com/sources
+Completed 302 Found in 8ms (ActiveRecord: 1.9ms | Allocations: 2118)
+Started GET "/sources" for 127.0.0.1 at 2020-10-14 00:14:29 +0800
+Processing by SourcesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 175], ["LIMIT", 1]]
+  Rendering sources/index.html.erb within layouts/application
+  Rendered sources/_form.html.erb (Duration: 0.5ms | Allocations: 202)
+  [1m[36mSource Load (0.3ms)[0m  [1m[34mSELECT "sources".* FROM "sources" ORDER BY created_at DESC[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != $1 LIMIT $2[0m  [["id", 175], ["LIMIT", 15]]
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1 AND "users"."id" = $2 LIMIT $3[0m  [["follower_id", 175], ["id", 176], ["LIMIT", 1]]
+  Rendered sources/index.html.erb within layouts/application (Duration: 7.9ms | Allocations: 1778)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_side_nav.html.erb (Duration: 11.1ms | Allocations: 1770)
+  Rendered shared/_top_nav.html.erb (Duration: 2.2ms | Allocations: 499)
+Completed 200 OK in 33ms (Views: 28.7ms | ActiveRecord: 1.5ms | Allocations: 6812)
+Started GET "/sources" for 127.0.0.1 at 2020-10-14 00:14:29 +0800
+Processing by SourcesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 175], ["LIMIT", 1]]
+  Rendering sources/index.html.erb within layouts/application
+  Rendered sources/_form.html.erb (Duration: 0.5ms | Allocations: 202)
+  [1m[36mSource Load (0.3ms)[0m  [1m[34mSELECT "sources".* FROM "sources" ORDER BY created_at DESC[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != $1 LIMIT $2[0m  [["id", 175], ["LIMIT", 15]]
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1 AND "users"."id" = $2 LIMIT $3[0m  [["follower_id", 175], ["id", 176], ["LIMIT", 1]]
+  Rendered sources/index.html.erb within layouts/application (Duration: 10.7ms | Allocations: 1778)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_side_nav.html.erb (Duration: 3.6ms | Allocations: 1770)
+  Rendered shared/_top_nav.html.erb (Duration: 1.4ms | Allocations: 499)
+Completed 200 OK in 33ms (Views: 30.1ms | ActiveRecord: 1.2ms | Allocations: 6807)
+Started POST "/sources" for 127.0.0.1 at 2020-10-14 00:14:29 +0800
+Processing by SourcesController#create as HTML
+  Parameters: {"source"=>{"text"=>"source or sauce?"}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 175], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 175], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSource Create (1.2ms)[0m  [1m[32mINSERT INTO "sources" ("author_id", "text", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["author_id", 175], ["text", "source or sauce?"], ["created_at", "2020-10-13 16:14:29.798535"], ["updated_at", "2020-10-13 16:14:29.798535"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/sources
+Completed 302 Found in 7ms (ActiveRecord: 2.2ms | Allocations: 1528)
+Started GET "/sources" for 127.0.0.1 at 2020-10-14 00:14:29 +0800
+Processing by SourcesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 175], ["LIMIT", 1]]
+  Rendering sources/index.html.erb within layouts/application
+  Rendered sources/_form.html.erb (Duration: 0.4ms | Allocations: 202)
+  [1m[36mSource Load (1.2ms)[0m  [1m[34mSELECT "sources".* FROM "sources" ORDER BY created_at DESC[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 175]]
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."source_id" = $1[0m  [["source_id", 71]]
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 175], ["record_type", "User"], ["name", "photo"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != $1 LIMIT $2[0m  [["id", 175], ["LIMIT", 15]]
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1 AND "users"."id" = $2 LIMIT $3[0m  [["follower_id", 175], ["id", 176], ["LIMIT", 1]]
+  Rendered sources/index.html.erb within layouts/application (Duration: 16.7ms | Allocations: 4166)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_side_nav.html.erb (Duration: 2.7ms | Allocations: 1770)
+  Rendered shared/_top_nav.html.erb (Duration: 0.9ms | Allocations: 499)
+Completed 200 OK in 28ms (Views: 22.9ms | ActiveRecord: 3.3ms | Allocations: 9210)
+Started POST "/sources/71/comments" for 127.0.0.1 at 2020-10-14 00:14:29 +0800
+Processing by CommentsController#create as HTML
+  Parameters: {"comment"=>{"text"=>"this is a comment"}, "commit"=>"Comment", "source_id"=>"71"}
+  [1m[35m (0.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 175], ["LIMIT", 1]]
+  [1m[36mSource Load (0.3ms)[0m  [1m[34mSELECT "sources".* FROM "sources" WHERE "sources"."id" = $1 LIMIT $2[0m  [["id", 71], ["LIMIT", 1]]
+  [1m[36mComment Create (0.4ms)[0m  [1m[32mINSERT INTO "comments" ("user_id", "source_id", "text", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 175], ["source_id", 71], ["text", "this is a comment"], ["created_at", "2020-10-13 16:14:29.871556"], ["updated_at", "2020-10-13 16:14:29.871556"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/sources
+Completed 302 Found in 7ms (ActiveRecord: 1.9ms | Allocations: 1575)
+Started GET "/sources" for 127.0.0.1 at 2020-10-14 00:14:29 +0800
+Processing by SourcesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 175], ["LIMIT", 1]]
+  Rendering sources/index.html.erb within layouts/application
+  Rendered sources/_form.html.erb (Duration: 0.6ms | Allocations: 202)
+  [1m[36mSource Load (0.3ms)[0m  [1m[34mSELECT "sources".* FROM "sources" ORDER BY created_at DESC[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 175]]
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."source_id" = $1[0m  [["source_id", 71]]
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 175], ["record_type", "User"], ["name", "photo"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 175], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != $1 LIMIT $2[0m  [["id", 175], ["LIMIT", 15]]
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1 AND "users"."id" = $2 LIMIT $3[0m  [["follower_id", 175], ["id", 176], ["LIMIT", 1]]
+  Rendered sources/index.html.erb within layouts/application (Duration: 17.9ms | Allocations: 4790)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_side_nav.html.erb (Duration: 3.9ms | Allocations: 1770)
+  Rendered shared/_top_nav.html.erb (Duration: 2.6ms | Allocations: 499)
+Completed 200 OK in 47ms (Views: 41.0ms | ActiveRecord: 2.3ms | Allocations: 9840)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments"[0m
+Started DELETE "/comments/destroy?comment_id=22" for 127.0.0.1 at 2020-10-14 00:14:29 +0800
+Processing by CommentsController#destroy as HTML
+  Parameters: {"comment_id"=>"22"}
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mComment Destroy (2.4ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = $1[0m  [["id", 22]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/sources
+Completed 302 Found in 7ms (ActiveRecord: 3.5ms | Allocations: 709)
+Started GET "/sources" for 127.0.0.1 at 2020-10-14 00:14:29 +0800
+Processing by SourcesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 175], ["LIMIT", 1]]
+  Rendering sources/index.html.erb within layouts/application
+  Rendered sources/_form.html.erb (Duration: 0.6ms | Allocations: 202)
+  [1m[36mSource Load (0.3ms)[0m  [1m[34mSELECT "sources".* FROM "sources" ORDER BY created_at DESC[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 175]]
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."source_id" = $1[0m  [["source_id", 71]]
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 175], ["record_type", "User"], ["name", "photo"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != $1 LIMIT $2[0m  [["id", 175], ["LIMIT", 15]]
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1 AND "users"."id" = $2 LIMIT $3[0m  [["follower_id", 175], ["id", 176], ["LIMIT", 1]]
+  Rendered sources/index.html.erb within layouts/application (Duration: 13.0ms | Allocations: 4165)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_side_nav.html.erb (Duration: 3.0ms | Allocations: 1770)
+  Rendered shared/_top_nav.html.erb (Duration: 0.8ms | Allocations: 499)
+Completed 200 OK in 27ms (Views: 21.9ms | ActiveRecord: 2.2ms | Allocations: 9209)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments"[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "user1"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "full_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "user1"], ["full_name", "user one"], ["created_at", "2020-10-13 16:14:30.030343"], ["updated_at", "2020-10-13 16:14:30.030343"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "user2"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "full_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "user2"], ["full_name", "user two"], ["created_at", "2020-10-13 16:14:30.034955"], ["updated_at", "2020-10-13 16:14:30.034955"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/login" for 127.0.0.1 at 2020-10-14 00:14:30 +0800
+Processing by SessionsController#login as HTML
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 0.4ms | Allocations: 191)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_side_nav.html.erb (Duration: 0.8ms | Allocations: 495)
+Completed 200 OK in 10ms (Views: 8.8ms | ActiveRecord: 0.0ms | Allocations: 3055)
+Started POST "/sessions/try_login" for 127.0.0.1 at 2020-10-14 00:14:30 +0800
+Processing by SessionsController#try_login as HTML
+  Parameters: {"username"=>"user1", "commit"=>"Log In"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["username", "user1"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 177], ["record_type", "User"], ["name", "photo"], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1[0m  [["follower_id", 177]]
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."follower_id" WHERE "followings"."followed_id" = $1[0m  [["followed_id", 177]]
+Redirected to http://www.example.com/sources
+Completed 302 Found in 39ms (ActiveRecord: 2.9ms | Allocations: 2128)
+Started GET "/sources" for 127.0.0.1 at 2020-10-14 00:14:30 +0800
+Processing by SourcesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 177], ["LIMIT", 1]]
+  Rendering sources/index.html.erb within layouts/application
+  Rendered sources/_form.html.erb (Duration: 1.0ms | Allocations: 202)
+  [1m[36mSource Load (2.1ms)[0m  [1m[34mSELECT "sources".* FROM "sources" ORDER BY created_at DESC[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != $1 LIMIT $2[0m  [["id", 177], ["LIMIT", 15]]
+  [1m[36mUser Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1 AND "users"."id" = $2 LIMIT $3[0m  [["follower_id", 177], ["id", 178], ["LIMIT", 1]]
+  Rendered sources/index.html.erb within layouts/application (Duration: 28.2ms | Allocations: 1778)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_side_nav.html.erb (Duration: 7.4ms | Allocations: 1770)
+  Rendered shared/_top_nav.html.erb (Duration: 0.8ms | Allocations: 499)
+Completed 200 OK in 66ms (Views: 56.9ms | ActiveRecord: 4.2ms | Allocations: 6809)
+Started GET "/users" for 127.0.0.1 at 2020-10-14 00:14:30 +0800
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 177], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 10]]
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 177], ["record_type", "User"], ["name", "photo"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 178], ["record_type", "User"], ["name", "photo"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1 AND "users"."id" = $2 LIMIT $3[0m  [["follower_id", 177], ["id", 178], ["LIMIT", 1]]
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1 AND "users"."id" = $2 LIMIT $3[0m  [["follower_id", 177], ["id", 178], ["LIMIT", 1]]
+  Rendered users/index.html.erb within layouts/application (Duration: 51.8ms | Allocations: 7035)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_side_nav.html.erb (Duration: 9.0ms | Allocations: 1756)
+  Rendered shared/_top_nav.html.erb (Duration: 1.3ms | Allocations: 503)
+Completed 200 OK in 71ms (Views: 66.3ms | ActiveRecord: 2.8ms | Allocations: 12522)
+  [1m[35m (6.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "followings"[0m
+Started POST "/followings/follow?followed_id=178&follower_id=177" for 127.0.0.1 at 2020-10-14 00:14:30 +0800
+Processing by FollowingsController#follow as HTML
+  Parameters: {"followed_id"=>"178", "follower_id"=>"177"}
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 177], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 178], ["LIMIT", 1]]
+  [1m[36mFollowing Create (0.7ms)[0m  [1m[32mINSERT INTO "followings" ("follower_id", "followed_id") VALUES ($1, $2) RETURNING "id"[0m  [["follower_id", 177], ["followed_id", 178]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 177], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1[0m  [["follower_id", 177]]
+Redirected to http://www.example.com/users
+Completed 302 Found in 20ms (ActiveRecord: 4.5ms | Allocations: 3927)
+Started GET "/users" for 127.0.0.1 at 2020-10-14 00:14:30 +0800
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 177], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 10]]
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 177], ["record_type", "User"], ["name", "photo"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 178], ["record_type", "User"], ["name", "photo"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (2.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1 AND "users"."id" = $2 LIMIT $3[0m  [["follower_id", 177], ["id", 178], ["LIMIT", 1]]
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1 AND "users"."id" = $2 LIMIT $3[0m  [["follower_id", 177], ["id", 178], ["LIMIT", 1]]
+  Rendered users/index.html.erb within layouts/application (Duration: 21.0ms | Allocations: 6612)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_side_nav.html.erb (Duration: 3.9ms | Allocations: 1745)
+  Rendered shared/_top_nav.html.erb (Duration: 0.8ms | Allocations: 499)
+Completed 200 OK in 34ms (Views: 28.5ms | ActiveRecord: 4.2ms | Allocations: 11508)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "followings"[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "user1"], ["LIMIT", 1]]
+  [1m[36mUser Create (5.0ms)[0m  [1m[32mINSERT INTO "users" ("username", "full_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "user1"], ["full_name", "user one"], ["created_at", "2020-10-13 16:14:30.581325"], ["updated_at", "2020-10-13 16:14:30.581325"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "user2"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "full_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "user2"], ["full_name", "user two"], ["created_at", "2020-10-13 16:14:30.591745"], ["updated_at", "2020-10-13 16:14:30.591745"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/login" for 127.0.0.1 at 2020-10-14 00:14:30 +0800
+Processing by SessionsController#login as HTML
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 1.1ms | Allocations: 198)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_side_nav.html.erb (Duration: 2.2ms | Allocations: 496)
+Completed 200 OK in 11ms (Views: 9.8ms | ActiveRecord: 0.0ms | Allocations: 3067)
+Started POST "/sessions/try_login" for 127.0.0.1 at 2020-10-14 00:14:30 +0800
+Processing by SessionsController#try_login as HTML
+  Parameters: {"username"=>"user1", "commit"=>"Log In"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["username", "user1"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 179], ["record_type", "User"], ["name", "photo"], ["LIMIT", 1]]
+  [1m[35m (3.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1[0m  [["follower_id", 179]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."follower_id" WHERE "followings"."followed_id" = $1[0m  [["followed_id", 179]]
+Redirected to http://www.example.com/sources
+Completed 302 Found in 11ms (ActiveRecord: 4.5ms | Allocations: 2126)
+Started GET "/sources" for 127.0.0.1 at 2020-10-14 00:14:30 +0800
+Processing by SourcesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 179], ["LIMIT", 1]]
+  Rendering sources/index.html.erb within layouts/application
+  Rendered sources/_form.html.erb (Duration: 0.5ms | Allocations: 210)
+  [1m[36mSource Load (0.3ms)[0m  [1m[34mSELECT "sources".* FROM "sources" ORDER BY created_at DESC[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != $1 LIMIT $2[0m  [["id", 179], ["LIMIT", 15]]
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1 AND "users"."id" = $2 LIMIT $3[0m  [["follower_id", 179], ["id", 180], ["LIMIT", 1]]
+  Rendered sources/index.html.erb within layouts/application (Duration: 6.3ms | Allocations: 1789)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_side_nav.html.erb (Duration: 2.6ms | Allocations: 1771)
+  Rendered shared/_top_nav.html.erb (Duration: 1.0ms | Allocations: 501)
+Completed 200 OK in 18ms (Views: 14.2ms | ActiveRecord: 1.5ms | Allocations: 6845)
+Started GET "/users" for 127.0.0.1 at 2020-10-14 00:14:30 +0800
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 179], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 10]]
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 179], ["record_type", "User"], ["name", "photo"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 180], ["record_type", "User"], ["name", "photo"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1 AND "users"."id" = $2 LIMIT $3[0m  [["follower_id", 179], ["id", 180], ["LIMIT", 1]]
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1 AND "users"."id" = $2 LIMIT $3[0m  [["follower_id", 179], ["id", 180], ["LIMIT", 1]]
+  Rendered users/index.html.erb within layouts/application (Duration: 20.3ms | Allocations: 6471)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_side_nav.html.erb (Duration: 5.8ms | Allocations: 1746)
+  Rendered shared/_top_nav.html.erb (Duration: 2.1ms | Allocations: 499)
+Completed 200 OK in 37ms (Views: 33.3ms | ActiveRecord: 1.6ms | Allocations: 11377)
+Started POST "/followings/follow?followed_id=180&follower_id=179" for 127.0.0.1 at 2020-10-14 00:14:30 +0800
+Processing by FollowingsController#follow as HTML
+  Parameters: {"followed_id"=>"180", "follower_id"=>"179"}
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 179], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 180], ["LIMIT", 1]]
+  [1m[36mFollowing Create (1.2ms)[0m  [1m[32mINSERT INTO "followings" ("follower_id", "followed_id") VALUES ($1, $2) RETURNING "id"[0m  [["follower_id", 179], ["followed_id", 180]]
+  [1m[35m (0.5ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 179], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1[0m  [["follower_id", 179]]
+Redirected to http://www.example.com/users
+Completed 302 Found in 11ms (ActiveRecord: 3.1ms | Allocations: 2095)
+Started GET "/users" for 127.0.0.1 at 2020-10-14 00:14:30 +0800
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 179], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 10]]
+  [1m[36mActiveStorage::Attachment Load (0.7ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 179], ["record_type", "User"], ["name", "photo"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 180], ["record_type", "User"], ["name", "photo"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1 AND "users"."id" = $2 LIMIT $3[0m  [["follower_id", 179], ["id", 180], ["LIMIT", 1]]
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1 AND "users"."id" = $2 LIMIT $3[0m  [["follower_id", 179], ["id", 180], ["LIMIT", 1]]
+  Rendered users/index.html.erb within layouts/application (Duration: 17.8ms | Allocations: 6534)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_side_nav.html.erb (Duration: 12.5ms | Allocations: 1745)
+  Rendered shared/_top_nav.html.erb (Duration: 6.9ms | Allocations: 499)
+Completed 200 OK in 54ms (Views: 48.0ms | ActiveRecord: 2.5ms | Allocations: 11431)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "followings"[0m
+Started DELETE "/followings/unfollow?followed_id=180&follower_id=179" for 127.0.0.1 at 2020-10-14 00:14:30 +0800
+Processing by FollowingsController#unfollow as HTML
+  Parameters: {"followed_id"=>"180", "follower_id"=>"179"}
+  [1m[36mFollowing Load (0.3ms)[0m  [1m[34mSELECT "followings".* FROM "followings" WHERE "followings"."follower_id" = $1 AND "followings"."followed_id" = $2 ORDER BY "followings"."id" ASC LIMIT $3[0m  [["follower_id", 179], ["followed_id", 180], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mFollowing Destroy (0.3ms)[0m  [1m[31mDELETE FROM "followings" WHERE "followings"."id" = $1[0m  [["id", 32]]
+  [1m[35m (0.9ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 179], ["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1[0m  [["follower_id", 179]]
+Redirected to http://www.example.com/users
+Completed 302 Found in 9ms (ActiveRecord: 2.8ms | Allocations: 1481)
+Started GET "/users" for 127.0.0.1 at 2020-10-14 00:14:30 +0800
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 179], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 10]]
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 179], ["record_type", "User"], ["name", "photo"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 180], ["record_type", "User"], ["name", "photo"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1 AND "users"."id" = $2 LIMIT $3[0m  [["follower_id", 179], ["id", 180], ["LIMIT", 1]]
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1 AND "users"."id" = $2 LIMIT $3[0m  [["follower_id", 179], ["id", 180], ["LIMIT", 1]]
+  Rendered users/index.html.erb within layouts/application (Duration: 26.2ms | Allocations: 6594)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_side_nav.html.erb (Duration: 10.9ms | Allocations: 1746)
+  Rendered shared/_top_nav.html.erb (Duration: 3.3ms | Allocations: 499)
+Completed 200 OK in 55ms (Views: 49.0ms | ActiveRecord: 2.3ms | Allocations: 11496)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "followings"[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "user1"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "full_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "user1"], ["full_name", "user one"], ["created_at", "2020-10-13 16:14:30.942786"], ["updated_at", "2020-10-13 16:14:30.942786"]]
+  [1m[35m (1.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/login" for 127.0.0.1 at 2020-10-14 00:14:30 +0800
+Processing by SessionsController#login as HTML
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 0.8ms | Allocations: 191)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_side_nav.html.erb (Duration: 1.2ms | Allocations: 495)
+Completed 200 OK in 17ms (Views: 16.1ms | ActiveRecord: 0.0ms | Allocations: 3055)
+Started POST "/sessions/try_login" for 127.0.0.1 at 2020-10-14 00:14:30 +0800
+Processing by SessionsController#try_login as HTML
+  Parameters: {"username"=>"user1", "commit"=>"Log In"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["username", "user1"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 181], ["record_type", "User"], ["name", "photo"], ["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1[0m  [["follower_id", 181]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."follower_id" WHERE "followings"."followed_id" = $1[0m  [["followed_id", 181]]
+Redirected to http://www.example.com/sources
+Completed 302 Found in 19ms (ActiveRecord: 2.4ms | Allocations: 2128)
+Started GET "/sources" for 127.0.0.1 at 2020-10-14 00:14:31 +0800
+Processing by SourcesController#index as HTML
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 181], ["LIMIT", 1]]
+  Rendering sources/index.html.erb within layouts/application
+  Rendered sources/_form.html.erb (Duration: 0.7ms | Allocations: 202)
+  [1m[36mSource Load (0.5ms)[0m  [1m[34mSELECT "sources".* FROM "sources" ORDER BY created_at DESC[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != $1 LIMIT $2[0m  [["id", 181], ["LIMIT", 15]]
+  Rendered sources/index.html.erb within layouts/application (Duration: 4.7ms | Allocations: 513)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_side_nav.html.erb (Duration: 33.5ms | Allocations: 1977)
+  Rendered shared/_top_nav.html.erb (Duration: 18.1ms | Allocations: 499)
+Completed 200 OK in 95ms (Views: 85.9ms | ActiveRecord: 2.7ms | Allocations: 5862)
+Started GET "/sources" for 127.0.0.1 at 2020-10-14 00:14:31 +0800
+Processing by SourcesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 181], ["LIMIT", 1]]
+  Rendering sources/index.html.erb within layouts/application
+  Rendered sources/_form.html.erb (Duration: 2.2ms | Allocations: 202)
+  [1m[36mSource Load (1.4ms)[0m  [1m[34mSELECT "sources".* FROM "sources" ORDER BY created_at DESC[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != $1 LIMIT $2[0m  [["id", 181], ["LIMIT", 15]]
+  Rendered sources/index.html.erb within layouts/application (Duration: 20.1ms | Allocations: 513)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_side_nav.html.erb (Duration: 22.7ms | Allocations: 1977)
+  Rendered shared/_top_nav.html.erb (Duration: 3.3ms | Allocations: 499)
+Completed 200 OK in 75ms (Views: 65.0ms | ActiveRecord: 2.1ms | Allocations: 5840)
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "sources"[0m
+Started POST "/sources" for 127.0.0.1 at 2020-10-14 00:14:31 +0800
+Processing by SourcesController#create as HTML
+  Parameters: {"source"=>{"text"=>"source or sauce?"}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 181], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 181], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSource Create (0.3ms)[0m  [1m[32mINSERT INTO "sources" ("author_id", "text", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["author_id", 181], ["text", "source or sauce?"], ["created_at", "2020-10-13 16:14:31.350270"], ["updated_at", "2020-10-13 16:14:31.350270"]]
+  [1m[35m (2.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/sources
+Completed 302 Found in 11ms (ActiveRecord: 3.0ms | Allocations: 1528)
+Started GET "/sources" for 127.0.0.1 at 2020-10-14 00:14:31 +0800
+Processing by SourcesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 181], ["LIMIT", 1]]
+  Rendering sources/index.html.erb within layouts/application
+  Rendered sources/_form.html.erb (Duration: 0.8ms | Allocations: 202)
+  [1m[36mSource Load (0.5ms)[0m  [1m[34mSELECT "sources".* FROM "sources" ORDER BY created_at DESC[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 181]]
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."source_id" = $1[0m  [["source_id", 72]]
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 181], ["record_type", "User"], ["name", "photo"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != $1 LIMIT $2[0m  [["id", 181], ["LIMIT", 15]]
+  Rendered sources/index.html.erb within layouts/application (Duration: 16.2ms | Allocations: 3218)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_side_nav.html.erb (Duration: 8.2ms | Allocations: 1774)
+  Rendered shared/_top_nav.html.erb (Duration: 2.7ms | Allocations: 501)
+Completed 200 OK in 41ms (Views: 34.9ms | ActiveRecord: 2.7ms | Allocations: 8272)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "sources"[0m
+  [1m[35m (1.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "user1"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "full_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "user1"], ["full_name", "user one"], ["created_at", "2020-10-13 16:14:31.437261"], ["updated_at", "2020-10-13 16:14:31.437261"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/login" for 127.0.0.1 at 2020-10-14 00:14:31 +0800
+Processing by SessionsController#login as HTML
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 0.7ms | Allocations: 191)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_side_nav.html.erb (Duration: 2.0ms | Allocations: 496)
+Completed 200 OK in 16ms (Views: 14.7ms | ActiveRecord: 0.0ms | Allocations: 3056)
+Started POST "/sessions/try_login" for 127.0.0.1 at 2020-10-14 00:14:31 +0800
+Processing by SessionsController#try_login as HTML
+  Parameters: {"username"=>"user1", "commit"=>"Log In"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["username", "user1"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 182], ["record_type", "User"], ["name", "photo"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1[0m  [["follower_id", 182]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."follower_id" WHERE "followings"."followed_id" = $1[0m  [["followed_id", 182]]
+Redirected to http://www.example.com/sources
+Completed 302 Found in 7ms (ActiveRecord: 1.8ms | Allocations: 2127)
+Started GET "/sources" for 127.0.0.1 at 2020-10-14 00:14:31 +0800
+Processing by SourcesController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 182], ["LIMIT", 1]]
+  Rendering sources/index.html.erb within layouts/application
+  Rendered sources/_form.html.erb (Duration: 1.2ms | Allocations: 202)
+  [1m[36mSource Load (0.3ms)[0m  [1m[34mSELECT "sources".* FROM "sources" ORDER BY created_at DESC[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != $1 LIMIT $2[0m  [["id", 182], ["LIMIT", 15]]
+  Rendered sources/index.html.erb within layouts/application (Duration: 3.5ms | Allocations: 513)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_side_nav.html.erb (Duration: 9.0ms | Allocations: 1977)
+  Rendered shared/_top_nav.html.erb (Duration: 1.1ms | Allocations: 499)
+Completed 200 OK in 24ms (Views: 20.6ms | ActiveRecord: 1.3ms | Allocations: 5874)
+Started GET "/sources" for 127.0.0.1 at 2020-10-14 00:14:31 +0800
+Processing by SourcesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 182], ["LIMIT", 1]]
+  Rendering sources/index.html.erb within layouts/application
+  Rendered sources/_form.html.erb (Duration: 0.9ms | Allocations: 202)
+  [1m[36mSource Load (0.3ms)[0m  [1m[34mSELECT "sources".* FROM "sources" ORDER BY created_at DESC[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != $1 LIMIT $2[0m  [["id", 182], ["LIMIT", 15]]
+  Rendered sources/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 513)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_side_nav.html.erb (Duration: 5.3ms | Allocations: 1977)
+  Rendered shared/_top_nav.html.erb (Duration: 1.2ms | Allocations: 499)
+Completed 200 OK in 21ms (Views: 18.4ms | ActiveRecord: 0.7ms | Allocations: 5845)
+Started POST "/sources" for 127.0.0.1 at 2020-10-14 00:14:31 +0800
+Processing by SourcesController#create as HTML
+  Parameters: {"source"=>{"text"=>"source or sauce?"}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 182], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 182], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSource Create (0.3ms)[0m  [1m[32mINSERT INTO "sources" ("author_id", "text", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["author_id", 182], ["text", "source or sauce?"], ["created_at", "2020-10-13 16:14:31.592352"], ["updated_at", "2020-10-13 16:14:31.592352"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/sources
+Completed 302 Found in 5ms (ActiveRecord: 1.1ms | Allocations: 1528)
+Started GET "/sources" for 127.0.0.1 at 2020-10-14 00:14:31 +0800
+Processing by SourcesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 182], ["LIMIT", 1]]
+  Rendering sources/index.html.erb within layouts/application
+  Rendered sources/_form.html.erb (Duration: 0.4ms | Allocations: 202)
+  [1m[36mSource Load (0.3ms)[0m  [1m[34mSELECT "sources".* FROM "sources" ORDER BY created_at DESC[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 182]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."source_id" = $1[0m  [["source_id", 73]]
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 182], ["record_type", "User"], ["name", "photo"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != $1 LIMIT $2[0m  [["id", 182], ["LIMIT", 15]]
+  Rendered sources/index.html.erb within layouts/application (Duration: 12.7ms | Allocations: 3213)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_side_nav.html.erb (Duration: 7.3ms | Allocations: 1772)
+  Rendered shared/_top_nav.html.erb (Duration: 1.0ms | Allocations: 499)
+Completed 200 OK in 30ms (Views: 27.3ms | ActiveRecord: 1.5ms | Allocations: 8267)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "sources"[0m
+Started DELETE "/sources/73" for 127.0.0.1 at 2020-10-14 00:14:31 +0800
+Processing by SourcesController#destroy as HTML
+  Parameters: {"id"=>"73"}
+  [1m[36mSource Load (0.3ms)[0m  [1m[34mSELECT "sources".* FROM "sources" WHERE "sources"."id" = $1 LIMIT $2[0m  [["id", 73], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSource Destroy (0.3ms)[0m  [1m[31mDELETE FROM "sources" WHERE "sources"."id" = $1[0m  [["id", 73]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/sources
+Completed 302 Found in 4ms (ActiveRecord: 1.0ms | Allocations: 779)
+Started GET "/sources" for 127.0.0.1 at 2020-10-14 00:14:31 +0800
+Processing by SourcesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 182], ["LIMIT", 1]]
+  Rendering sources/index.html.erb within layouts/application
+  Rendered sources/_form.html.erb (Duration: 0.4ms | Allocations: 202)
+  [1m[36mSource Load (0.3ms)[0m  [1m[34mSELECT "sources".* FROM "sources" ORDER BY created_at DESC[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != $1 LIMIT $2[0m  [["id", 182], ["LIMIT", 15]]
+  Rendered sources/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 513)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_side_nav.html.erb (Duration: 7.0ms | Allocations: 1977)
+  Rendered shared/_top_nav.html.erb (Duration: 1.4ms | Allocations: 499)
+Completed 200 OK in 20ms (Views: 16.2ms | ActiveRecord: 0.8ms | Allocations: 5857)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "sources"[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "user1"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "full_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "user1"], ["full_name", "user one"], ["created_at", "2020-10-13 16:14:31.712655"], ["updated_at", "2020-10-13 16:14:31.712655"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/login" for 127.0.0.1 at 2020-10-14 00:14:31 +0800
+Processing by SessionsController#login as HTML
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 0.8ms | Allocations: 191)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_side_nav.html.erb (Duration: 2.4ms | Allocations: 495)
+Completed 200 OK in 14ms (Views: 13.1ms | ActiveRecord: 0.0ms | Allocations: 3055)
+Started POST "/sessions/try_login" for 127.0.0.1 at 2020-10-14 00:14:31 +0800
+Processing by SessionsController#try_login as HTML
+  Parameters: {"username"=>"user1", "commit"=>"Log In"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["username", "user1"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 183], ["record_type", "User"], ["name", "photo"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1[0m  [["follower_id", 183]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."follower_id" WHERE "followings"."followed_id" = $1[0m  [["followed_id", 183]]
+Redirected to http://www.example.com/sources
+Completed 302 Found in 9ms (ActiveRecord: 1.8ms | Allocations: 2122)
+Started GET "/sources" for 127.0.0.1 at 2020-10-14 00:14:31 +0800
+Processing by SourcesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 183], ["LIMIT", 1]]
+  Rendering sources/index.html.erb within layouts/application
+  Rendered sources/_form.html.erb (Duration: 0.5ms | Allocations: 202)
+  [1m[36mSource Load (0.3ms)[0m  [1m[34mSELECT "sources".* FROM "sources" ORDER BY created_at DESC[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != $1 LIMIT $2[0m  [["id", 183], ["LIMIT", 15]]
+  Rendered sources/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 513)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_side_nav.html.erb (Duration: 7.7ms | Allocations: 1977)
+  Rendered shared/_top_nav.html.erb (Duration: 0.8ms | Allocations: 499)
+Completed 200 OK in 26ms (Views: 19.3ms | ActiveRecord: 0.7ms | Allocations: 5855)
+Started GET "/sources" for 127.0.0.1 at 2020-10-14 00:14:31 +0800
+Processing by SourcesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 183], ["LIMIT", 1]]
+  Rendering sources/index.html.erb within layouts/application
+  Rendered sources/_form.html.erb (Duration: 0.4ms | Allocations: 202)
+  [1m[36mSource Load (0.4ms)[0m  [1m[34mSELECT "sources".* FROM "sources" ORDER BY created_at DESC[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != $1 LIMIT $2[0m  [["id", 183], ["LIMIT", 15]]
+  Rendered sources/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 513)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_side_nav.html.erb (Duration: 4.5ms | Allocations: 1977)
+  Rendered shared/_top_nav.html.erb (Duration: 1.4ms | Allocations: 499)
+Completed 200 OK in 19ms (Views: 16.6ms | ActiveRecord: 0.9ms | Allocations: 5844)
+Started POST "/sources" for 127.0.0.1 at 2020-10-14 00:14:31 +0800
+Processing by SourcesController#create as HTML
+  Parameters: {"source"=>{"text"=>"source or sauce?"}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 183], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 183], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSource Create (0.4ms)[0m  [1m[32mINSERT INTO "sources" ("author_id", "text", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["author_id", 183], ["text", "source or sauce?"], ["created_at", "2020-10-13 16:14:31.867923"], ["updated_at", "2020-10-13 16:14:31.867923"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/sources
+Completed 302 Found in 9ms (ActiveRecord: 1.0ms | Allocations: 1534)
+Started GET "/sources" for 127.0.0.1 at 2020-10-14 00:14:31 +0800
+Processing by SourcesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 183], ["LIMIT", 1]]
+  Rendering sources/index.html.erb within layouts/application
+  Rendered sources/_form.html.erb (Duration: 1.4ms | Allocations: 202)
+  [1m[36mSource Load (0.3ms)[0m  [1m[34mSELECT "sources".* FROM "sources" ORDER BY created_at DESC[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 183]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."source_id" = $1[0m  [["source_id", 74]]
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 183], ["record_type", "User"], ["name", "photo"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != $1 LIMIT $2[0m  [["id", 183], ["LIMIT", 15]]
+  Rendered sources/index.html.erb within layouts/application (Duration: 17.6ms | Allocations: 3212)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_side_nav.html.erb (Duration: 4.5ms | Allocations: 1780)
+  Rendered shared/_top_nav.html.erb (Duration: 1.0ms | Allocations: 501)
+Completed 200 OK in 43ms (Views: 40.0ms | ActiveRecord: 1.5ms | Allocations: 8272)
+Started GET "/sources/74/edit" for 127.0.0.1 at 2020-10-14 00:14:31 +0800
+Processing by SourcesController#edit as HTML
+  Parameters: {"id"=>"74"}
+  [1m[36mSource Load (0.4ms)[0m  [1m[34mSELECT "sources".* FROM "sources" WHERE "sources"."id" = $1 LIMIT $2[0m  [["id", 74], ["LIMIT", 1]]
+  Rendering sources/edit.html.erb within layouts/application
+  Rendered sources/_form.html.erb (Duration: 1.8ms | Allocations: 393)
+  Rendered sources/edit.html.erb within layouts/application (Duration: 5.9ms | Allocations: 726)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_side_nav.html.erb (Duration: 4.0ms | Allocations: 1988)
+  Rendered shared/_top_nav.html.erb (Duration: 1.5ms | Allocations: 503)
+Completed 200 OK in 22ms (Views: 19.5ms | ActiveRecord: 0.4ms | Allocations: 6055)
+Started PATCH "/sources/74" for 127.0.0.1 at 2020-10-14 00:14:31 +0800
+Processing by SourcesController#update as HTML
+  Parameters: {"source"=>{"text"=>"J-Live - Braggin Writes (1996)"}, "commit"=>"Submit", "id"=>"74"}
+  [1m[36mSource Load (0.3ms)[0m  [1m[34mSELECT "sources".* FROM "sources" WHERE "sources"."id" = $1 LIMIT $2[0m  [["id", 74], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 183], ["LIMIT", 1]]
+  [1m[36mSource Update (0.8ms)[0m  [1m[33mUPDATE "sources" SET "text" = $1, "updated_at" = $2 WHERE "sources"."id" = $3[0m  [["text", "J-Live - Braggin Writes (1996)"], ["updated_at", "2020-10-13 16:14:31.984186"], ["id", 74]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/sources/74
+Completed 302 Found in 9ms (ActiveRecord: 1.6ms | Allocations: 1606)
+Started GET "/sources/74" for 127.0.0.1 at 2020-10-14 00:14:31 +0800
+Processing by SourcesController#show as HTML
+  Parameters: {"id"=>"74"}
+  [1m[36mSource Load (0.5ms)[0m  [1m[34mSELECT "sources".* FROM "sources" WHERE "sources"."id" = $1 LIMIT $2[0m  [["id", 74], ["LIMIT", 1]]
+  Rendering sources/show.html.erb within layouts/application
+  Rendered sources/show.html.erb within layouts/application (Duration: 6.8ms | Allocations: 246)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_side_nav.html.erb (Duration: 5.6ms | Allocations: 1981)
+  Rendered shared/_top_nav.html.erb (Duration: 1.5ms | Allocations: 501)
+Completed 200 OK in 25ms (Views: 20.1ms | ActiveRecord: 0.5ms | Allocations: 5558)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "user1"], ["LIMIT", 1]]
+  [1m[36mUser Create (4.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "full_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "user1"], ["full_name", "user one"], ["created_at", "2020-10-13 16:14:32.043803"], ["updated_at", "2020-10-13 16:14:32.043803"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/login" for 127.0.0.1 at 2020-10-14 00:14:32 +0800
+Processing by SessionsController#login as HTML
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 5.2ms | Allocations: 198)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_side_nav.html.erb (Duration: 6.1ms | Allocations: 496)
+Completed 200 OK in 23ms (Views: 22.0ms | ActiveRecord: 0.0ms | Allocations: 3067)
+Started POST "/sessions/try_login" for 127.0.0.1 at 2020-10-14 00:14:32 +0800
+Processing by SessionsController#try_login as HTML
+  Parameters: {"username"=>"user1", "commit"=>"Log In"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["username", "user1"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 184], ["record_type", "User"], ["name", "photo"], ["LIMIT", 1]]
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1[0m  [["follower_id", 184]]
+  [1m[35m (5.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."follower_id" WHERE "followings"."followed_id" = $1[0m  [["followed_id", 184]]
+Redirected to http://www.example.com/sources
+Completed 302 Found in 27ms (ActiveRecord: 7.5ms | Allocations: 2139)
+Started GET "/sources" for 127.0.0.1 at 2020-10-14 00:14:32 +0800
+Processing by SourcesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 184], ["LIMIT", 1]]
+  Rendering sources/index.html.erb within layouts/application
+  Rendered sources/_form.html.erb (Duration: 0.7ms | Allocations: 204)
+  [1m[36mSource Load (0.8ms)[0m  [1m[34mSELECT "sources".* FROM "sources" ORDER BY created_at DESC[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != $1 LIMIT $2[0m  [["id", 184], ["LIMIT", 15]]
+  Rendered sources/index.html.erb within layouts/application (Duration: 4.4ms | Allocations: 515)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_side_nav.html.erb (Duration: 7.8ms | Allocations: 1977)
+  Rendered shared/_top_nav.html.erb (Duration: 2.4ms | Allocations: 499)
+Completed 200 OK in 54ms (Views: 49.7ms | ActiveRecord: 1.4ms | Allocations: 5867)
+  [1m[35m (6.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (11.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "user1"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "full_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "user1"], ["full_name", "user one"], ["created_at", "2020-10-13 16:14:32.335997"], ["updated_at", "2020-10-13 16:14:32.335997"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/login" for 127.0.0.1 at 2020-10-14 00:14:32 +0800
+Processing by SessionsController#login as HTML
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 0.5ms | Allocations: 191)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_side_nav.html.erb (Duration: 1.0ms | Allocations: 495)
+Completed 200 OK in 9ms (Views: 8.6ms | ActiveRecord: 0.0ms | Allocations: 3055)
+Started POST "/sessions/try_login" for 127.0.0.1 at 2020-10-14 00:14:32 +0800
+Processing by SessionsController#try_login as HTML
+  Parameters: {"username"=>"user1", "commit"=>"Log In"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["username", "user1"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 185], ["record_type", "User"], ["name", "photo"], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."followed_id" WHERE "followings"."follower_id" = $1[0m  [["follower_id", 185]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "followings" ON "users"."id" = "followings"."follower_id" WHERE "followings"."followed_id" = $1[0m  [["followed_id", 185]]
+Redirected to http://www.example.com/sources
+Completed 302 Found in 10ms (ActiveRecord: 1.9ms | Allocations: 2128)
+Started GET "/sources" for 127.0.0.1 at 2020-10-14 00:14:32 +0800
+Processing by SourcesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 185], ["LIMIT", 1]]
+  Rendering sources/index.html.erb within layouts/application
+  Rendered sources/_form.html.erb (Duration: 0.4ms | Allocations: 202)
+  [1m[36mSource Load (0.4ms)[0m  [1m[34mSELECT "sources".* FROM "sources" ORDER BY created_at DESC[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != $1 LIMIT $2[0m  [["id", 185], ["LIMIT", 15]]
+  Rendered sources/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 513)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_side_nav.html.erb (Duration: 3.1ms | Allocations: 1977)
+  Rendered shared/_top_nav.html.erb (Duration: 1.0ms | Allocations: 499)
+Completed 200 OK in 16ms (Views: 12.7ms | ActiveRecord: 0.9ms | Allocations: 5862)
+Started GET "/sessions/logout" for 127.0.0.1 at 2020-10-14 00:14:32 +0800
+Processing by SessionsController#logout as HTML
+Redirected to http://www.example.com/sessions/login
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 296)
+Started GET "/sessions/login" for 127.0.0.1 at 2020-10-14 00:14:32 +0800
+Processing by SessionsController#login as HTML
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 0.4ms | Allocations: 191)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_side_nav.html.erb (Duration: 1.1ms | Allocations: 495)
+Completed 200 OK in 8ms (Views: 7.9ms | ActiveRecord: 0.0ms | Allocations: 3166)
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started GET "/login" for 127.0.0.1 at 2020-10-14 00:14:32 +0800
+Processing by SessionsController#login as HTML
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 0.6ms | Allocations: 191)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_side_nav.html.erb (Duration: 0.9ms | Allocations: 495)
+Completed 200 OK in 15ms (Views: 14.0ms | ActiveRecord: 0.0ms | Allocations: 3055)
+Started POST "/sessions/try_login" for 127.0.0.1 at 2020-10-14 00:14:32 +0800
+Processing by SessionsController#try_login as HTML
+  Parameters: {"username"=>"user1", "commit"=>"Log In"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["username", "user1"], ["LIMIT", 1]]
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 0.3ms | Allocations: 185)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_side_nav.html.erb (Duration: 1.1ms | Allocations: 495)
+Completed 200 OK in 30ms (Views: 28.4ms | ActiveRecord: 0.3ms | Allocations: 3337)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+Started GET "/login" for 127.0.0.1 at 2020-10-14 00:14:32 +0800
+Processing by SessionsController#login as HTML
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 0.3ms | Allocations: 191)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_side_nav.html.erb (Duration: 1.0ms | Allocations: 495)
+Completed 200 OK in 13ms (Views: 12.8ms | ActiveRecord: 0.0ms | Allocations: 3055)
+Started GET "/users/new" for 127.0.0.1 at 2020-10-14 00:14:32 +0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 41.7ms | Allocations: 2615)
+  Rendered users/new.html.erb within layouts/application (Duration: 45.2ms | Allocations: 2948)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_side_nav.html.erb (Duration: 0.8ms | Allocations: 495)
+Completed 200 OK in 53ms (Views: 51.7ms | ActiveRecord: 0.0ms | Allocations: 6046)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Started POST "/users" for 127.0.0.1 at 2020-10-14 00:14:32 +0800
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"username"=>"newuser", "full_name"=>"Full Name"}, "commit"=>"New User"}
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "newuser"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "full_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "newuser"], ["full_name", "Full Name"], ["created_at", "2020-10-13 16:14:32.702546"], ["updated_at", "2020-10-13 16:14:32.702546"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/login
+Completed 302 Found in 10ms (ActiveRecord: 1.9ms | Allocations: 1132)
+Started GET "/login" for 127.0.0.1 at 2020-10-14 00:14:32 +0800
+Processing by SessionsController#login as HTML
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 0.6ms | Allocations: 198)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_side_nav.html.erb (Duration: 4.3ms | Allocations: 496)
+Completed 200 OK in 15ms (Views: 14.1ms | ActiveRecord: 0.0ms | Allocations: 3163)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m

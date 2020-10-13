@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  
   def index
     @users = User.all.limit(10)
     @following = User.find(current_user).followeds

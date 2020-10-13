@@ -28,10 +28,14 @@ module UsersHelper
     txt_img = icon ? link_imgs : link_words
     if current_user != user.id
       unless following.include?(user)
-        content << link_to(txt_img[0], followings_follow_path(follower_id: current_user, followed_id: user.id), method: :post, class: txt_img[2])
+        content << link_to(txt_img[0],
+                           followings_follow_path(follower_id: current_user, followed_id: user.id),
+                           method: :post, class: txt_img[2])
       end
       if @following.include?(user)
-        content << link_to(txt_img[1], followings_unfollow_path(follower_id: current_user, followed_id: user.id), method: :delete, class: txt_img[2])
+        content << link_to(txt_img[1],
+                           followings_unfollow_path(follower_id: current_user, followed_id: user.id),
+                           method: :delete, class: txt_img[2])
       end
     end
     content

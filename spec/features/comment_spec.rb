@@ -18,19 +18,18 @@ RSpec.feature 'Comments', type: :feature do
     click_button 'Submit'
   end
 
-  it 'comments on a post' do    
+  it 'comments on a post' do
     within('form#new_comment') do
       fill_in 'comment[text]', with: 'this is a comment'
     end
     expect { click_button 'Comment' }.to change(Comment, :count).by(1)
   end
 
-  it 'deletes a comment on a post after creating it' do    
+  it 'deletes a comment on a post after creating it' do
     within('form#new_comment') do
       fill_in 'comment[text]', with: 'this is a comment'
     end
     click_button 'Comment'
     expect { first('.destroy-comment').click }.to change(Comment, :count).by(-1)
   end
-
 end

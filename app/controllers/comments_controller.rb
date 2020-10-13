@@ -1,5 +1,4 @@
 class CommentsController < ApplicationController
-
   def create
     @comment = Comment.new(comment_params)
     @comment.source_id = params[:source_id]

@@ -4,24 +4,24 @@ class SessionsController < ApplicationController
   end
 
   def try_login
-    if params[:username].present?
-      user_found = User.where(username: params[:username]).first
+    return unless params[:username].present?
 
-      if user_found
-        photo = user_found.photo.attached? ? url_for(user_found.photo) : 'profile.png'
+    user_found = User.where(username: params[:username]).first
 
-        session[:user_id] = user_found.id
-        session[:username] = user_found.username
-        session[:name] = user_found.full_name
-        session[:photo] = photo
-        session[:followeds] = user_found.followeds.count
-        session[:followers] = user_found.followers.count
-        flash[:notice] = 'Logged in'
-        redirect_to(sources_path)
-      else
-        flash.now[:notice] = 'user does not exist'
-        render('login')
-      end
+    if user_found
+      photo = user_found.photo.attached? ? url_for(user_found.photo) : 'profile.png'
+
+      session[:user_id] = user_found.id
+      session[:username] = user_found.username
+      session[:name] = user_found.full_name
+      session[:photo] = photo
+      session[:followeds] = user_found.followeds.count
+      session[:followers] = user_found.followers.count
+      flash[:notice] = 'Logged in'
+      redirect_to(sources_path)
+    else
+      flash.now[:notice] = 'user does not exist'
+      render('login')
     end
   end
 
