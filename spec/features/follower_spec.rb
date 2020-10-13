@@ -14,12 +14,12 @@ RSpec.feature 'Followings', type: :feature do
 
   it 'follows a user' do
     visit users_path
-    expect { first('.follow-link').click }.to change(Following, :count).by(1)
+    expect { first('.follow-link_').click }.to change(Following, :count).by(1)
   end
 
   it 'unfollows a user' do
     visit users_path
-    first('.follow-link').click
-    expect { first('.unfollow-link').click }.to change(Following, :count).by(-1)
+    first('.follow-link_').click
+    expect { first('.follow-link_').click }.to change(Following, :count).by(-1)
   end
 end

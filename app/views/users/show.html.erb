@@ -51,7 +51,7 @@
         <%= follow_img(@following, @user) %> 
         <div class="user-detail">              
           <figure class='image is-96x96'>
-            <%= image_tag 'profile.png', class: 'is-rounded' %>
+            <%= image_tag profile_img(@user), class: 'is-rounded' %>
           </figure>
           <h4><%= @user.full_name %></h4>
           <span>@<%= @user.username %></span>
@@ -79,7 +79,7 @@
               <div class="columns">
                 <div class="column is-2">
                   <figure class='image is-32x32'>
-                    <%= image_tag 'profile.png', class: 'is-rounded' %>
+                    <%= image_tag profile_img(follow), class: 'is-rounded' %>
                   </figure>
                 </div>
                 <div class="column">

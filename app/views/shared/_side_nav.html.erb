@@ -22,25 +22,19 @@
 
 <ul class='side-nav-links'>
   <li>
-    <%= link_to '#' do  %>
+    <%= link_to sources_path do  %>
       <%= image_tag 'home.svg', class: 'image is-16x16' %>
       <span>Home</span>
     <% end %>  
-  </li>
+  </li> 
   <li> 
-    <%= link_to '#' do  %>
-      <%= image_tag 'at.svg', class: 'image is-16x16' %>
-      <span>Connect</span>
-    <% end %>
-  </li>
-  <li> 
-    <%= link_to '#' do  %>
+    <%= link_to users_path do  %>
       <%= image_tag 'explore.svg', class: 'image is-16x16' %>
       <span>Discover</span>
     <% end %>
   </li>
   <li> 
-    <%= link_to '#' do  %>
+    <%= link_to user_path(current_user) do  %>
       <%= image_tag 'user.svg', class: 'image is-16x16' %>
       <span>Profile</span>
     <% end %>

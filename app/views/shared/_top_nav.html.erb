@@ -12,20 +12,12 @@
     </a>
   </div>
 
-  <div id="navbarBasicExample" class="navbar-menu">
-    <div class="navbar-start">
-      <%= link_to 'users', users_path, class: 'navbar-item'%>
-      <%= link_to 'sources', sources_path, class: 'navbar-item' %>           
-    </div>
-
-    <div class="navbar-end">
-      <%= link_to image_tag('create.svg', class: 'nav-top-icon'), '#', class: 'navbar-item'%>
-      <%= link_to image_tag('message.svg', class: 'nav-top-icon'), '#', class: 'navbar-item'%>
-      <%= link_to image_tag('search.svg', class: 'nav-top-icon'), '#', class: 'navbar-item'%>
+  <div id="navbarBasicExample" class="navbar-menu">   
+    <div class="navbar-end">      
       <div class="navbar-item">      
         <div class="buttons">          
           <% if current_user %>
-            <%= link_to 'logout', sessions_logout_path, class: 'button is-primary' %>
+            <%= link_to 'Logout', sessions_logout_path, class: 'button is-primary' %>
           <% else %>
             <%= link_to 'login', login_path, class: 'button is-primary' %>
           <% end %>

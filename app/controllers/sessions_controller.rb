@@ -1,5 +1,7 @@
 class SessionsController < ApplicationController
-  def login; end
+  def login
+    session[:photo] = 'profile.png'
+  end
 
   def try_login
     if params[:username].present?
