@@ -8,7 +8,7 @@ class SourcesController < ApplicationController
   # GET /sources.json
   def index
     @source = Source.new
-    @sources = Source.order('created_at DESC').includes(:author)
+    @sources = Source.order('created_at DESC').includes(:author, :comments)
     @users = User.where.not(id: current_user).limit(15)
     @following = User.find(current_user).followeds
   end

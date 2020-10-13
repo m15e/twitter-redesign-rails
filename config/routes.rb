@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   get 'sessions/login'
   get 'sessions/logout'
   post 'followings/follow'
-  delete 'followings/unfollow'
+  delete 'followings/unfollow'  
+  delete 'comments/destroy'
 
   resources :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

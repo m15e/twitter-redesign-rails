@@ -1,4 +1,9 @@
 class User < ApplicationRecord
+  
+  validates :username, presence: true, uniqueness: true
+  validates :full_name, presence: true
+  validates :email, presence: true, uniqueness: true, length: { in: 3..50 }, format: /\w+@\w+\.{1}[a-zA-Z]{2,}/
+
   has_many :followed_users, foreign_key: :follower_id, class_name: 'Following'
   # followeds are the users being followed by a user
   has_many :followeds, through: :followed_users

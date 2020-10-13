@@ -225,6 +225,10 @@ a:hover {
   font-weight: 500;
 }
 
+.source-author .follow-link_ {
+  color: #45aaf2;
+}
+
 .user-show-content .columns {
   margin-right: 0;
 }

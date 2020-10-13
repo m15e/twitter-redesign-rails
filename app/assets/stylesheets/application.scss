@@ -76,6 +76,10 @@ a:hover {
   }
 }
 
+.new_user label {
+  margin: 10px 0;   
+}
+
 .yield-cols {
   background-color: rgba(0, 0, 0, 0.04);
   padding: 0;
@@ -200,6 +204,7 @@ a:hover {
 
     a {
       color: $light-blue;
+      margin-right: 5px;
     }
 
     .source-author a {
@@ -210,6 +215,16 @@ a:hover {
 
     p {
       color: $dark-grey;
+    }
+
+    input[type='text'] {
+      padding: 5px;
+      margin: 5px 0;
+    }
+
+    input[type='submit'] {
+      padding: 5px;
+      font-size: 12px;
     }
   }
 
@@ -236,6 +251,10 @@ a:hover {
       }
     }
   }
+}
+
+.source-author .follow-link_ {
+  color: $light-blue;
 }
 
 .user-show-content {

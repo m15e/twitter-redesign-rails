@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+
   def create
     @comment = Comment.new(comment_params)
     @comment.source_id = params[:source_id]
@@ -9,6 +10,12 @@ class CommentsController < ApplicationController
     else
       redirect_to request.referrer, alert: @comment.errors.full_messages.join('. ').to_s
     end
+  end
+
+  def destroy
+    @comment = Comment.find(params[:comment_id])
+    @comment.destroy
+    redirect_to request.referrer, notice: 'Comment was successfully destroyed.'
   end
 
   private

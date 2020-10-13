@@ -28,6 +28,20 @@
                 <div>
                 <%= source_links(source) %>
                 </div>
+                <div class="comments">
+                  <% source.comments.each do |comment| %>
+                    <div class="comment">
+                      <h4><%= comment.user.full_name %></h4>
+                      <p><%= comment.text %></p>                      
+                      <%= link_to 'Destroy', comments_destroy_path(comment_id: comment.id), method: :delete %>
+                    </div>
+                  <% end %>
+
+                  <%= form_for(source.comments.new, url: source_comments_path(source)) do |f| %>
+                    <%= f.text_field :text, placeholder: 'New Comment' %>
+                    <%= f.submit 'Comment', class: 'button is-primary' %>
+                  <% end %>
+                </div>
               </div>              
             </div>
           </div>         

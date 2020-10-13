@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  # before_action :check_login, except: %i[new]
+  #before_action :check_login, except: %i[new]
 
   def index
     @users = User.all.limit(10)
