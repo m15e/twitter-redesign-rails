@@ -17,7 +17,7 @@
       <div class="navbar-item">      
         <div class="buttons">          
           <% if current_user %>
-            <%= link_to 'Logout', sessions_logout_path, class: 'button is-primary' %>
+            <%= link_to 'Logout', logout_path, class: 'button is-primary' %>
           <% else %>
             <%= link_to 'login', login_path, class: 'button is-primary' %>
           <% end %>

@@ -3,11 +3,11 @@ Rails.application.routes.draw do
     resources :comments, only: [:create]
   end
   root 'sources#index'
+  resources :sessions
 
-  get 'login', :to => 'sessions#login'
-  post 'sessions/try_login'  
-  get 'sessions/login'
-  get 'sessions/logout'
+  get 'login', :to => 'sessions#new', as: 'login'
+  get 'logout', :to => 'sessions#destroy', as: 'logout'
+  post 'sessions/try_login'    
   post 'followings/follow'
   delete 'followings/unfollow'  
   delete 'comments/destroy'

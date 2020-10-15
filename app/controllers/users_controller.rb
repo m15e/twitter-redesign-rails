@@ -20,7 +20,7 @@ class UsersController < ApplicationController
       flash[:notice] = 'Account Creation Successfull. Please login to your new account.'
       redirect_to(login_path)
     else
-      render('new')
+      render('show')
     end
   end
 
@@ -36,10 +36,6 @@ class UsersController < ApplicationController
     else
       render('edit')
     end
-  end
-
-  def delete
-    @user = User.find(params[:id])
   end
 
   def destroy

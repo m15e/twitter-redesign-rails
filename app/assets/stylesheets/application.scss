@@ -47,6 +47,15 @@ a:hover {
   opacity: 0.7;
 }
 
+.login a, 
+.comment a {
+  color: $light-blue;
+}
+
+.comment {
+  margin-bottom: 5px;
+}
+
 .navbar {
   height: 10vh;
   background-color: $light-blue;
@@ -282,7 +291,7 @@ a:hover {
   .follow-link_ {
     color: $light-blue;
     position: relative;
-    top: -2.3em;
+    top: -1.3em;
     left: 60px;
   }
 

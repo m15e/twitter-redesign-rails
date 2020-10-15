@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  def login
+  def new
     session[:photo] = 'profile.png'
   end
 
@@ -21,13 +21,13 @@ class SessionsController < ApplicationController
       redirect_to(sources_path)
     else
       flash.now[:notice] = 'user does not exist'
-      render('login')
+      render('new')
     end
   end
 
-  def logout
+  def destroy
     session[:user_id] = nil
     flash[:notice] = 'Logged out'
-    redirect_to(sessions_login_path)
+    redirect_to(login_path)
   end
 end

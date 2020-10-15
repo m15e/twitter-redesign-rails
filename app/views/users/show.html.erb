@@ -86,9 +86,11 @@
                   <strong><%= link_to follow.full_name, user_path(follow) %></strong>
                   <span>@<%= follow.username %></span>
                   <%= follow?(@following, follow) %>
+                  </div>
                 </div>
               </div>
             </div>
+
           <% end %>
         </div>
       

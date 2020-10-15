@@ -32,7 +32,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'bullet'
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem 'rspec-rails'
+  gem 'rspec-rails'  
 end
 
 group :development do
@@ -45,6 +45,7 @@ group :development do
 end
 
 group :test do
+  gem 'shoulda-matchers', '~> 3.0', require: false
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'

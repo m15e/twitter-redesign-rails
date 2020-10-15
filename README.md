@@ -34,7 +34,7 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-1.  Ruby 2.7
+1.  Ruby 2.71
 2.  Rails 6
 
 ### Setup
@@ -43,7 +43,7 @@ To get a local copy up and running follow these simple example steps.
     `git clone https://github.com/m15e/twitter-redesign-rails.git` using your terminal or command line.
 2.  Change to the project directory by entering `cd twitter-redesign-rails` in the terminal
 3.  Next run `bundle install` to install the necessary dependencies
-4.  Run `rails db:migrate` to setup your local database.
+4.  Run `rails db:create` followed by `rails db:migrate` to setup your local database.
 5.  Finally run `rails server` to start the application.
 
 ## Authors

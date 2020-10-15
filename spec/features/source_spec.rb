@@ -32,6 +32,15 @@ RSpec.feature 'Sources', type: :feature do
 end
 
 RSpec.feature 'Sources', type: :feature do
+  before(:each) do
+    User.create(username: 'user1', full_name: 'user one')
+    visit login_path
+    within('form') do
+      fill_in 'username', with: 'user1'
+    end
+    click_button 'Log In'
+  end
+  
   context 'Source edit' do
     it 'edits a source' do
       visit sources_path
