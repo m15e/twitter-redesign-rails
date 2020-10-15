@@ -37,7 +37,7 @@ module UsersHelper
                            followings_unfollow_path(follower_id: current_user, followed_id: user.id),
                            method: :delete, class: txt_img[2])
       end
-    end    
+    end
     content
   end
 end

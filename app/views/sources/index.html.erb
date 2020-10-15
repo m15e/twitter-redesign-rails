@@ -32,8 +32,8 @@
                   <% source.comments.each do |comment| %>
                     <div class="comment">
                       <h4><%= comment.user.full_name %></h4>
-                      <p><%= comment.text %></p>                      
-                      <%= link_to 'Destroy', comments_destroy_path(comment_id: comment.id), method: :delete, class: 'destroy-comment' %>
+                      <p><%= comment.text %></p>
+                      <%= destroy_comment(comment) %>
                     </div>
                   <% end %>
 

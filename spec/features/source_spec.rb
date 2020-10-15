@@ -40,7 +40,7 @@ RSpec.feature 'Sources', type: :feature do
     end
     click_button 'Log In'
   end
-  
+
   context 'Source edit' do
     it 'edits a source' do
       visit sources_path

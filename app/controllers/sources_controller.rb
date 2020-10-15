@@ -63,10 +63,10 @@ class SourcesController < ApplicationController
   # DELETE /sources/1
   # DELETE /sources/1.json
   def destroy
-    @source.destroy
-    respond_to do |format|
-      format.html { redirect_to sources_url, notice: 'Source was successfully destroyed.' }
-      format.json { head :no_content }
+    if @source.destroy
+      redirect_to sources_url, notice: 'Source was successfully destroyed.'
+    else
+      redirect_to request.referrer, notice: 'Source did not get destroyed.'
     end
   end
 
