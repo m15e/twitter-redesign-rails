@@ -1,24 +1,66 @@
-# README
+# Twitter Redesign Rails Application
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+> A Twitter Clone built with Ruby on Rails.
 
-Things you may want to cover:
+![screenshot](public/screenshot.png) 
 
-* Ruby version
+## Live Link
 
-* System dependencies
+To visit the live version of the application visit [this link](https://warm-shelf-14278.herokuapp.com/) 
 
-* Configuration
+## Video Link
 
-* Database creation
+To watch a brief video overview of the application 
+[click here](https://youtu.be/dEJ0hiJlIDs) 
 
-* Database initialization
+## Application Features
 
-* How to run the test suite
+- Users can sign up to an account
+- Users can upload profile pictures and cover photos to their accounts
+- Users can login to the app
+- Users can create new posts (sources)
+- Users can view each other's profiles
+- Users can follow/unfollow other users
+- Users can comment on each other's posts and delete their comments
 
-* Services (job queues, cache servers, search engines, etc.)
+## Built With
 
-* Deployment instructions
+-   Ruby
+-   Ruby on Rails
 
-* ...
+## Getting Started
+
+To get a local copy up and running follow these simple example steps.
+
+### Prerequisites
+
+1.  Ruby 2.71
+2.  Rails 6
+
+### Setup
+
+1.  Clone this repository with
+    `git clone https://github.com/m15e/twitter-redesign-rails.git` using your terminal or command line.
+2.  Change to the project directory by entering `cd twitter-redesign-rails` in the terminal
+3.  Next run `bundle install` to install the necessary dependencies
+4.  Run `rails db:create` followed by `rails db:migrate` to setup your local database.
+5.  Finally run `rails server` to start the application.
+
+## Authors
+
+👤 &nbsp;&nbsp;**Mark Rode**
+
+-   Github: [@m15e](https://github.com/m15e)
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## Acknowledgments
+
+-   The Odin Project
+-   Microverse
+
+## 📝 License
+
+This project is [MIT](lic.url) licensed.

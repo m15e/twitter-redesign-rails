@@ -1,0 +1,12 @@
+<% @current_page = 'new' %>
+
+<div class="login container">
+  <div class="columns">
+    <div class="column is-8">
+      <h2>Create a new Account</h2>
+      <%= render('form') %>      
+      <br>
+      <p>Back to <%= link_to 'Login', login_path %></p>
+    </div>    
+  </div>
+</div>

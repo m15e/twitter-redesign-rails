@@ -1,0 +1,15 @@
+<div class="login container">
+  <div class="columns">
+    <div class="column is-8">
+      <%= form_tag(sessions_try_login_path, :method => :post) do %>
+        <%= label_tag(:username) %>
+        <%= text_field_tag(:username, params[:username]) %>
+        <br>
+        <br>
+        <%= submit_tag 'Log In', class: 'button is-primary' %>
+      <% end %>
+      <br>      
+      <p>No account? Click Here to <%= link_to 'Sign Up', new_user_path %></p>
+    </div>
+  </div>
+</div>

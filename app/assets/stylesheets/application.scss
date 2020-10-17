@@ -1,0 +1,445 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+$light-blue: #45aaf2;
+$dark-blue: #213246;
+$dark-grey: #718093;
+$light-grey: rgba(0, 0, 0, 0.1);
+
+$primary-light-bg: $light-blue;
+$primary-dark-bg: $dark-blue;
+
+body,
+p,
+ol,
+ul,
+td {
+  font-family: 'Roboto', sans-serif;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  height: 100%;
+}
+
+#app-container {
+  max-width: 100%;
+}
+
+a:hover {
+  background-color: transparent;
+  opacity: 0.7;
+}
+
+.login a,
+.comment a {
+  color: $light-blue;
+}
+
+.comment {
+  margin-bottom: 5px;
+}
+
+.navbar {
+  height: 10vh;
+  background-color: $light-blue;
+  padding-right: 0.75rem;
+
+  a {
+    color: #fff;
+  }
+
+  .nav-top-icon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.button.is-primary {
+  background-color: $light-blue;
+}
+
+.login {
+  .columns {
+    margin: 0;
+  }
+
+  .column {
+    margin: 2em auto;
+  }
+}
+
+.new_user label {
+  margin: 10px 0;
+}
+
+.yield-cols {
+  background-color: rgba(0, 0, 0, 0.04);
+  padding: 0;
+  min-height: 100vh;
+
+  .card {
+    margin: 30px 30px 0;
+    padding: 15px 15px 15px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  input[type='text'] {
+    width: 100%;
+    padding: 15px;
+    border: 0.5px solid $light-grey;
+    border-radius: 4px;
+    margin-top: 10px;
+    font-weight: 500;
+  }
+}
+
+.user-profile {
+  .is-three-quarters {
+    text-align: center;
+    padding-top: 27px;
+  }
+
+  span {
+    color: $dark-grey;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+}
+
+.user-follow-stats {
+  border-top: 1px solid rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+
+  .is-half:first-of-type {
+    border-right: 1px solid rgba(0, 0, 0, 0.3);
+  }
+
+  a {
+    text-align: center;
+    display: block;
+    color: #fff;
+    font-weight: 500;
+    font-size: 15px;
+
+    span {
+      color: $dark-grey;
+      font-size: 12px;
+    }
+  }
+}
+
+.side-nav-links {
+  list-style-type: none;
+
+  li {
+    margin-bottom: 25px;
+  }
+
+  a {
+    color: $dark-grey;
+    text-transform: uppercase;
+    display: flex;
+
+    img {
+      margin-right: 7px;
+    }
+  }
+}
+
+.user-followers strong a {
+  text-transform: uppercase;
+  color: $dark-blue;
+  display: block;
+}
+
+.source-index-content {
+  .link-panel {
+    margin-top: 20px;
+
+    a.active {
+      border-bottom: 2px solid $light-blue;
+      color: $dark-blue;
+    }
+
+    a {
+      padding: 30px 30px 20px;
+      text-transform: uppercase;
+      color: $dark-grey;
+      justify-content: center;
+      font-weight: 500;
+    }
+  }
+
+  .source-index-new {
+    margin-top: 4em;
+    padding: 15px 20px;
+
+    p {
+      font-weight: 500;
+      text-transform: uppercase;
+    }
+  }
+
+  .source-index-list {
+    h5 {
+      padding: 0 0 10px;
+      margin: 0 0 20px;
+      color: $light-blue;
+      font-weight: 500;
+      text-transform: uppercase;
+      border-bottom: 1px solid $light-grey;
+    }
+  }
+
+  .source-item {
+    margin-bottom: 5px;
+
+    a {
+      color: $light-blue;
+      margin-right: 5px;
+    }
+
+    .source-author a {
+      color: $dark-blue;
+      font-weight: 500;
+      text-transform: capitalize;
+    }
+
+    p {
+      color: $dark-grey;
+    }
+
+    input[type='text'] {
+      padding: 5px;
+      margin: 5px 0;
+    }
+
+    input[type='submit'] {
+      padding: 5px;
+      font-size: 12px;
+    }
+  }
+
+  .who-to-follow {
+    margin-top: 2em;
+
+    h3 {
+      text-transform: uppercase;
+      color: $dark-grey;
+      margin-bottom: 3.5em;
+    }
+
+    .follow-item {
+      margin-bottom: 10px;
+
+      a {
+        color: $light-blue;
+      }
+
+      h4 a {
+        color: $dark-blue;
+        text-transform: capitalize;
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+.source-author .follow-link_ {
+  color: $light-blue;
+}
+
+.user-show-content {
+  .columns {
+    margin-right: 0;
+  }
+
+  .is-9 {
+    padding-right: 0;
+    min-height: 100vh;
+    border-right: 1px solid $light-grey;
+  }
+
+  .cover-photo {
+    height: 30vh;
+    background-position: center 17%;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .user-col {
+    padding-left: 0;
+  }
+
+  .follow-link_ {
+    color: $light-blue;
+    position: relative;
+    top: -1.3em;
+    left: 60px;
+  }
+
+  .follow-link {
+    position: absolute;
+    top: 15vh;
+    padding: 1vh 2.5vw;
+
+    img {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  .user-detail {
+    height: 22.2vh;
+    text-align: center;
+
+    h4 {
+      text-transform: uppercase;
+      color: $dark-blue;
+      font-weight: 500;
+    }
+
+    span {
+      color: $dark-grey;
+    }
+
+    figure {
+      margin: 25px auto;
+    }
+  }
+
+  .user-stats {
+    padding: 0;
+    text-align: center;
+
+    span {
+      text-transform: capitalize;
+      color: $dark-grey;
+      display: block;
+      font-size: 11px;
+    }
+
+    .columns {
+      margin: 0;
+      border-top: 1px solid $light-grey;
+      border-bottom: 1px solid $light-grey;
+
+      .column {
+        padding: 2px 0 0;
+      }
+
+      .column:nth-of-type(2) {
+        border-left: 1px solid $light-grey;
+        border-right: 1px solid $light-grey;
+      }
+    }
+  }
+
+  .source-list {
+    h5 {
+      text-transform: uppercase;
+      padding-bottom: 10px;
+      border-bottom: 1px solid $light-grey;
+      margin-bottom: 20px;
+      font-weight: 500;
+      color: $light-blue;
+    }
+
+    .user-source-item {
+      margin-bottom: 5px;
+
+      h4 {
+        color: $dark-blue;
+        text-transform: capitalize;
+        font-weight: 500;
+      }
+    }
+  }
+
+  .user-followers {
+    padding: 0.75rem;
+
+    h5 {
+      text-transform: uppercase;
+      color: $dark-grey;
+      font-size: 12px;
+      font-weight: 500;
+      margin-left: 15px;
+    }
+
+    .follower-item {
+      margin: 15px;
+
+      .is-2 {
+        margin-right: 5px;
+      }
+
+      span {
+        color: $dark-grey;
+      }
+
+      .follow-link {
+        color: $light-blue;
+      }
+    }
+  }
+
+  .comments {
+    form {
+      display: flex;
+
+      input[type='text'] {
+        width: 80%;
+        padding: 5px 12px;
+        margin-right: 10px;
+      }
+
+      input[type='submit'] {
+        margin-top: 10px;
+      }
+    }
+  }
+}
+
+.main-cols {
+  margin-top: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+
+  .columns:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.is-15-percent {
+  flex: none;
+  background-color: $primary-dark-bg;
+  width: 16.6%;
+  color: #fff;
+  padding-top: 10px;
+  padding-left: 25px;
+  padding-bottom: 0;
+}
+
+.is-roundish {
+  border-radius: 3px;
+}

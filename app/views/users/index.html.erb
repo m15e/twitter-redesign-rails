@@ -1,0 +1,30 @@
+<div class="source-index-content">
+  <div class="columns source-index-cols">
+    <div class="column is-9">
+      <div class="link-panel">
+        <a href="#" class='active'>Users</a>     
+      </div>
+      
+      <div class="card source-index-list user-index">
+        <h5 class='new-source-count'>Explore Users</h5>   
+          <% @users.each do |user| %>
+            <div class='source-item'>
+              <div class="columns">
+                <div class="column is-1">
+                  <figure class='image is-48x48'>
+                    <%= image_tag profile_img(user), class: 'is-roundish' %>
+                  </figure>
+                </div>
+                <div class="column"> 
+                  <%= user_index_links(user) %>
+                </div>
+              </div>
+            </div>                
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+

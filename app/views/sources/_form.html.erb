@@ -1,0 +1,11 @@
+<%= form_for(@source) do |f| %>
+
+
+  <div class="field">
+    <%= f.text_field :text, placeholder: 'Compose new source' %>
+  </div>
+
+  <div>
+    <%= f.submit :Submit, class: 'button is-primary' %>
+  </div>
+<% end %>

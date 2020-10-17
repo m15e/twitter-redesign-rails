@@ -1,0 +1,99 @@
+<% @current_page = 'Tweet at' %>
+
+<div class='user-show-content'>
+    <div class="columns">
+      <div class="column is-9">        
+        <div class="cover-photo" style="background-image: url(<%= asset_path cover_image(@user) %>)">
+
+        </div>
+        <div class="card">
+          <%= render('sources/form') %>
+        </div>
+        <div class="card">
+          <div class="source-list">     
+            <h5>All Sources by @<%= @user.username %></h5>     
+
+          <% @user.sources.each do |s| %>
+          <div class="user-source-item">
+            <div class="columns">
+              <div class="column is-1">
+                <figure class='image is-48x48'>
+                  <%= image_tag profile_img(@user), class:'is-roundish' %>
+                </figure>
+              </div>
+              <div class="column">
+                  <div class="content">
+                    <h4><%= @user.full_name %></h4>
+                    <p><%= s.text %></p>
+                  </div>
+                  <div class="comments">
+                    <% s.comments.each do |comment| %>
+                      <div class="comment">
+                        <h4><%= comment.user.full_name %></h4>
+                        <p><%= comment.text %></p>                        
+                        <%= destroy_comment(comment) %>
+                      </div>
+                    <% end %>
+
+                    <%= form_for(s.comments.new, url: source_comments_path(s)) do |f| %>
+                      <%= f.text_field :text, placeholder: 'New Comment' %>
+                      <%= f.submit 'Comment', class: 'button is-primary' %>
+                    <% end %>
+                  </div>
+              </div>
+            </div>
+          </div>
+          <% end %>
+          </div>
+        </div>
+      </div>
+      
+        <%= follow_img(@following, @user) %> 
+        <div class="user-detail">              
+          <figure class='image is-96x96'>
+            <%= image_tag profile_img(@user), class: 'is-rounded' %>
+          </figure>
+          <h4><%= @user.full_name %></h4>
+          <span>@<%= @user.username %></span>
+        </div>
+        <div class="user-stats">
+          <div class="columns">
+            <div class="column is-one-third">
+              <strong><%= @user.sources.count %></strong>
+              <span>sources</span>
+            </div>
+            <div class="column is-one-third">
+              <strong><%= @user.followeds.count %></strong>
+              <span>following</span>
+            </div>
+            <div class="column is-one-third">              
+              <strong><%= @user.followers.count %></strong>
+              <span>followers</span>
+            </div>
+          </div>
+        </div>
+        <div class="user-followers">
+          <h5>followed by</h5>
+          <% @user.followers.each do |follow| %>
+            <div class="follower-item">
+              <div class="columns">
+                <div class="column is-2">
+                  <figure class='image is-32x32'>
+                    <%= image_tag profile_img(follow), class: 'is-rounded' %>
+                  </figure>
+                </div>
+                <div class="column">
+                  <strong><%= link_to follow.full_name, user_path(follow) %></strong>
+                  <span>@<%= follow.username %></span>
+                  <%= follow?(@following, follow) %>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          <% end %>
+        </div>
+      
+    </div>   
+</div>
+

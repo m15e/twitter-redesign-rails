@@ -1,0 +1,77 @@
+<div class="source-index-content">
+  <div class="columns source-index-cols">
+    <div class="column is-9">
+      <div class="link-panel">
+        <a href="#" class='active'>Sources</a>     
+      </div>
+      <div class="card source-index-new">
+          <p>Share Source</p>
+          <%= render('form') %>        
+      </div>
+      <div class="card source-index-list">
+        <h5 class='new-source-count'>6 New Sources</h5>      
+        <% @sources.each do |source| %>            
+          <div class='source-item'>
+            <div class="columns">
+              <div class="column is-1">
+              <figure class='image is-48x48'>
+                <%= image_tag profile_img(source.author), class: 'is-roundish' %>
+              </figure>
+              </div>              
+              <div class="column">
+                <h4 class='source-author'>
+                  <%= link_to source.author.full_name.capitalize, user_path(source.author) %>
+                </h4>
+                <div>              
+                  <p><%= source.text %></p>
+                </div>
+                <div>
+                <%= source_links(source) %>
+                </div>
+                <div class="comments">
+                  <% source.comments.each do |comment| %>
+                    <div class="comment">
+                      <h4><%= comment.user.full_name %></h4>
+                      <p><%= comment.text %></p>
+                      <%= destroy_comment(comment) %>
+                    </div>
+                  <% end %>
+
+                  <%= form_for(source.comments.new, url: source_comments_path(source)) do |f| %>
+                    <%= f.text_field :text, placeholder: 'New Comment' %>
+                    <%= f.submit 'Comment', class: 'button is-primary' %>
+                  <% end %>
+                </div>
+              </div>              
+            </div>
+          </div>         
+        <% end %>      
+      </div>
+    </div>
+    <div class="column">
+      <div class="who-to-follow"> 
+        <h3>Who to follow</h3>
+        <% @users.each do |user| %>
+          <% unless @following.include?(user) %>
+            <div class='follow-item'>
+              <div class="columns">
+                <div class="column is-3">
+                  <figure class='image is-48x48'>
+                    <%= image_tag 'profile.png', class: 'is-rounded' %>
+                  </figure>                  
+                </div>
+                <div class="column">
+                  <h4><%= link_to user.full_name, user_path(user) %></h4>                                
+                    <%= link_to 'Follow', followings_follow_path(follower_id: current_user, followed_id: user.id), method: :post, class: 'follow-link' %>                
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
